@@ -1,0 +1,337 @@
+using Newtonsoft.Json;
+using System.Text;
+
+namespace VendingSystemWeb.Services
+{
+    public class ApiService
+    {
+        private HttpClient client;
+
+        public ApiService(HttpClient httpClient)
+        {
+            client = httpClient;
+        }
+
+        public async Task<List<dynamic>> GetMachines()
+        {
+            var response = await client.GetAsync("https://localhost:7077/api/vendingmachines");
+            var json = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<dynamic>>(json) ?? new();
+        }
+    }
+}
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+using VendingSystemWeb.Services;
+
+var builder = WebApplication.CreateBuilder(args);
+
+
+
+
+
+// Добавить подключения
+builder.Services.AddScoped<ApiService>();
+builder.Services.AddHttpClient();
+builder.Services.AddSession();
+
+
+
+
+
+// Add services to the container.
+builder.Services.AddRazorPages();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+//app.UseAuthorization(); Убрать, потому что без JWT
+
+app.UseSession(); // Добавить!
+
+app.MapRazorPages();
+
+app.Run();
+@page
+@model VendingSystemWeb.Pages.CalendarModel
+
+<nav style="background-color:lightblue; padding:10px">
+    <a href="/CalendarEn" style="color:black; margin:10px; text-decoration:none">RU</a>
+    <a href="/Index" style="color:black; margin:10px; text-decoration:none">Торговые автоматы</a>
+    <a href="/Calendar" style="color:black; margin:10px; text-decoration:none">Календарь</a>
+    <a href="/Schedule" style="color:black; margin:10px; text-decoration:none">График работ</a>
+</nav>
+
+<h1 style="text-align:center; margin:20px">Календарь</h1>
+
+<table border="1" style="width:100%">
+    <tr>
+        <th>ТА</th>
+        <th>Адрес</th>
+        <th>Статус</th>
+        <th>Дата ТО</th>
+    </tr>
+    <tr style="background-color:green">
+        <td>Автомат 1</td>
+        <td>Починки</td>
+        <td>Плановое ТО</td>
+        <td>2025-06-01</td>
+    </tr>
+    <tr style="background-color:yellow">
+        <td>Автомат 2</td>
+        <td>Арзамас</td>
+        <td>Скоро (менее 5 дней)</td>
+        <td>2025-05-28</td>
+    </tr>
+    <tr style="background-color:red">
+        <td>Автомат 3</td>
+        <td>Саранск</td>
+        <td>Просроченное</td>
+        <td>2025-05-01</td>
+    </tr>
+</table>
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace VendingSystemWeb.Pages
+{
+    public class CalendarModel : PageModel
+    {
+        public void OnGet()
+        {
+        }
+    }
+}
+@page
+@model VendingSystemWeb.Pages.CalendarEnModel
+
+<nav style="background-color:lightblue; padding:10px">
+    <a href="/CalendarEn" style="color:black; margin:10px; text-decoration:none">RU</a>
+    <a href="/IndexEn" style="color:black; margin:10px; text-decoration:none">Vending machines</a>
+    <a href="/Calendar" style="color:black; margin:10px; text-decoration:none">Calendar</a>
+    <a href="/Schedule" style="color:black; margin:10px; text-decoration:none">Work schedule</a>
+</nav>
+
+<h1 style="text-align:center; margin:20px">Calendar</h1>
+
+<table border="1" style="width:100%">
+    <tr>
+        <th>ТА</th>
+        <th>Адрес</th>
+        <th>Статус</th>
+        <th>Дата ТО</th>
+    </tr>
+    <tr style="background-color:green">
+        <td>Автомат 1</td>
+        <td>Починки</td>
+        <td>Плановое ТО</td>
+        <td>2025-06-01</td>
+    </tr>
+    <tr style="background-color:yellow">
+        <td>Автомат 2</td>
+        <td>Арзамас</td>
+        <td>Скоро (менее 5 дней)</td>
+        <td>2025-05-28</td>
+    </tr>
+    <tr style="background-color:red">
+        <td>Автомат 3</td>
+        <td>Саранск</td>
+        <td>Просроченное</td>
+        <td>2025-05-01</td>
+    </tr>
+</table>
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace VendingSystemWeb.Pages
+{
+    public class CalendarEnModel : PageModel
+    {
+        public void OnGet()
+        {
+        }
+    }
+}
+@page
+@model IndexModel
+
+<nav style="background-color:lightblue; padding:10px">
+    <a href="/IndexEn" style="color:black; margin:10px; text-decoration:none">RU</a>
+    <a href="/Index" style="color:black; margin:10px; text-decoration:none">Торговые автоматы</a>
+    <a href="/Calendar" style="color:black; margin:10px; text-decoration:none">Календарь</a>
+    <a href="/Schedule" style="color:black; margin:10px; text-decoration:none">График работ</a>
+</nav>
+
+<h1 style="text-align:center; margin:20px">Торговые автоматы</h1>
+
+@if (Model.Machines?.Count > 0)
+{
+    <table border="1" style="width:100%">
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Модель</th>
+            <th>Адрес</th>
+        </tr>
+        @foreach (var m in Model.Machines)
+        {
+            <tr>
+                <td>@m.id</td>
+                <td>@m.name</td>
+                <td>@m.model</td>
+                <td>@m.address</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Нет данных</p>
+}
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Text;
+using VendingSystemWeb.Services;
+
+namespace VendingSystemWeb.Pages
+{
+    public class IndexModel : PageModel
+    {
+        private readonly ApiService _apiService;
+        public List<dynamic> Machines { get; set; } = new();
+
+        public IndexModel(ApiService apiService)
+        {
+            _apiService = apiService;
+        }
+
+        public async Task OnGetAsync()
+        {
+            Machines = await _apiService.GetMachines();
+        }
+    }
+}
+@page
+@model VendingSystemWeb.Pages.En.IndexEnModel
+
+<nav style="background-color:lightblue; padding:10px">
+    <a href="/Index" style="color:black; margin:10px; text-decoration:none">EN</a>
+    <a href="/IndexEn" style="color:black; margin:10px; text-decoration:none">Vending machines</a>
+    <a href="/Calendar" style="color:black; margin:10px; text-decoration:none">Calendar</a>
+    <a href="/Schedule" style="color:black; margin:10px; text-decoration:none">Work schedule</a>
+</nav>
+
+<h1 style="text-align:center; margin:20px">Vending machines</h1>
+
+@if (Model.Machines?.Count > 0)
+{
+    <table border="1" style="width:100%">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Model</th>
+            <th>Address</th>
+        </tr>
+        @foreach (var m in Model.Machines)
+        {
+            <tr>
+                <td>@m.id</td>
+                <td>@m.name</td>
+                <td>@m.model</td>
+                <td>@m.address</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>No data</p>
+}
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using VendingSystemWeb.Services;
+
+namespace VendingSystemWeb.Pages.En
+{
+    public class IndexEnModel : PageModel
+    {
+        private readonly ApiService _apiService;
+        public List<dynamic> Machines { get; set; } = new();
+
+        public IndexEnModel(ApiService apiService)
+        {
+            _apiService = apiService;
+        }
+
+        public async Task OnGetAsync()
+        {
+            Machines = await _apiService.GetMachines();
+        }
+    }
+}
+@page
+@model VendingSystemWeb.Pages.ScheduleModel
+
+<nav style="background-color:lightblue; padding:10px">
+    <a href="/ScheduleEn" style="color:black; margin:10px; text-decoration:none">RU</a>
+    <a href="/Index" style="color:black; margin:10px; text-decoration:none">Торговые автоматы</a>
+    <a href="/Calendar" style="color:black; margin:10px; text-decoration:none">Календарь</a>
+    <a href="/Schedule" style="color:black; margin:10px; text-decoration:none">График работ</a>
+</nav>
+
+<h1 style="text-align:center; margin:20px">График работ</h1>
+
+<table border="1" style="width:100%">
+    <tr>
+        <th>Сотрудник</th>
+        <th>ТА</th>
+        <th>Адрес</th>
+        <th>Дата</th>
+        <th>Статус</th>
+    </tr>
+    <tr>
+        <td>Иван Петров</td>
+        <td>Автомат 1</td>
+        <td>Починки</td>
+        <td>2025-05-25</td>
+        <td>Новая</td>
+    </tr>
+    <tr>
+        <td>Петр Иванов</td>
+        <td>Автомат 2</td>
+        <td>Арзамас</td>
+        <td>2025-05-26</td>
+        <td>В работе</td>
+    </tr>
+</table>
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace VendingSystemWeb.Pages
+{
+    public class ScheduleModel : PageModel
+    {
+        public void OnGet()
+        {
+        }
+    }
+}

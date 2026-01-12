@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9QO9Od8VIVk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemWeb\\VendingSystemWeb.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vadimka\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}

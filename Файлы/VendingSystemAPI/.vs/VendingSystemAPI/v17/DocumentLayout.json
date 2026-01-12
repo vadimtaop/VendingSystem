@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemmobile\\mainpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\mainpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemmobile\\authpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\authpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemmobile\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemmobile\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemmobile\\authpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\authpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemmobile\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 260,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemMobile\\MainPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\MainPage.xaml.cs",
+              "RelativeToolTip": "VendingSystemMobile\\MainPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:54:26.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\MainPage.xaml",
+              "RelativeDocumentMoniker": "VendingSystemMobile\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\MainPage.xaml",
+              "RelativeToolTip": "VendingSystemMobile\\MainPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-12T09:53:20.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\AppShell.xaml",
+              "RelativeDocumentMoniker": "VendingSystemMobile\\AppShell.xaml",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\AppShell.xaml",
+              "RelativeToolTip": "VendingSystemMobile\\AppShell.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-12T09:52:21.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\AuthPage.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemMobile\\AuthPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\AuthPage.xaml.cs",
+              "RelativeToolTip": "VendingSystemMobile\\AuthPage.xaml.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAmwCwAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:37:47.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\AuthPage.xaml",
+              "RelativeDocumentMoniker": "VendingSystemMobile\\AuthPage.xaml",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\AuthPage.xaml",
+              "RelativeToolTip": "VendingSystemMobile\\AuthPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-12T09:37:46.155Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApiService.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\Services\\ApiService.cs",
+              "RelativeDocumentMoniker": "VendingSystemMobile\\Services\\ApiService.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\Services\\ApiService.cs",
+              "RelativeToolTip": "VendingSystemMobile\\Services\\ApiService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-12T09:18:47.712Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
