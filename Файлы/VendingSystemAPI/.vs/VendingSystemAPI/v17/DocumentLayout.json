@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4B491056-6785-4362-BF4B-A5D8F00197F0}|VendingSystemAPI\\VendingSystemAPI.csproj|c:\\users\\vadimka\\desktop\\\u0447\u0435\u043C\u043F\\\u0444\u0430\u0439\u043B\u044B\\vendingsystemapi\\vendingsystemapi\\models\\vendingsystemdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B491056-6785-4362-BF4B-A5D8F00197F0}|VendingSystemAPI\\VendingSystemAPI.csproj|solutionrelative:vendingsystemapi\\models\\vendingsystemdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B491056-6785-4362-BF4B-A5D8F00197F0}|VendingSystemAPI\\VendingSystemAPI.csproj|c:\\users\\vadimka\\desktop\\\u0447\u0435\u043C\u043F\\\u0444\u0430\u0439\u043B\u044B\\vendingsystemapi\\vendingsystemapi\\controllers\\vendingmachinescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B491056-6785-4362-BF4B-A5D8F00197F0}|VendingSystemAPI\\VendingSystemAPI.csproj|solutionrelative:vendingsystemapi\\controllers\\vendingmachinescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B491056-6785-4362-BF4B-A5D8F00197F0}|VendingSystemAPI\\VendingSystemAPI.csproj|c:\\users\\vadimka\\desktop\\\u0447\u0435\u043C\u043F\\\u0444\u0430\u0439\u043B\u044B\\vendingsystemapi\\vendingsystemapi\\vendingsystemapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4B491056-6785-4362-BF4B-A5D8F00197F0}|VendingSystemAPI\\VendingSystemAPI.csproj|solutionrelative:vendingsystemapi\\vendingsystemapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadimka\\desktop\\\u0447\u0435\u043C\u043F\\\u0444\u0430\u0439\u043B\u044B\\vendingsystemapi\\vendingsystemmobile\\detailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\detailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -18,11 +30,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 260,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VendingSystemDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemAPI\\Models\\VendingSystemDbContext.cs",
+              "RelativeDocumentMoniker": "VendingSystemAPI\\Models\\VendingSystemDbContext.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemAPI\\Models\\VendingSystemDbContext.cs",
+              "RelativeToolTip": "VendingSystemAPI\\Models\\VendingSystemDbContext.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T11:49:57.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "VendingMachinesController.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemAPI\\Controllers\\VendingMachinesController.cs",
+              "RelativeDocumentMoniker": "VendingSystemAPI\\Controllers\\VendingMachinesController.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemAPI\\Controllers\\VendingMachinesController.cs",
+              "RelativeToolTip": "VendingSystemAPI\\Controllers\\VendingMachinesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T11:49:42.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VendingSystemAPI",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemAPI\\VendingSystemAPI.csproj",
+              "RelativeDocumentMoniker": "VendingSystemAPI\\VendingSystemAPI.csproj",
+              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemAPI\\VendingSystemAPI.csproj",
+              "RelativeToolTip": "VendingSystemAPI\\VendingSystemAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-13T11:49:39.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "DetailsPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemMobile\\DetailsPage.xaml.cs",
               "RelativeDocumentMoniker": "VendingSystemMobile\\DetailsPage.xaml.cs",
@@ -30,12 +81,11 @@
               "RelativeToolTip": "VendingSystemMobile\\DetailsPage.xaml.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAcwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T07:33:30.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T07:33:30.345Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "DetailsPage.xaml",
               "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\\u0427\u0435\u043C\u043F\\\u0424\u0430\u0439\u043B\u044B\\VendingSystemAPI\\VendingSystemMobile\\DetailsPage.xaml",
               "RelativeDocumentMoniker": "VendingSystemMobile\\DetailsPage.xaml",
