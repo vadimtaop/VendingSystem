@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+
+<nav style="background-color:lightblue; padding:10px">
+    <a href="/IndexEn" style="color:black; margin:10px; text-decoration:none">RU</a>
+    <a href="/Index" style="color:black; margin:10px; text-decoration:none">Торговые автоматы</a>
+    <a href="/Calendar" style="color:black; margin:10px; text-decoration:none">Календарь</a>
+    <a href="/Schedule" style="color:black; margin:10px; text-decoration:none">График работ</a>
+</nav>
+
+<h1 style="text-align:center; margin:20px">Торговые автоматы</h1>
+
+@if (Model.Machines?.Count > 0)
+{
+    <table border="1" style="width:100%">
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Модель</th>
+            <th>Адрес</th>
+        </tr>
+        @foreach (var m in Model.Machines)
+        {
+            <tr>
+                <td>@m.id</td>
+                <td>@m.name</td>
+                <td>@m.model</td>
+                <td>@m.address</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>Нет данных</p>
+}
