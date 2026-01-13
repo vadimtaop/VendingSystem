@@ -1,48 +1,50 @@
-п»їusing System.Net.Http.Json;
+using System.Net.Http.Json;
+using VendingSystemMobile.Models;
 using VendingSystemMobile.Services;
 
-namespace VendingSystemMobile
+namespace VendingSystemMobile;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+	public MainPage()
+	{
+		InitializeComponent();
+	}
+    protected override async void OnAppearing()
     {
-        // Р­С‚Рѕ РїСЂРѕСЃС‚Р°СЏ РјРѕРґРµР»СЊ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ Р·Р°РґР°С‡ СЃ API
-        public class ServiceTask
+        base.OnAppearing();
+        await LoadTasks(); // Запускаем загрузку данных
+    }
+
+    async Task LoadTasks()
+    {
+        // Убедись, что твой API-контроллер для списка задач
+        // называется ServicesController, иначе измени путь
+        string url = ApiService.BaseUrl + "/api/services";
+
+        try
         {
-            public int Id { get; set; }
-            public string Description { get; set; }
-            public string Address { get; set; }
+            // Теперь этот код будет работать, так как ServiceTask - отдельный, публичный класс
+            var tasks = await ApiService.Client.GetFromJsonAsync<List<ServiceTask>>(url);
+
+            TasksList.ItemsSource = tasks;
         }
-
-
-        public partial class MainPage : ContentPage
+        catch (Exception ex)
         {
-            public MainPage()
-            {
-                InitializeComponent();
-            }
+            await DisplayAlert("Ошибка загрузки", $"Не удалось загрузить задачи. Убедись, что API запущен. Ошибка: {ex.Message}", "OK");
+        }
+    }
 
-            protected override async void OnAppearing()
-            {
-                base.OnAppearing();
-                await LoadTasks();
-            }
+    private async void TasksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        // Проверяем, что пользователь выбрал что-то
+        if (e.CurrentSelection.FirstOrDefault() is ServiceTask selectedTask)
+        {
+            // Переходим на новую страницу и ПЕРЕДАЕМ ей выбранную задачу
+            await Navigation.PushAsync(new DetailsPage(selectedTask));
 
-            async Task LoadTasks()
-            {
-                try
-                {
-                    string url = ApiService.BaseUrl + "/api/services";
-
-                    // РўРµРїРµСЂСЊ СЌС‚РѕС‚ РєРѕРґ Р±СѓРґРµС‚ СЂР°Р±РѕС‚Р°С‚СЊ, С‚Р°Рє РєР°Рє ServiceTask - РїСѓР±Р»РёС‡РЅС‹Р№ РєР»Р°СЃСЃ
-                    var tasks = await ApiService.Client.GetFromJsonAsync<List<ServiceTask>>(url);
-
-                    TasksList.ItemsSource = tasks;
-                }
-                catch (Exception ex)
-                {
-                    await DisplayAlert("РћС€РёР±РєР°", $"РќРµ СѓРґР°Р»РѕСЃСЊ Р·Р°РіСЂСѓР·РёС‚СЊ Р·Р°РґР°С‡Рё: {ex.Message}", "OK");
-                }
-            }
+            // Снимаем выделение, чтобы можно было нажать еще раз
+            ((CollectionView)sender).SelectedItem = null;
         }
     }
 }

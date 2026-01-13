@@ -1,10 +1,12 @@
+using VendingSystemMobile.Models;
+
 namespace VendingSystemMobile;
 
 public partial class DetailsPage : ContentPage
 {
-    VendingSystemAPI.Models.ServiceTask _task;
+    ServiceTask _task;
 
-    public DetailsPage(VendingSystemAPI.Models.ServiceTask task)
+    public DetailsPage(ServiceTask task)
     {
         InitializeComponent();
         _task = task;

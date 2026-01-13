@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UE0L+JwYagg=",
+  "dgSpecHash": "gpCWfB6Iqio=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj",
+  "projectFilePath": "C:\\Users\\Vadimka\\Desktop\\Чемп\\Файлы\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Vadimka\\.nuget\\packages\\googlegson\\2.13.0.1\\googlegson.2.13.0.1.nupkg.sha512",
     "C:\\Users\\Vadimka\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.8\\microsoft.extensions.configuration.9.0.8.nupkg.sha512",

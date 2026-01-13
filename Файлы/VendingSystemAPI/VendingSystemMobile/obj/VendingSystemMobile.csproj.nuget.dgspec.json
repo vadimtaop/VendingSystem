@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj": {}
+    "C:\\Users\\Vadimka\\Desktop\\Чемп\\Файлы\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj": {
+    "C:\\Users\\Vadimka\\Desktop\\Чемп\\Файлы\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj",
+        "projectUniqueName": "C:\\Users\\Vadimka\\Desktop\\Чемп\\Файлы\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj",
         "projectName": "VendingSystemMobile",
-        "projectPath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj",
+        "projectPath": "C:\\Users\\Vadimka\\Desktop\\Чемп\\Файлы\\VendingSystemAPI\\VendingSystemMobile\\VendingSystemMobile.csproj",
         "packagesPath": "C:\\Users\\Vadimka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemAPI\\VendingSystemMobile\\obj\\",
+        "outputPath": "C:\\Users\\Vadimka\\Desktop\\Чемп\\Файлы\\VendingSystemAPI\\VendingSystemMobile\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
