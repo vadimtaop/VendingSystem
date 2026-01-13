@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VendingSystemMobile.Pages.TaskDetailsPage"
+             Title="Детали задачи">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+            <Label x:Name="AddressLabel" FontSize="20" FontAttributes="Bold"/>
+            <Label x:Name="DescLabel" FontSize="16"/>
+
+            <!-- Статус -->
+            <Label Text="Статус:" TextColor="Gray"/>
+            <Label x:Name="StatusLabel" FontSize="18" TextColor="Blue"/>
+
+            <!-- Кнопки действий -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Margin="0,20">
+                <Button Text="Принять" Clicked="OnAcceptClicked" BackgroundColor="Green"/>
+                <Button Text="Отклонить" Clicked="OnRejectClicked" BackgroundColor="Red"/>
+            </HorizontalStackLayout>
+
+            <!-- Чек-лист (появляется после принятия) -->
+            <VerticalStackLayout x:Name="ChecklistLayout" IsVisible="False" Spacing="10">
+                <Label Text="ПРОТОКОЛ ОСМОТРА" FontAttributes="Bold" Margin="0,10"/>
+                <CheckBox />
+                <Label Text="Внешний осмотр"/>
+                <CheckBox />
+                <Label Text="Проверка купюроприемника"/>
+                <CheckBox />
+                <Label Text="Проверка наличия товаров"/>
+
+                <Editor Placeholder="Комментарий инженера..." HeightRequest="100"/>
+
+                <Button Text="Завершить работу" Clicked="OnCompleteClicked" BackgroundColor="Blue"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>

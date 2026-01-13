@@ -55,23 +55,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vadimka\\.nuget\\packages\\": {},
+    "C:\\Users\\Vadim\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\VendingSystemWeb.csproj",
+      "projectUniqueName": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\VendingSystemWeb.csproj",
       "projectName": "VendingSystemWeb",
-      "projectPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\VendingSystemWeb.csproj",
-      "packagesPath": "C:\\Users\\Vadimka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\obj\\",
+      "projectPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\VendingSystemWeb.csproj",
+      "packagesPath": "C:\\Users\\Vadim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Vadimka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

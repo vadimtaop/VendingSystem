@@ -2020,6 +2020,33 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
         }
       },
+      "SQLite/3.13.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libsqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/osx-x64/native/libsqlite3.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win7-x64/native/sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win7-x64"
+          },
+          "runtimes/win7-x86/native/sqlite3.dll": {
+            "assetType": "native",
+            "rid": "win7-x86"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -6360,6 +6387,27 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "SQLite/3.13.0": {
+      "sha512": "MJfRiz2p6aMVOxrxGMdVzhpzI0oxTgZSwC8eVuOpV8L7yYaFUu8q/OFYwv9P0/aZ/pdEu24O6gma6wZJMTun9A==",
+      "type": "package",
+      "path": "sqlite/3.13.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net45/SQLite.props",
+        "lib/netstandard1.0/_._",
+        "runtimes/linux-x64/native/libsqlite3.so",
+        "runtimes/osx-x64/native/libsqlite3.dylib",
+        "runtimes/win10-arm/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/sqlite3.dll",
+        "runtimes/win7-x64/native/sqlite3.dll",
+        "runtimes/win7-x86/native/sqlite3.dll",
+        "sqlite-version.txt",
+        "sqlite.3.13.0.nupkg.sha512",
+        "sqlite.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -7517,28 +7565,29 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.22",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.22",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.22",
+      "SQLite >= 3.13.0",
       "Swashbuckle.AspNetCore >= 6.6.2",
       "System.IdentityModel.Tokens.Jwt >= 8.15.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vadimka\\.nuget\\packages\\": {},
+    "C:\\Users\\Vadim\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemAPI\\VendingSystemAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemAPI\\VendingSystemAPI.csproj",
       "projectName": "VendingSystemAPI",
-      "projectPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemAPI\\VendingSystemAPI.csproj",
-      "packagesPath": "C:\\Users\\Vadimka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemAPI\\obj\\",
+      "projectPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemAPI\\VendingSystemAPI.csproj",
+      "packagesPath": "C:\\Users\\Vadim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Vadimka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7589,6 +7638,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[8.0.22, )"
+          },
+          "SQLite": {
+            "target": "Package",
+            "version": "[3.13.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",

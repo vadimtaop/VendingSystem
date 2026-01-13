@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VendingSystemMobile.Pages.DetailsPage"
+             Title="Детали задачи">
+    
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20">
+
+            <!-- Блок с информацией -->
+            <Frame Padding="15" BorderColor="LightGray" CornerRadius="5">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Адрес:" FontSize="14" TextColor="Gray"/>
+                    <!-- Поле для адреса, которое мы будем заполнять из кода -->
+                    <Label x:Name="LblAddress" FontSize="20" FontAttributes="Bold"/>
+
+                    <Label Text="Описание:" FontSize="14" TextColor="Gray" Margin="0,10,0,0"/>
+                    <!-- Поле для описания -->
+                    <Label x:Name="LblDesc" FontSize="16"/>
+
+                    <Label Text="Статус:" FontSize="14" TextColor="Gray" Margin="0,10,0,0"/>
+                    <!-- Поле для статуса -->
+                    <Label x:Name="LblStatus" FontSize="18" TextColor="Blue"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Блок с кнопками действий -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Grid.Column="0" Text="✅ Принять" Clicked="Accept_Clicked" BackgroundColor="Green" TextColor="White"/>
+                <Button Grid.Column="1" Text="❌ Отклонить" Clicked="Reject_Clicked" BackgroundColor="Red" TextColor="White"/>
+            </Grid>
+
+            <Button Text="📸 Сделать фото" Clicked="Photo_Clicked" Margin="0,10,0,0"/>
+            <Image x:Name="PhotoPreview" HeightRequest="200" Margin="0,10,0,0" IsVisible="False"/>
+
+            <Button Text="💾 Сохранить протокол" Clicked="Save_Clicked" BackgroundColor="DodgerBlue" TextColor="White" Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

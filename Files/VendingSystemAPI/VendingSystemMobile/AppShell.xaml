@@ -4,14 +4,29 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:VendingSystemMobile"
-    Title="VendingSystemMobile"
-    Shell.FlyoutBehavior="Disabled">
-    <!-- Отключаем боковое меню для простоты -->
+    xmlns:pages="clr-namespace:VendingSystemMobile.Pages" 
+    Title="VendingSystemMobile">
+    <!-- 
+        xmlns:pages="clr-namespace:VendingSystemMobile.Pages" ЭТО ПОДКЛЮЧЕНИЕ ПАПКИ!
+    
+        AppShell - это "главный контейнер" ПОСЛЕ успешного входа.
+        Он управляет навигацией (нижними вкладками).
+        Мы переходим на него со страницы LoginPage.
+    -->
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <!-- Вот здесь мы используем "прозвище" pages:, и теперь XAML знает, где искать MainPage -->
+        <ShellContent 
+            Title="Главная" 
+            Icon="home.png" 
+            ContentTemplate="{DataTemplate pages:MainPage}" />
+
+        <!-- Эти страницы мы еще не создали, поэтому временно их "выключаем" (комментируем) -->
+        <!--
+        <ShellContent Title="Мои отчеты" Icon="report.png" ContentTemplate="{DataTemplate pages:ReportsPage}" />
+        <ShellContent Title="Профиль" Icon="user.png" ContentTemplate="{DataTemplate pages:ProfilePage}" />
+        -->
+    </TabBar>
     
     
 </Shell>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:VendingSystemMobile.Models"
+             x:Class="VendingSystemMobile.Pages.MainPage"
+             Title="Главная">
+
+
+    <Grid RowDefinitions="Auto, *">
+        <Label Grid.Row="0" Text="Мои задачи" FontSize="22" FontAttributes="Bold" Padding="15"/>
+
+        <CollectionView Grid.Row="1" x:Name="TasksList"
+                        SelectionMode="Single" 
+                        SelectionChanged="OnTaskSelected">
+            <CollectionView.ItemTemplate>
+
+                <!-- 
+                    x:DataType - это команда для компилятора. 
+                    Она помогает ему проверять ошибки еще до запуска 
+                    и ускоряет работу списка. Это очень хорошая практика!
+                -->
+                <DataTemplate x:DataType="models:LocalServiceTask">
+                    <Frame Margin="10,5" Padding="15" BorderColor="LightGray" CornerRadius="5">
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="{Binding Address}" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}" FontSize="14" TextColor="Gray"/>
+                            <Label Text="{Binding Status}" FontSize="14" HorizontalOptions="End"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
