@@ -1,36 +1,32 @@
 ﻿@page
 @model IndexModel
 
-<nav style="background-color:lightblue; padding:10px">
-    <a href="/IndexEn" style="color:black; margin:10px; text-decoration:none">RU</a>
-    <a href="/Index" style="color:black; margin:10px; text-decoration:none">Торговые автоматы</a>
-    <a href="/Calendar" style="color:black; margin:10px; text-decoration:none">Календарь</a>
-    <a href="/Schedule" style="color:black; margin:10px; text-decoration:none">График работ</a>
-</nav>
+@{
+    ViewData["Title"] = "Главная";
+}
 
-<h1 style="text-align:center; margin:20px">Торговые автоматы</h1>
+<div class="text-center">
+    <h1 class="display-4">Список задач</h1>
+</div>
 
-@if (Model.Machines?.Count > 0)
-{
-    <table border="1" style="width:100%">
+<table class="table table-striped">
+    <thead>
         <tr>
             <th>ID</th>
-            <th>Название</th>
-            <th>Модель</th>
             <th>Адрес</th>
+            <th>Описание</th>
+            <th>Статус</th>
         </tr>
-        @foreach (var m in Model.Machines)
+    </thead>
+    <tbody>
+        @foreach (var task in Model.Tasks)
         {
             <tr>
-                <td>@m.id</td>
-                <td>@m.name</td>
-                <td>@m.model</td>
-                <td>@m.address</td>
+                <td>@task.Id</td>
+                <td>@task.Address</td>
+                <td>@task.Description</td>
+                <td>Новая</td> <!-- Статус пока не приходит с API, ставим заглушку -->
             </tr>
         }
-    </table>
-}
-else
-{
-    <p>Нет данных</p>
-}
+    </tbody>
+</table>

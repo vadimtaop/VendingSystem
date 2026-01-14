@@ -15,7 +15,7 @@ namespace VendingSystemMobile.Services
         // ВНИМАНИЕ: Для Android эмулятора localhost это 10.0.2.2
         // Если запускаешь Windows приложение - localhost
         private readonly string _baseUrl = DeviceInfo.Platform == DevicePlatform.Android
-            ? "http://10.0.2.2:5022/api" // <-- Используй свой порт, если он другой
+            ? "http://0.0.0.0:5022/api" // <-- Используй свой порт, если он другой
             : "http://localhost:5022/api";
 
         private readonly HttpClient _client;

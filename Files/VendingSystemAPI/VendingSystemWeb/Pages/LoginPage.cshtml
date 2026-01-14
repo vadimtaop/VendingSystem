@@ -1,0 +1,24 @@
+﻿@page
+@model VendingSystemWeb.Pages.LoginPageModel
+@{
+    ViewData["Title"] = "Вход";
+    Layout = "_Layout"; // Используем стандартный шаблон
+}
+
+<h1>Вход в систему</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group mb-2">
+                <label asp-for="Input.Login"></label>
+                <input asp-for="Input.Login" class="form-control" />
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" type="password" />
+            </div>
+            <button type="submit" class="btn btn-primary">Войти</button>
+        </form>
+    </div>
+</div>

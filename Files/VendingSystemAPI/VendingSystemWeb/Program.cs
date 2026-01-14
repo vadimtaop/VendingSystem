@@ -2,21 +2,20 @@ using VendingSystemWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// --- НАЧАЛО НОВОГО КОДА ---
 
+// 1. Добавляем "паспортный контроль" с помощью Cookies
+builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
+{
+    options.Cookie.Name = "MyCookieAuth";
+    options.LoginPath = "/Login"; // Указываем, куда перенаправлять, если пользователь не вошел
+});
 
-
-
-// Добавить подключения
-builder.Services.AddScoped<ApiService>();
-builder.Services.AddHttpClient();
-builder.Services.AddSession();
-
-
-
-
-
-// Add services to the container.
+// 2. Добавляем сервисы Razor Pages и наш ApiService
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<VendingSystemWeb.Services.ApiService>(); // Регистрируем наш ApiService
+
+// --- КОНЕЦ НОВОГО КОДА ---
 
 var app = builder.Build();
 
@@ -33,9 +32,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-//app.UseAuthorization(); Убрать, потому что без JWT
-
-app.UseSession(); // Добавить!
+// --- НАЧАЛО НОВОГО КОДА ---
+// Включаем "паспортный контроль" и авторизацию
+app.UseAuthentication();
+app.UseAuthorization();
+// --- КОНЕЦ НОВОГО КОДА ---
 
 app.MapRazorPages();
 

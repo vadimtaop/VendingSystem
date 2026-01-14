@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemmobile\\pages\\detailspage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\pages\\detailspage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemmobile\\pages\\detailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40047B02-999E-4EBD-A919-DC6F90E87112}|VendingSystemMobile\\VendingSystemMobile.csproj|solutionrelative:vendingsystemmobile\\pages\\detailspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadimka\\desktop\\chemp\\files\\vendingsystemapi\\vendingsystemweb\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DetailsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemMobile\\Pages\\DetailsPage.xaml.cs",
-              "RelativeDocumentMoniker": "VendingSystemMobile\\Pages\\DetailsPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemMobile\\Pages\\DetailsPage.xaml.cs",
-              "RelativeToolTip": "VendingSystemMobile\\Pages\\DetailsPage.xaml.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEIAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T18:22:30.117Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DetailsPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemMobile\\Pages\\DetailsPage.xaml",
-              "RelativeDocumentMoniker": "VendingSystemMobile\\Pages\\DetailsPage.xaml",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemMobile\\Pages\\DetailsPage.xaml",
-              "RelativeToolTip": "VendingSystemMobile\\Pages\\DetailsPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-13T18:22:15.117Z",
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-14T09:24:23.848Z",
               "EditorCaption": ""
             }
           ]
