@@ -9,6 +9,37 @@
     <h1 class="display-4">Список задач</h1>
 </div>
 
+<!-- НАЧАЛО БЛОКА С КАРТОЧКАМИ -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Всего задач</h5>
+                <!-- Сюда мы вставим число из C#-кода -->
+                <p class="card-text fs-4">@Model.TotalTasks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Выполненных</h5>
+                <p class="card-text fs-4">@Model.CompletedTasks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">В работе</h5>
+                <p class="card-text fs-4">@Model.InProgressTasks</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- КОНЕЦ БЛОКА С КАРТОЧКАМИ -->
+
+
 <table class="table table-striped">
     <thead>
         <tr>
