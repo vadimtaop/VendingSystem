@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemweb\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadimka\\desktop\\chemp\\files\\vendingsystemapi\\vendingsystemweb\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemweb\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemweb\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadimka\\desktop\\chemp\\files\\vendingsystemapi\\vendingsystemweb\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F0D47144-7759-4A07-8EFC-BF603A284CC0}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 260,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Index.cshtml",
-              "RelativeToolTip": "VendingSystemWeb\\Pages\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-14T16:39:57.354Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "VendingSystemWeb\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABIAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-14T15:52:37.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Index.cshtml.cs",
-              "RelativeToolTip": "VendingSystemWeb\\Pages\\Index.cshtml.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBoAAAAAAAAAAAAAAA==",
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml.cs",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\Login.cshtml.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAADwv1MAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-14T15:52:08.205Z",
+              "WhenOpened": "2026-01-17T07:42:07.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-17T07:41:53.523Z",
               "EditorCaption": ""
             }
           ]

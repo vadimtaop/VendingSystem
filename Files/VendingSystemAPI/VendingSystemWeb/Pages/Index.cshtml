@@ -5,59 +5,38 @@
     ViewData["Title"] = "Главная";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Список задач</h1>
+<h1 class="text-center mb-4">Панель управления Менеджера</h1>
+
+<div class="row text-center">
+    <!-- Карточка 1 -->
+    <div class="col-md-4">
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-header">Всего автоматов</div>
+            <div class="card-body">
+                <h2 class="card-title">@Model.TotalMachines</h2>
+            </div>
+        </div>
+    </div>
+    <!-- Карточка 2 -->
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-header">Задач на сегодня</div>
+            <div class="card-body">
+                <h2 class="card-title">@Model.TasksToday</h2>
+            </div>
+        </div>
+    </div>
+    <!-- Карточка 3 -->
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-header">Активные аварии</div>
+            <div class="card-body">
+                <h2 class="card-title">@Model.ActiveAlerts</h2>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- НАЧАЛО БЛОКА С КАРТОЧКАМИ -->
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card text-white bg-primary">
-            <div class="card-body">
-                <h5 class="card-title">Всего задач</h5>
-                <!-- Сюда мы вставим число из C#-кода -->
-                <p class="card-text fs-4">@Model.TotalTasks</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-success">
-            <div class="card-body">
-                <h5 class="card-title">Выполненных</h5>
-                <p class="card-text fs-4">@Model.CompletedTasks</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-warning">
-            <div class="card-body">
-                <h5 class="card-title">В работе</h5>
-                <p class="card-text fs-4">@Model.InProgressTasks</p>
-            </div>
-        </div>
-    </div>
+<div class="text-center mt-4">
+    <a href="/Calendar" class="btn btn-lg btn-outline-dark">📅 Перейти к графику обслуживания</a>
 </div>
-<!-- КОНЕЦ БЛОКА С КАРТОЧКАМИ -->
-
-
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Адрес</th>
-            <th>Описание</th>
-            <th>Статус</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var task in Model.Tasks)
-        {
-            <tr>
-                <td>@task.Id</td>
-                <td>@task.Address</td>
-                <td>@task.Description</td>
-                <td>Новая</td> <!-- Статус пока не приходит с API, ставим заглушку -->
-            </tr>
-        }
-    </tbody>
-</table>

@@ -1,18 +1,44 @@
 {
-  "ConnectionStrings": {
-    "DefaultConnection": "Data Source=DESKTOP-R5THKSI\\SQLEXPRESS;Initial Catalog=VendingSystemDB;Integrated Security=True;Trust Server Certificate=True"
-  },
-
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:27663",
+      "sslPort": 44379
     }
   },
-  "AllowedHosts": "*"
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5022;http://0.0.0.0:5022",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "https://localhost:7077;http://localhost:5022",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
 }
-
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VendingSystemAPI.Models;
@@ -396,6 +422,127 @@ namespace VendingSystemAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    public class ServicesController : ControllerBase
+    {
+        private readonly VendingSystemDbContext _context;
+
+        public ServicesController(VendingSystemDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Services
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Service>>> GetServices()
+        {
+            // 1. Просим базу данных "подтянуть" данные по автоматам
+            var servicesFromDb = await _context.Services
+                                               .Include(s => s.VendingMachine)
+                                               .ToListAsync();
+
+            // 2. Превращаем "паспорта" в "визитки"
+            var tasksForMobile = servicesFromDb.Select(s => new ServiceTask
+            {
+                Id = s.Id,
+                Description = s.Description,
+                // Если у задачи нет автомата, пишем "Адрес не найден", чтобы не было ошибок
+                Address = s.VendingMachine != null ? s.VendingMachine.Address : "Адрес не найден"
+            });
+
+            return Ok(tasksForMobile);
+        }
+
+        // GET: api/Services/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Service>> GetService(int id)
+        {
+            var service = await _context.Services.FindAsync(id);
+
+            if (service == null)
+            {
+                return NotFound();
+            }
+
+            return service;
+        }
+
+        // PUT: api/Services/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutService(int id, Service service)
+        {
+            if (id != service.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(service).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ServiceExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Services
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Service>> PostService(Service service)
+        {
+            _context.Services.Add(service);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetService", new { id = service.Id }, service);
+        }
+
+        // DELETE: api/Services/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteService(int id)
+        {
+            var service = await _context.Services.FindAsync(id);
+            if (service == null)
+            {
+                return NotFound();
+            }
+
+            _context.Services.Remove(service);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool ServiceExists(int id)
+        {
+            return _context.Services.Any(e => e.Id == id);
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using VendingSystemAPI.Models;
+
+namespace VendingSystemAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
     public class VendingMachinesController : ControllerBase
     {
         private readonly VendingSystemDbContext _context;
@@ -518,6 +665,268 @@ public partial class Country
 }
 using System;
 using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class Event
+{
+    public int Id { get; set; }
+
+    public int VendingMachineId { get; set; }
+
+    public string Description { get; set; } = null!;
+
+    public DateTime EventDate { get; set; }
+
+    public int Priority { get; set; }
+
+    public virtual VendingMachine VendingMachine { get; set; } = null!;
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class MachineStatus
+{
+    public int Id { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public virtual ICollection<VendingMachine> VendingMachines { get; set; } = new List<VendingMachine>();
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class MachineType
+{
+    public int Id { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public virtual ICollection<VendingMachine> VendingMachines { get; set; } = new List<VendingMachine>();
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class Modem
+{
+    public int Id { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public virtual ICollection<VendingMachine> VendingMachines { get; set; } = new List<VendingMachine>();
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class PaymentType
+{
+    public int Id { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class Product
+{
+    public int Id { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public string? Description { get; set; }
+
+    public decimal Price { get; set; }
+
+    public int CountInStoke { get; set; }
+
+    public int MinStoke { get; set; }
+
+    public decimal AvgDailySales { get; set; }
+
+    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class Role
+{
+    public int Id { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public virtual ICollection<User> Users { get; set; } = new List<User>();
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class Sale
+{
+    public int Id { get; set; }
+
+    public int VendingMachineId { get; set; }
+
+    public int ProductId { get; set; }
+
+    public int Count { get; set; }
+
+    public decimal TotalSum { get; set; }
+
+    public DateTime SaleDate { get; set; }
+
+    public int PaymentTypeId { get; set; }
+
+    public virtual PaymentType PaymentType { get; set; } = null!;
+
+    public virtual Product Product { get; set; } = null!;
+
+    public virtual VendingMachine VendingMachine { get; set; } = null!;
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class Service
+{
+    public int Id { get; set; }
+
+    public int VendingMachineId { get; set; }
+
+    public DateOnly ServiceDate { get; set; }
+
+    public string? Description { get; set; }
+
+    public string? Problems { get; set; }
+
+    public int UserId { get; set; }
+
+    public virtual User User { get; set; } = null!;
+
+    public virtual VendingMachine VendingMachine { get; set; } = null!;
+}
+namespace VendingSystemAPI.Models
+{
+    public class ServiceTask
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public string Address { get; set; }
+    }
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class User
+{
+    public int Id { get; set; }
+
+    public string Surname { get; set; } = null!;
+
+    public string Name { get; set; } = null!;
+
+    public string Patronymic { get; set; } = null!;
+
+    public string Email { get; set; } = null!;
+
+    public string? Phone { get; set; }
+
+    public int Role { get; set; }
+
+    public string Login { get; set; } = null!;
+
+    public string PasswordHash { get; set; } = null!;
+
+    public virtual Role RoleNavigation { get; set; } = null!;
+
+    public virtual ICollection<Service> Services { get; set; } = new List<Service>();
+}
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemAPI.Models;
+
+public partial class VendingMachine
+{
+    public int Id { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public string Address { get; set; } = null!;
+
+    public string Model { get; set; } = null!;
+
+    public int MachineTypeId { get; set; }
+
+    public decimal TotalProfit { get; set; }
+
+    public string SerialNumber { get; set; } = null!;
+
+    public string InventoryNumber { get; set; } = null!;
+
+    public string Manufacturer { get; set; } = null!;
+
+    public DateOnly ManufactureDate { get; set; }
+
+    public DateOnly StartDate { get; set; }
+
+    public DateOnly LastCheckDate { get; set; }
+
+    public int InterCheckMonth { get; set; }
+
+    public int ResourceHour { get; set; }
+
+    public DateOnly NextCheckDate { get; set; }
+
+    public int ServiceTime { get; set; }
+
+    public int StatusId { get; set; }
+
+    public int CountryId { get; set; }
+
+    public DateOnly InventoryDate { get; set; }
+
+    public DateOnly CreateDate { get; set; }
+
+    public int CompanyId { get; set; }
+
+    public int ModemId { get; set; }
+
+    public virtual Company Company { get; set; } = null!;
+
+    public virtual Country Country { get; set; } = null!;
+
+    public virtual ICollection<Event> Events { get; set; } = new List<Event>();
+
+    public virtual MachineType MachineType { get; set; } = null!;
+
+    public virtual Modem Modem { get; set; } = null!;
+
+    public virtual ICollection<Sale> Sales { get; set; } = new List<Sale>();
+
+    public virtual ICollection<Service> Services { get; set; } = new List<Service>();
+
+    public virtual MachineStatus Status { get; set; } = null!;
+}
+using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace VendingSystemAPI.Models;
@@ -561,7 +970,7 @@ public partial class VendingSystemDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-R5THKSI\\SQLEXPRESS;Initial Catalog=VendingSystemDB;Integrated Security=True;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=VendingSystemDB;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -717,6 +1126,19 @@ public partial class VendingSystemDbContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=.\\SQLEXPRESS;Initial Catalog=VendingSystemDB;Integrated Security=True;Trust Server Certificate=True"
+  },
+
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
 using Microsoft.EntityFrameworkCore;
 using VendingSystemAPI.Models;
 
@@ -757,7 +1179,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseRouting(); // Добавить
 app.UseCors("AllowAll"); // Добавить
@@ -767,4 +1189,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-

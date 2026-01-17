@@ -110,7 +110,8 @@
                             Click="MainButtonClick"/>
                     <Button Content="Монитор ТА"
                             Style="{StaticResource SidebarButton}"
-                            HorizontalContentAlignment="Left"/>
+                            HorizontalContentAlignment="Left"
+                            Click="MonitorTaButton_Click"/>
                     <Expander Header="Детальные отчеты"
                               Style="{StaticResource SidebarExpander}">
                     </Expander>

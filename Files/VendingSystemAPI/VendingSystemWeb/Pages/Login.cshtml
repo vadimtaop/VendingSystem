@@ -2,23 +2,25 @@
 @model VendingSystemWeb.Pages.LoginModel
 @{
     ViewData["Title"] = "Вход";
-    Layout = "_Layout"; // Используем стандартный шаблон
 }
 
-<h1>Вход в систему</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div class="form-group mb-2">
-                <label asp-for="Input.Login"></label>
-                <input asp-for="Input.Login" class="form-control" />
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" type="password" />
-            </div>
-            <button type="submit" class="btn btn-primary">Войти</button>
-        </form>
-    </div>
+<div class="container" style="max-width: 400px; margin-top: 100px;">
+    <h2 class="text-center">Вход в систему</h2>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger">@Model.ErrorMessage</div>
+    }
+
+    <form method="post">
+        <div class="mb-3">
+            <label>Логин:</label>
+            <input type="text" name="username" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Пароль:</label>
+            <input type="password" name="password" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Войти</button>
+    </form>
 </div>

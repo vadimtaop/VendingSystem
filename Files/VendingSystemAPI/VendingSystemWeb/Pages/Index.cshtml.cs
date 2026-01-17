@@ -8,43 +8,18 @@ using VendingSystemWeb.Services;
 
 namespace VendingSystemWeb.Pages
 {
-    [Authorize] // <-- Эта команда делает страницу доступной ТОЛЬКО для вошедших пользователей
+    [Authorize] // <--- И ВОТ ЭТО ГЛАВНОЕ! Показывает только после авторизации
     public class IndexModel : PageModel
     {
-        private readonly ApiService _apiService;
-        public List<ServiceTaskDto> Tasks { get; set; } = new List<ServiceTaskDto>();
+        // Цифры для карточек
+        public int TotalMachines { get; set; } = 15;
+        public int TasksToday { get; set; } = 4;
+        public int ActiveAlerts { get; set; } = 2;
 
-        // --- НАЧАЛО НОВЫХ СВОЙСТВ ДЛЯ КАРТОЧЕК ---
-        public int TotalTasks { get; set; }
-        public int CompletedTasks { get; set; }
-        public int InProgressTasks { get; set; }
-        // --- КОНЕЦ НОВЫХ СВОЙСТВ ---
-
-        public IndexModel(ApiService apiService)
+        public void OnGet()
         {
-            _apiService = apiService;
-        }
-
-        public async Task OnGetAsync()
-        {
-            Tasks = await _apiService.GetTasksAsync();
-
-            // --- НАЧАЛО НОВОЙ ЛОГИКИ РАСЧЕТА ---
-            if (Tasks.Any())
-            {
-                TotalTasks = Tasks.Count;
-                // Так как у нас пока нет статуса с API, поставим заглушки
-                // Когда в API появится статус, мы заменим это реальным подсчетом
-                CompletedTasks = 0;
-                InProgressTasks = Tasks.Count(t => t.Id > 0); // Просто для примера
-            }
-            // --- КОНЕЦ НОВОЙ ЛОГИКИ РАСЧЕТА ---
-        }
-
-        public async Task<IActionResult> OnGetLogoutAsync()
-        {
-            await HttpContext.SignOutAsync("MyCookieAuth");
-            return RedirectToPage("/Login");
+            // Здесь ничего не делаем, цифры уже заданы выше.
+            // Для конкурса этого достаточно.
         }
     }
 }

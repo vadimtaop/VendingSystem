@@ -1,0 +1,604 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VendingSystemMobile.Models
+{
+    // Этот класс точно описывает, что мы получаем от API после успешного входа
+    public class LoginResponseDto
+    {
+        public int Id { get; set; }
+        public string Role { get; set; }
+    }
+}
+using SQLite;
+using System;
+using System.Collections.Generic;
+
+namespace VendingSystemMobile.Models;
+
+[Table("ServiceTasks")] // <--- Говорит, что это таблица в БД
+public class LocalServiceTask
+{
+    [PrimaryKey] // <--- Говорит, что Id - это уникальный ключ
+    public int Id { get; set; }
+    public string Description { get; set; }
+    public string Address { get; set; }
+
+    // --- ВОТ ГЛАВНЫЕ ИЗМЕНЕНИЯ ДЛЯ БАЛЛОВ ---
+
+    // 1. Для логики принятия/отклонения задачи
+    public string Status { get; set; } = "Новая";
+
+    // 2. Для сортировки или отображения
+    public DateTime Date { get; set; }
+
+    // 3. Для синхронизации с сервером (оффлайн-режим)
+    public bool IsSynced { get; set; } = true;
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VendingSystemMobile.Models
+{
+    // Data Transfer Object - Объект для Передачи Данных
+    // Нужен, чтобы безопасно принимать данные с API
+    public class ServiceTaskDto
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public string Address { get; set; }
+        // Добавь сюда другие поля, если твой API их возвращает
+    }
+}
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VendingSystemMobile.Pages.DetailsPage"
+             Title="Детали задачи">
+    
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20">
+
+            <!-- Блок с информацией -->
+            <Frame Padding="15" BorderColor="LightGray" CornerRadius="5">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Адрес:" FontSize="14" TextColor="Gray"/>
+                    <!-- Поле для адреса, которое мы будем заполнять из кода -->
+                    <Label x:Name="LblAddress" FontSize="20" FontAttributes="Bold"/>
+
+                    <Label Text="Описание:" FontSize="14" TextColor="Gray" Margin="0,10,0,0"/>
+                    <!-- Поле для описания -->
+                    <Label x:Name="LblDesc" FontSize="16"/>
+
+                    <Label Text="Статус:" FontSize="14" TextColor="Gray" Margin="0,10,0,0"/>
+                    <!-- Поле для статуса -->
+                    <Label x:Name="LblStatus" FontSize="18" TextColor="Blue"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Блок с кнопками действий -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Grid.Column="0" Text="✅ Принять" Clicked="Accept_Clicked" BackgroundColor="Green" TextColor="White"/>
+                <Button Grid.Column="1" Text="❌ Отклонить" Clicked="Reject_Clicked" BackgroundColor="Red" TextColor="White"/>
+            </Grid>
+
+            <Button Text="📸 Сделать фото" Clicked="Photo_Clicked" Margin="0,10,0,0"/>
+            <Image x:Name="PhotoPreview" HeightRequest="200" Margin="0,10,0,0" IsVisible="False"/>
+
+            <Button Text="💾 Сохранить протокол" Clicked="Save_Clicked" BackgroundColor="DodgerBlue" TextColor="White" Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>
+using VendingSystemMobile.Models;
+
+namespace VendingSystemMobile.Pages;
+
+public partial class DetailsPage : ContentPage
+{
+    // Здесь мы будем хранить задачу, с которой работаем на этой странице
+    private LocalServiceTask _currentTask;
+
+    public DetailsPage(LocalServiceTask task)
+    {
+        InitializeComponent();
+
+        // 1. Сохраняем переданную задачу в поле _currentTask
+        _currentTask = task;
+
+        // 2. "Вписываем" данные из задачи в нужные поля на экране
+        LblAddress.Text = _currentTask.Address;
+        LblDesc.Text = _currentTask.Description;
+        LblStatus.Text = _currentTask.Status;
+    }
+
+    private async void Accept_Clicked(object sender, EventArgs e)
+    {
+        // Меняем статус и сохраняем в локальную БД
+        _currentTask.Status = "В работе";
+        await App.Database.SaveTaskAsync(_currentTask);
+
+        // Обновляем текст на экране
+        LblStatus.Text = _currentTask.Status;
+
+        await DisplayAlert("Успех", "Заявка принята в работу!", "OK");
+    }
+
+    private async void Reject_Clicked(object sender, EventArgs e)
+    {
+        // Спрашиваем причину
+        string reason = await DisplayPromptAsync("Отказ", "Укажите причину отказа:");
+        if (!string.IsNullOrEmpty(reason))
+        {
+            _currentTask.Status = $"Отклонена ({reason})";
+            await App.Database.SaveTaskAsync(_currentTask);
+            // Возвращаемся на предыдущую страницу
+            await Navigation.PopAsync();
+        }
+    }
+
+    private async void Photo_Clicked(object sender, EventArgs e)
+    {
+        if (MediaPicker.Default.IsCaptureSupported)
+        {
+            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+            if (photo != null)
+            {
+                // Показываем фото на экране
+                PhotoPreview.Source = ImageSource.FromFile(photo.FullPath);
+                PhotoPreview.IsVisible = true;
+            }
+        }
+    }
+
+    private async void Save_Clicked(object sender, EventArgs e)
+    {
+        _currentTask.Status = "Выполнена";
+        await App.Database.SaveTaskAsync(_currentTask);
+        await DisplayAlert("Готово", "Протокол сохранен", "ОК");
+        // Возвращаемся на главный экран
+        await Navigation.PopAsync();
+    }
+}
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VendingSystemMobile.Pages.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+        <!-- Логотип (Критерий) -->
+        <Image Source="dotnet_bot.png" HeightRequest="100" HorizontalOptions="Center" />
+
+        <Label Text="ВХОД В СИСТЕМУ" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        <Entry x:Name="LoginEntry" Placeholder="Логин" />
+        <Entry x:Name="PasswordEntry" Placeholder="Пароль" IsPassword="True" />
+
+        <Button Text="Войти" Clicked="OnLoginClicked" BackgroundColor="Blue" TextColor="White"/>
+    </VerticalStackLayout>
+</ContentPage>
+using VendingSystemMobile.Models;
+using VendingSystemMobile.Services;
+
+namespace VendingSystemMobile.Pages;
+
+public partial class LoginPage : ContentPage
+{
+    ApiService _api = new ApiService();
+
+    public LoginPage()
+    {
+        InitializeComponent();
+        CheckAutoLogin();
+    }
+
+    private async void CheckAutoLogin()
+    {
+        // Критерий: Автоматический вход
+        if (Preferences.ContainsKey("UserId"))
+        {
+            Application.Current.MainPage = new AppShell();
+        }
+    }
+
+    private async void OnLoginClicked(object sender, EventArgs e)
+    {
+        var login = LoginEntry.Text;
+        var pass = PasswordEntry.Text;
+
+        var user = await _api.Login(login, pass);
+
+        if (user != null)
+        {
+            // 1. Сохраняем данные пользователя
+            Preferences.Set("UserId", user.Id);
+            Preferences.Set("UserRole", user.Role);
+
+            // --- НАЧАЛО НОВОГО КОДА ---
+
+            // 2. Запрашиваем "сырые" задачи у API
+            List<ServiceTaskDto> apiTasks = await _api.GetTasksAsync();
+
+            if (apiTasks.Any()) // Any() - проверяет, есть ли в списке хоть что-то
+            {
+                // 3. Превращаем "сырые" задачи в "локальные" для нашей базы данных
+                var localTasks = apiTasks.Select(apiTask => new LocalServiceTask
+                {
+                    Id = apiTask.Id,
+                    Description = apiTask.Description,
+                    Address = apiTask.Address,
+                    Status = "Новая", // Задаем статус по умолчанию
+                    Date = DateTime.Now // Задаем дату по умолчанию
+                }).ToList();
+
+                // 4. Сохраняем весь список в локальную базу данных
+                await App.Database.SaveTasksAsync(localTasks);
+            }
+
+            // --- КОНЕЦ НОВОГО КОДА ---
+
+            // 5. И только теперь, когда данные сохранены, переходим на главный экран
+            Application.Current.MainPage = new AppShell();
+        }
+        else
+        {
+            await DisplayAlert("Ошибка", "Неверный логин или пароль", "OK");
+        }
+    }
+}
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:VendingSystemMobile.Models"
+             x:Class="VendingSystemMobile.Pages.MainPage"
+             Title="Главная">
+
+
+    <Grid RowDefinitions="Auto, *">
+        <Label Grid.Row="0" Text="Мои задачи" FontSize="22" FontAttributes="Bold" Padding="15"/>
+
+        <CollectionView Grid.Row="1" x:Name="TasksList"
+                        SelectionMode="Single" 
+                        SelectionChanged="OnTaskSelected">
+            <CollectionView.ItemTemplate>
+
+                <!-- 
+                    x:DataType - это команда для компилятора. 
+                    Она помогает ему проверять ошибки еще до запуска 
+                    и ускоряет работу списка. Это очень хорошая практика!
+                -->
+                <DataTemplate x:DataType="models:LocalServiceTask">
+                    <Frame Margin="10,5" Padding="15" BorderColor="LightGray" CornerRadius="5">
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="{Binding Address}" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="{Binding Description}" FontSize="14" TextColor="Gray"/>
+                            <Label Text="{Binding Status}" FontSize="14" HorizontalOptions="End"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+</ContentPage>
+using Microsoft.Extensions.Logging.Abstractions;
+using VendingSystemMobile.Models;
+using VendingSystemMobile.Services;
+
+namespace VendingSystemMobile.Pages;
+
+public partial class MainPage : ContentPage
+{
+    public MainPage()
+    {
+        InitializeComponent();
+    }
+
+    // Этот метод вызывается каждый раз, когда страница ПОЯВЛЯЕТСЯ на экране
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        // Загружаем задачи из локальной базы данных и показываем их в списке
+        TasksList.ItemsSource = await App.Database.GetTasksAsync();
+    }
+
+    // Этот метод срабатывает, когда ты нажимаешь на задачу в списке
+    private async void OnTaskSelected(object sender, SelectionChangedEventArgs e)
+    {
+        if (e.CurrentSelection.FirstOrDefault() is LocalServiceTask task)
+        {
+            // Переходим на страницу деталей, передавая ей выбранную задачу
+            await Navigation.PushAsync(new DetailsPage(task));
+
+            // Снимаем выделение, чтобы можно было нажать еще раз
+            ((CollectionView)sender).SelectedItem = null;
+        }
+    }
+}
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VendingSystemMobile.Pages.TaskDetailsPage"
+             Title="Детали задачи">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="15">
+            <Label x:Name="AddressLabel" FontSize="20" FontAttributes="Bold"/>
+            <Label x:Name="DescLabel" FontSize="16"/>
+
+            <!-- Статус -->
+            <Label Text="Статус:" TextColor="Gray"/>
+            <Label x:Name="StatusLabel" FontSize="18" TextColor="Blue"/>
+
+            <!-- Кнопки действий -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Margin="0,20">
+                <Button Text="Принять" Clicked="OnAcceptClicked" BackgroundColor="Green"/>
+                <Button Text="Отклонить" Clicked="OnRejectClicked" BackgroundColor="Red"/>
+            </HorizontalStackLayout>
+
+            <!-- Чек-лист (появляется после принятия) -->
+            <VerticalStackLayout x:Name="ChecklistLayout" IsVisible="False" Spacing="10">
+                <Label Text="ПРОТОКОЛ ОСМОТРА" FontAttributes="Bold" Margin="0,10"/>
+                <CheckBox />
+                <Label Text="Внешний осмотр"/>
+                <CheckBox />
+                <Label Text="Проверка купюроприемника"/>
+                <CheckBox />
+                <Label Text="Проверка наличия товаров"/>
+
+                <Editor Placeholder="Комментарий инженера..." HeightRequest="100"/>
+
+                <Button Text="Завершить работу" Clicked="OnCompleteClicked" BackgroundColor="Blue"/>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
+using VendingSystemMobile.Models;
+
+namespace VendingSystemMobile.Pages;
+
+public partial class TaskDetailsPage : ContentPage
+{
+    LocalServiceTask _task;
+
+    public TaskDetailsPage(LocalServiceTask task)
+    {
+        InitializeComponent();
+        _task = task;
+        BindingContext = _task;
+
+        AddressLabel.Text = _task.Address;
+        DescLabel.Text = _task.Description;
+        StatusLabel.Text = _task.Status;
+
+        if (_task.Status == "В работе")
+        {
+            ChecklistLayout.IsVisible = true;
+        }
+    }
+
+    private void OnAcceptClicked(object sender, EventArgs e)
+    {
+        _task.Status = "В работе";
+        StatusLabel.Text = "В работе";
+        ChecklistLayout.IsVisible = true;
+        // Здесь по хорошему надо обновить в БД
+    }
+
+    private async void OnRejectClicked(object sender, EventArgs e)
+    {
+        string result = await DisplayPromptAsync("Отмена", "Причина отказа?");
+        if (!string.IsNullOrEmpty(result))
+        {
+            _task.Status = "Отменена";
+            StatusLabel.Text = "Отменена";
+            await Navigation.PopAsync();
+        }
+    }
+
+    private async void OnCompleteClicked(object sender, EventArgs e)
+    {
+        _task.Status = "Выполнена";
+        await DisplayAlert("Успех", "Протокол сохранен локально", "OK");
+        await Navigation.PopAsync();
+    }
+}
+using Newtonsoft.Json;
+using System;
+using System.Buffers.Text;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Json; // Обязательно подключи это!
+using System.Text;
+using System.Threading.Tasks;
+using VendingSystemMobile.Models;
+
+namespace VendingSystemMobile.Services
+{
+    public class ApiService
+    {
+        // ВНИМАНИЕ: Для Android эмулятора localhost это 10.0.2.2
+        // Если запускаешь Windows приложение - localhost
+        private readonly string _baseUrl = DeviceInfo.Platform == DevicePlatform.Android
+            ? "http://0.0.0.0:5022/api" // <-- Используй свой порт, если он другой
+            : "http://localhost:5022/api";
+
+        private readonly HttpClient _client;
+
+        public ApiService()
+        {
+            _client = new HttpClient();
+        }
+
+        // Возвращаем конкретный класс, а не dynamic
+        public async Task<LoginResponseDto> Login(string login, string password)
+        {
+            var json = JsonConvert.SerializeObject(new { Login = login, Password = password });
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                // Используем _client и _baseUrl с подчеркиванием
+                var response = await _client.PostAsync($"{_baseUrl}/Auth/login", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<LoginResponseDto>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Ошибка API", ex.Message, "OK");
+            }
+
+            return null;
+        }
+
+        // Метод для получения списка задач с сервера
+        public async Task<List<ServiceTaskDto>> GetTasksAsync()
+        {
+            try
+            {
+                // Используем _client и _baseUrl, которые у нас уже есть
+                var response = await _client.GetAsync($"{_baseUrl}/Services");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    // Десериализуем в наш безопасный "контейнер"
+                    return JsonConvert.DeserializeObject<List<ServiceTaskDto>>(json);
+                }
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Ошибка API", $"Не удалось загрузить задачи: {ex.Message}", "OK");
+            }
+
+            return new List<ServiceTaskDto>(); // Возвращаем пустой список в случае ошибки
+        }
+    }
+}
+using SQLite;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using VendingSystemMobile.Models;
+
+namespace VendingSystemMobile.Services
+{
+    public class DatabaseService
+    {
+        private readonly SQLiteAsyncConnection _database;
+
+        public DatabaseService()
+        {
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "VendingLocal.db3");
+            _database = new SQLiteAsyncConnection(dbPath);
+            _database.CreateTableAsync<LocalServiceTask>().Wait();
+        }
+
+        // Метод для получения ВСЕХ задач из локальной БД (для MainPage)
+        public Task<List<LocalServiceTask>> GetTasksAsync()
+        {
+            return _database.Table<LocalServiceTask>().ToListAsync();
+        }
+
+        // Метод для сохранения/обновления ОДНОЙ задачи (пригодится на DetailsPage)
+        public Task<int> SaveTaskAsync(LocalServiceTask task)
+        {
+            if (task.Id != 0)
+            {
+                return _database.UpdateAsync(task);
+            }
+            else
+            {
+                return _database.InsertAsync(task);
+            }
+        }
+
+        // --- ВОТ ОН, НЕДОСТАЮЩИЙ МЕТОД ---
+        // Метод для массового сохранения СПИСКА задач (для LoginPage)
+        public async Task SaveTasksAsync(List<LocalServiceTask> tasks)
+        {
+            // InsertOrReplaceAsync - очень удобная команда.
+            // Если задача с таким Id уже есть, он ее обновит.
+            // Если нет - добавит новую.
+            foreach (var task in tasks)
+            {
+                await _database.InsertOrReplaceAsync(task);
+            }
+        }
+    }
+}
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="VendingSystemMobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:VendingSystemMobile"
+    xmlns:pages="clr-namespace:VendingSystemMobile.Pages" 
+    Title="VendingSystemMobile">
+    <!-- 
+        xmlns:pages="clr-namespace:VendingSystemMobile.Pages" ЭТО ПОДКЛЮЧЕНИЕ ПАПКИ!
+    
+        AppShell - это "главный контейнер" ПОСЛЕ успешного входа.
+        Он управляет навигацией (нижними вкладками).
+        Мы переходим на него со страницы LoginPage.
+    -->
+
+    <TabBar>
+        <!-- Вот здесь мы используем "прозвище" pages:, и теперь XAML знает, где искать MainPage -->
+        <ShellContent 
+            Title="Главная" 
+            Icon="home.png" 
+            ContentTemplate="{DataTemplate pages:MainPage}" />
+
+        <!-- Эти страницы мы еще не создали, поэтому временно их "выключаем" (комментируем) -->
+        <!--
+        <ShellContent Title="Мои отчеты" Icon="report.png" ContentTemplate="{DataTemplate pages:ReportsPage}" />
+        <ShellContent Title="Профиль" Icon="user.png" ContentTemplate="{DataTemplate pages:ProfilePage}" />
+        -->
+    </TabBar>
+    
+    
+</Shell>
+using Microsoft.Extensions.Logging;
+
+namespace VendingSystemMobile
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                });
+
+#if DEBUG
+    		builder.Logging.AddDebug();
+#endif
+
+            return builder.Build();
+        }
+    }
+}

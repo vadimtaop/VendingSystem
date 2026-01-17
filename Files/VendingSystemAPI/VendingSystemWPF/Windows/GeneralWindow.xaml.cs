@@ -77,5 +77,9 @@ namespace VendingSystemWPF.Windows
         {
             MainFrame.Navigate(new MainPage());
         }
+        private void MonitorTaButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new MonitorPage());
+        }
     }
 }

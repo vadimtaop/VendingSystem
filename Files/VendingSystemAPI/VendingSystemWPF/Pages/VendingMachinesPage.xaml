@@ -5,155 +5,88 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VendingSystemWPF.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="700"
-      d:DesignWidth="700"
+      d:DesignHeight="600"
+      d:DesignWidth="900"
       Title="ООО Торговые Автоматы">
-    <Grid Background="White">
+
+    <Grid Background="#F9F9F9">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Background="LightBlue" Grid.Row="0">
-            <TextBlock Text="ООО Торговые Автоматы"
-                       Foreground="White"
-                       FontSize="18"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Margin="10 0 0 0"/>
-            <TextBlock Text="Администрирование / Торговые автоматы"
-                       Foreground="Gray"
-                       FontSize="18"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="0 0 10 0"/>
-        </Grid>
+        <Border Grid.Row="0" Background="White" BorderBrush="#EEE" BorderThickness="0,0,0,1" Padding="10">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="RefreshButton" Content="🔄 Обновить" Margin="5" Click="RefreshButton_Click" Background="#D0EFFF"/>
+                <TextBlock Text="Фильтр:" VerticalAlignment="Center" Margin="15,5,5,5"/>
+                <TextBox Name="FilterTextBox" Width="200" TextChanged="FilterTextChanged" VerticalAlignment="Center"/>
+                <Button Name="AddButton" Content="Добавить (ADO)" Margin="20,0,0,0" Click="AddButtonClick"/>
+                
+                <!-- КНОПКА ЭКСПОРТА -->
+                <Button Name="ExportButton" Content="Экспорт в CSV" Margin="20,0,0,0" Click="ExportButton_Click"/>
+                
+                <CheckBox Name="ToggleViewCheck" Content="Режим плитки" Margin="20,0,0,0" VerticalAlignment="Center" Checked="ToggleView_Checked" Unchecked="ToggleView_Checked"/>
+            </StackPanel>
+        </Border>
 
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <StackPanel HorizontalAlignment="Left"
-                            VerticalAlignment="Top"
-                            Orientation="Vertical"
-                            Margin="5">
-                    <TextBlock Text="Торговые автоматы"
-                               Foreground="Blue"
-                               FontSize="18"/>
-                    <TextBlock Text="Найдено всего 0 шт."
-                               FontSize="14"
-                               Name="CountTextBlock"/>
+        <!-- 1. ТАБЛИЦА (DataGrid) - она у тебя уже есть -->
+        <DataGrid Grid.Row="1" Name="VendingMachinesDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Компания" Binding="{Binding Company.Title}" Width="120"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="150"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status.Title}" Width="100"/>
+                <DataGridTemplateColumn Header="Действия" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить (ADO)" Background="Salmon" Click="DeleteButton_Click" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <!-- 2. ПЛИТКИ (ListView) - ВСТАВЬ ЭТОТ БЛОК СРАЗУ ПОСЛЕ DataGrid -->
+<ListView Name="VendingMachinesListView" Visibility="Collapsed" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
+    <ListView.ItemsPanel>
+        <ItemsPanelTemplate>
+            <!-- WrapPanel автоматически переносит плитки на новую строку -->
+            <WrapPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+    </ListView.ItemsPanel>
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <!-- Здесь мы рисуем одну плитку -->
+            <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="5" Margin="10" Padding="10" Width="200" Background="White">
+                <StackPanel>
+                    <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="Blue" FontSize="14" TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding Address}" Margin="0,5,0,0" Foreground="DarkSlateGray" TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding Model}" Margin="0,5,0,0" FontStyle="Italic"/>
+                    <Border Background="LightGreen" CornerRadius="5" Padding="5,2" Margin="0,10,0,0" HorizontalAlignment="Left">
+                         <TextBlock Text="{Binding Status.Title}" FontWeight="SemiBold" Foreground="DarkGreen"/>
+                    </Border>
                 </StackPanel>
+            </Border>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>
 
-                <Grid Grid.Row="1"
-                      Margin="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="220"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="220"/>
-                    </Grid.ColumnDefinitions>
+        <!-- ======================================================= -->
+        <!-- Панель пагинации и информации (Критерий Б.2)            -->
+        <!-- ======================================================= -->
+        <Border Grid.Row="2" Background="White" BorderBrush="#EEE" BorderThickness="0,1,0,0" Padding="10">
+            <Grid>
+                <TextBlock Name="CountTextBlock" Text="Загрузка..." VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-                    <StackPanel Grid.Column="0"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                        <TextBlock Text="Показать"
-                               FontSize="14"/>
-                        <TextBox Height="30"
-                                 Width="40"
-                                 Margin="5 0 5 0"
-                                 MaxLength="3"
-                                 Name="LimitTextBox"
-                                 TextChanged="LimitTextChanged"/>
-                        <TextBlock Text="записей"
-                               FontSize="14"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="1"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                        <TextBox Height="30"
-                                 Width="200"
-                                 MaxLength="255"
-                                 Name="FilterTextBox"
-                                 TextChanged="FilterTextChanged"/>
-                    </StackPanel>
-
-                    <StackPanel Grid.Column="2"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                        <Button Content="Добавить"
-                                Height="30"
-                                Width="100"
-                                Background="White"
-                                Click="AddButtonClick"/>
-                        <Button Content="Экспорт"
-                                Height="30"
-                                Width="100"
-                                Background="White"
-                                Margin="10 0 0 0"/>
-                    </StackPanel>
-
-                </Grid>
-
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Name="TxtPages" Text="Страница 1 из 1" VerticalAlignment="Center" Margin="10,0"/>
+                    <Button Name="PrevButton" Content="&lt; Назад" Width="80" Click="BtnPrev_Click"/>
+                    <Button Name="NextButton" Content="Вперед &gt;" Width="80" Margin="5,0,0,0" Click="BtnNext_Click"/>
+                </StackPanel>
             </Grid>
-
-            <DataGrid Name="VendingMachinesDataGrid"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      RowBackground="White"
-                      AlternatingRowBackground="LightGray"
-                      Grid.Row="1">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" MinWidth="50" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Название" MinWidth="100" Binding="{Binding Name}" Foreground="Blue"/>
-                    <DataGridTextColumn Header="Модель" MinWidth="100" Binding="{Binding Model}"/>
-                    <DataGridTextColumn Header="Компания" MinWidth="100" Binding="{Binding Companies.Title}" Foreground="Blue"/>
-                    <DataGridTextColumn Header="Адрес" MinWidth="120" Width="*" Binding="{Binding Address}"/>
-                    <DataGridTextColumn Header="В работе с" MinWidth="100" Binding="{Binding StartDate, StringFormat='dd.MM.yyyy'}"/>
-                    <DataGridTemplateColumn Header="Действия" MinWidth="150">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Center">
-                                    <Button Content="1"
-                                            Height="20"
-                                            Width="20"
-                                            Background="Transparent"
-                                            Foreground="AliceBlue"
-                                            BorderThickness="0"/>
-                                    <Button Content="2"
-                                            Height="20"
-                                            Width="20"
-                                            Margin="10 0 0 0"
-                                            Background="Transparent"
-                                            Foreground="AliceBlue"
-                                            BorderThickness="0"/>
-                                    <Button Content="У"
-                                            Height="20"
-                                            Width="20"
-                                            Margin="10 0 0 0"
-                                            Background="Red"
-                                            BorderThickness="0"
-                                            Click="DeleteButtonClick"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
-
+        </Border>
     </Grid>
+    
 </Page>

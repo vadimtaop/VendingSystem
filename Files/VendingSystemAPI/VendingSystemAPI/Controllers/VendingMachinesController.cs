@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using VendingSystemAPI.Models;
 
 namespace VendingSystemAPI.Controllers
@@ -24,8 +25,19 @@ namespace VendingSystemAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<VendingMachine>>> GetVendingMachines()
         {
-            return await _context.VendingMachines.ToListAsync();
+            // Обязательно Include, чтобы подтянулись названия компаний и статусов!
+            return await _context.VendingMachines
+                                 .Include(v => v.Company) // <-- Эта строка нужна
+                                 .Include(v => v.Status)  // <-- И эта строка нужна
+                                 .ToListAsync();
         }
+
+        //// GET: api/VendingMachines
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<VendingMachine>>> GetVendingMachines()
+        //{
+        //    return await _context.VendingMachines.ToListAsync();
+        //}
 
         // GET: api/VendingMachines/5
         [HttpGet("{id}")]

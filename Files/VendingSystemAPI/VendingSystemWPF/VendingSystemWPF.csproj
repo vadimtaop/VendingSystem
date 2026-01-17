@@ -145,6 +145,9 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MonitorPage.xaml.cs">
+      <DependentUpon>MonitorPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\VendingMachinesPage.xaml.cs">
       <DependentUpon>VendingMachinesPage.xaml</DependentUpon>
     </Compile>
@@ -204,9 +207,16 @@
       <DependentUpon>VendingSystemDBModel.edmx</DependentUpon>
       <LastGenOutput>VendingSystemDBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\beeline.png" />
+    <Resource Include="Images\megafon.png" />
+    <Resource Include="Images\mts.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MonitorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

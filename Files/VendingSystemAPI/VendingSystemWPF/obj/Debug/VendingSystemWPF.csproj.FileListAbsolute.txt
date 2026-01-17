@@ -176,7 +176,6 @@ C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\bin\Debug
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\VendingSystemWPF.csproj.AssemblyReference.cache
-C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\VendingSystemWPF.exe.config
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\MainPage.g.cs
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\VendingMachinesPage.g.cs
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Windows\AddVendingMachineWindow.g.cs
@@ -199,3 +198,6 @@ C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\VendingS.8161DF21.Up2Date
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\VendingSystemWPF.exe
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\VendingSystemWPF.pdb
+C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\VendingSystemWPF.exe.config
+C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\MonitorPage.g.cs
+C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\MonitorPage.baml

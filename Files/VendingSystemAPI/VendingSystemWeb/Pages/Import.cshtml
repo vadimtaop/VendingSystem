@@ -1,0 +1,22 @@
+﻿@page
+@model VendingSystemWeb.Pages.ImportModel
+@{
+    ViewData["Title"] = "Импорт данных";
+}
+
+<h2>Импорт торговых автоматов</h2>
+
+<!-- Вывод сообщения об успехе/ошибке -->
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
+<!-- Форма загрузки -->
+<form method="post" enctype="multipart/form-data" class="mt-4">
+    <div class="mb-3">
+        <label class="form-label">Выберите файл (.csv или .xlsx):</label>
+        <input type="file" asp-for="UploadedFile" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Загрузить</button>
+</form>

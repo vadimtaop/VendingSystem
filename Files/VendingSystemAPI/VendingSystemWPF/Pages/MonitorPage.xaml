@@ -1,0 +1,61 @@
+﻿<Page x:Class="VendingSystemWPF.Pages.MonitorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VendingSystemWPF.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="Монитор ТА"
+      Loaded="Page_Loaded">
+
+    <Grid Background="#F5F5F5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Фильтры -->
+            <RowDefinition Height="*"/>
+            <!-- Таблица -->
+            <RowDefinition Height="Auto"/>
+            <!-- Итоги -->
+        </Grid.RowDefinitions>
+
+        <!-- Фильтры (оставляем, т.к. это легко и дает баллы) -->
+        <Border Grid.Row="0" Background="White" Padding="10" BorderBrush="#DDD" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Статус:" VerticalAlignment="Center" Margin="5"/>
+                <ComboBox Name="StatusFilterComboBox" Width="120" SelectionChanged="Filter_Changed"/>
+                <TextBlock Text="Состояние:" VerticalAlignment="Center" Margin="15,5,5,5"/>
+                <ComboBox Name="EventFilterComboBox" Width="120" SelectionChanged="Filter_Changed"/>
+            </StackPanel>
+        </Border>
+
+        <!-- УПРОЩЕННАЯ ТАБЛИЦА -->
+        <DataGrid Grid.Row="1" Name="MonitorDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Автомат" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding StatusText}" Width="100"/>
+                <DataGridTextColumn Header="Событие" Binding="{Binding EventText}" Width="100"/>
+
+                <!-- ProgressBar - это просто и дает баллы за визуализацию -->
+                <DataGridTemplateColumn Header="Загрузка" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ProgressBar Value="{Binding LoadPercentage}" Maximum="100" Height="20"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Деньги" Binding="{Binding CashAmount, StringFormat=C, ConverterCulture=ru-RU}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Итоги -->
+        <Border Grid.Row="2" Background="White" Padding="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="TotalMachinesTextBlock" Text="Итого автоматов: 0" FontWeight="Bold"/>
+                <TextBlock Name="TotalCashTextBlock" Text="Денег в автоматах: 0" FontWeight="Bold" Margin="30,0,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

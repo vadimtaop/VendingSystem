@@ -1,0 +1,94 @@
+﻿@page
+@model VendingSystemWeb.Pages.CalendarModel
+@{
+    ViewData["Title"] = "График ТО";
+}
+
+<style>
+    /* Простые стили для календаря */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td, th {
+        border: 1px solid #ddd;
+        height: 80px;
+        width: 14%;
+        vertical-align: top;
+        padding: 5px;
+    }
+
+    .day-num {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    /* Цвета событий */
+    .bg-red {
+        background-color: #ffcccc;
+    }
+
+    .bg-orange {
+        background-color: #ffe5cc;
+    }
+
+    .bg-green {
+        background-color: #ccffcc;
+    }
+</style>
+
+<h2>График обслуживания (Текущий месяц)</h2>
+
+<table>
+    <thead>
+        <tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th></tr>
+    </thead>
+    <tbody>
+        @{
+            var today = DateTime.Today;
+            // Первое число текущего месяца
+            var firstDay = new DateTime(today.Year, today.Month, 1);
+            // Сдвиг (день недели, пн=1, вс=7)
+            int offset = ((int)firstDay.DayOfWeek == 0) ? 6 : (int)firstDay.DayOfWeek - 1;
+            int daysInMonth = DateTime.DaysInMonth(today.Year, today.Month);
+            int currentDay = 1;
+        }
+
+        <!-- Рисуем 5-6 недель -->
+        @for (int w = 0; w < 6; w++)
+        {
+            <tr>
+                @for (int d = 0; d < 7; d++)
+                {
+                    // Пустые клетки до начала месяца или после конца
+                    if ((w == 0 && d < offset) || currentDay > daysInMonth)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        var thisDate = new DateTime(today.Year, today.Month, currentDay);
+
+                        // Ищем цвет в словаре
+                        string cssClass = "";
+                        if (Model.EventColors.ContainsKey(thisDate))
+                        {
+                            cssClass = "bg-" + Model.EventColors[thisDate];
+                        }
+
+                        <td class="@cssClass">
+                            <div class="day-num">@currentDay</div>
+                            @if (cssClass != "")
+                            {
+                                <small>ТО</small>
+                            }
+                        </td>
+                        currentDay++;
+                    }
+                }
+            </tr>
+            if (currentDay > daysInMonth) break;
+        }
+    </tbody>
+</table>

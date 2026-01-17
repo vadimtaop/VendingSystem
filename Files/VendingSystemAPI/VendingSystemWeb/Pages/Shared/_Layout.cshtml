@@ -25,15 +25,32 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
-                        <!-- НАЧАЛО НОВОЙ ССЫЛКИ -->
+                        <!-- НАЧАЛО -->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-page="/Import">Импорт</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-page="/Calendar">Календарь</a>
+                        </li>
+
+                        <!-- Где-то в меню (<ul>) Выход -->
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <!-- Это простая ссылка, которая вызывает нашу "команду выхода" -->
-                                <a class="nav-link text-dark" asp-page="/Index" asp-page-handler="Logout">Выход</a>
+                                <span class="nav-link text-dark">Привет, @User.Identity.Name!</span>
+                            </li>
+                            <li class="nav-item">
+                                <!-- Кнопка вызывает метод OnGetLogout на странице Login -->
+                                <a class="nav-link text-danger" asp-page="/Login" asp-page-handler="Logout">Выйти</a>
                             </li>
                         }
-                        <!-- КОНЕЦ НОВОЙ ССЫЛКИ -->
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-page="/Login">Войти</a>
+                            </li>
+                        }
+                        <!-- КОНЕЦ -->
                     </ul>
                 </div>
             </div>

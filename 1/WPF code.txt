@@ -369,6 +369,7 @@ namespace VendingSystemWPF.Services
 {
     public class ApiService // internal поменять на public
     {
+
         private HttpClient http = new HttpClient();
 
         public async Task<dynamic> GetMachines()

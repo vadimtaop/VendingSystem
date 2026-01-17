@@ -40,5 +40,9 @@
             <Setter Property="Width" Value="200"/>
             <Setter Property="Margin" Value="0 20 0 0"/>
         </Style>
+
+
+        <!-- ДОБАВЬ ЭТОТ БЛОК -->
+        <DropShadowEffect x:Key="MyShadow" ShadowDepth="2" Color="Gray" Opacity="0.3" BlurRadius="5"/>
     </Application.Resources>
 </Application>
