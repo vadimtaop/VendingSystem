@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\
+C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\
 VendingSystemWPF
 none
 false
 DEBUG;TRACE
-C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\App.xaml
+C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemWPF\App.xaml
 6-202234447
 21662149969
 29888263102
-24-312109256
+24-1650435050
 Pages\MainPage.xaml;Pages\MonitorPage.xaml;Pages\VendingMachinesPage.xaml;Windows\AddVendingMachineWindow.xaml;Windows\AuthWindow.xaml;Windows\GeneralWindow.xaml;
 
 False

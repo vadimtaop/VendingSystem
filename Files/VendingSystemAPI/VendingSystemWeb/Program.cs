@@ -1,18 +1,7 @@
-using VendingSystemWeb.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Добавляем поддержку Razor Pages (уже есть)
+// Add services to the container.
 builder.Services.AddRazorPages();
-
-// --- ДОБАВЛЯЕМ ЭТОТ БЛОК ---
-builder.Services.AddAuthentication("MyCookieAuth")
-    .AddCookie("MyCookieAuth", options =>
-    {
-        options.Cookie.Name = "VendingManagerCookie";
-        options.LoginPath = "/Login"; // Куда перенаправлять, если не вошел
-    });
-// -----------------------------
 
 var app = builder.Build();
 
@@ -29,10 +18,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// --- И ЭТИ ДВЕ СТРОКИ (в этом порядке!) ---
-app.UseAuthentication(); // 1. Кто ты?
-app.UseAuthorization();  // 2. Можно ли тебе сюда?
-// -----------------------------------------
+app.UseAuthorization();
 
 app.MapRazorPages();
 

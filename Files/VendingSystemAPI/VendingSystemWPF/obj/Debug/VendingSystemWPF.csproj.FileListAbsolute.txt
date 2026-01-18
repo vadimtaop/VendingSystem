@@ -201,3 +201,5 @@ C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\VendingSystemWPF.exe.config
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\MonitorPage.g.cs
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\MonitorPage.baml
+C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\MonitorPage.g.cs
+C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemWPF\obj\Debug\Pages\MonitorPage.baml

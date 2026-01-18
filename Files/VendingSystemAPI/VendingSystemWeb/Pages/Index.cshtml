@@ -1,42 +1,10 @@
 ﻿@page
 @model IndexModel
-
 @{
-    ViewData["Title"] = "Главная";
+    ViewData["Title"] = "Home page";
 }
 
-<h1 class="text-center mb-4">Панель управления Менеджера</h1>
-
-<div class="row text-center">
-    <!-- Карточка 1 -->
-    <div class="col-md-4">
-        <div class="card text-white bg-primary mb-3">
-            <div class="card-header">Всего автоматов</div>
-            <div class="card-body">
-                <h2 class="card-title">@Model.TotalMachines</h2>
-            </div>
-        </div>
-    </div>
-    <!-- Карточка 2 -->
-    <div class="col-md-4">
-        <div class="card text-white bg-success mb-3">
-            <div class="card-header">Задач на сегодня</div>
-            <div class="card-body">
-                <h2 class="card-title">@Model.TasksToday</h2>
-            </div>
-        </div>
-    </div>
-    <!-- Карточка 3 -->
-    <div class="col-md-4">
-        <div class="card text-white bg-danger mb-3">
-            <div class="card-header">Активные аварии</div>
-            <div class="card-body">
-                <h2 class="card-title">@Model.ActiveAlerts</h2>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="text-center mt-4">
-    <a href="/Calendar" class="btn btn-lg btn-outline-dark">📅 Перейти к графику обслуживания</a>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
