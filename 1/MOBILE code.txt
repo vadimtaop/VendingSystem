@@ -290,41 +290,6 @@ public partial class LoginPage : ContentPage
     </Grid>
 
 </ContentPage>
-using Microsoft.Extensions.Logging.Abstractions;
-using VendingSystemMobile.Models;
-using VendingSystemMobile.Services;
-
-namespace VendingSystemMobile.Pages;
-
-public partial class MainPage : ContentPage
-{
-    public MainPage()
-    {
-        InitializeComponent();
-    }
-
-    // Этот метод вызывается каждый раз, когда страница ПОЯВЛЯЕТСЯ на экране
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-
-        // Загружаем задачи из локальной базы данных и показываем их в списке
-        TasksList.ItemsSource = await App.Database.GetTasksAsync();
-    }
-
-    // Этот метод срабатывает, когда ты нажимаешь на задачу в списке
-    private async void OnTaskSelected(object sender, SelectionChangedEventArgs e)
-    {
-        if (e.CurrentSelection.FirstOrDefault() is LocalServiceTask task)
-        {
-            // Переходим на страницу деталей, передавая ей выбранную задачу
-            await Navigation.PushAsync(new DetailsPage(task));
-
-            // Снимаем выделение, чтобы можно было нажать еще раз
-            ((CollectionView)sender).SelectedItem = null;
-        }
-    }
-}
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -365,56 +330,6 @@ public partial class MainPage : ContentPage
 
 
 </ContentPage>
-using VendingSystemMobile.Models;
-
-namespace VendingSystemMobile.Pages;
-
-public partial class TaskDetailsPage : ContentPage
-{
-    LocalServiceTask _task;
-
-    public TaskDetailsPage(LocalServiceTask task)
-    {
-        InitializeComponent();
-        _task = task;
-        BindingContext = _task;
-
-        AddressLabel.Text = _task.Address;
-        DescLabel.Text = _task.Description;
-        StatusLabel.Text = _task.Status;
-
-        if (_task.Status == "В работе")
-        {
-            ChecklistLayout.IsVisible = true;
-        }
-    }
-
-    private void OnAcceptClicked(object sender, EventArgs e)
-    {
-        _task.Status = "В работе";
-        StatusLabel.Text = "В работе";
-        ChecklistLayout.IsVisible = true;
-        // Здесь по хорошему надо обновить в БД
-    }
-
-    private async void OnRejectClicked(object sender, EventArgs e)
-    {
-        string result = await DisplayPromptAsync("Отмена", "Причина отказа?");
-        if (!string.IsNullOrEmpty(result))
-        {
-            _task.Status = "Отменена";
-            StatusLabel.Text = "Отменена";
-            await Navigation.PopAsync();
-        }
-    }
-
-    private async void OnCompleteClicked(object sender, EventArgs e)
-    {
-        _task.Status = "Выполнена";
-        await DisplayAlert("Успех", "Протокол сохранен локально", "OK");
-        await Navigation.PopAsync();
-    }
-}
 using Newtonsoft.Json;
 using System;
 using System.Buffers.Text;
@@ -545,31 +460,6 @@ namespace VendingSystemMobile.Services
         }
     }
 }
-using VendingSystemMobile.Pages; // 1. "Прописываем" папку с нашими страницами
-using VendingSystemMobile.Services; // Добавляем, чтобы работать с базой данных
-
-namespace VendingSystemMobile
-{
-    public partial class App : Application
-    {
-        // Создаем единую, "глобальную" точку доступа к нашей базе данных
-        // чтобы все страницы могли с ней работать
-        public static DatabaseService Database { get; private set; }
-        public App()
-        {
-            InitializeComponent();
-
-            // --- ВОТ ГЛАВНЫЕ СТРОКИ ---
-
-            // 1. Создаем единственный экземпляр нашей БД при старте приложения
-            Database = new DatabaseService();
-
-            // 2. Указываем, что первая страница - это AuthPage, которая теперь лежит в папке Pages
-            MainPage = new NavigationPage(new LoginPage());
-        }
-
-    }
-}
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="VendingSystemMobile.AppShell"
@@ -602,3 +492,28 @@ namespace VendingSystemMobile
     
     
 </Shell>
+using VendingSystemMobile.Pages; // 1. "Прописываем" папку с нашими страницами
+using VendingSystemMobile.Services; // Добавляем, чтобы работать с базой данных
+
+namespace VendingSystemMobile
+{
+    public partial class App : Application
+    {
+        // Создаем единую, "глобальную" точку доступа к нашей базе данных
+        // чтобы все страницы могли с ней работать
+        public static DatabaseService Database { get; private set; }
+        public App()
+        {
+            InitializeComponent();
+
+            // --- ВОТ ГЛАВНЫЕ СТРОКИ ---
+
+            // 1. Создаем единственный экземпляр нашей БД при старте приложения
+            Database = new DatabaseService();
+
+            // 2. Указываем, что первая страница - это AuthPage, которая теперь лежит в папке Pages
+            MainPage = new NavigationPage(new LoginPage());
+        }
+
+    }
+}

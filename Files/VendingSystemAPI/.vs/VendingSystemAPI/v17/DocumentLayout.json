@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AA26072F-C635-4D1E-A458-071DB9CDA6D4}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadimka\\desktop\\chemp\\files\\vendingsystemapi\\vendingsystemweb\\pages\\calendar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AA26072F-C635-4D1E-A458-071DB9CDA6D4}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\calendar.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemwpf\\windows\\addvendingmachinewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|solutionrelative:vendingsystemwpf\\windows\\addvendingmachinewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Calendar.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Calendar.cshtml.cs",
-              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Calendar.cshtml.cs",
-              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\Chemp\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Calendar.cshtml.cs",
-              "RelativeToolTip": "VendingSystemWeb\\Pages\\Calendar.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-24T06:29:35.461Z",
+              "Title": "AddVendingMachineWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "RelativeDocumentMoniker": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "RelativeToolTip": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-24T09:53:03.028Z",
               "EditorCaption": ""
             }
           ]

@@ -1,297 +1,309 @@
-namespace VendingSystemWeb.Models
 {
-    // Этот класс точно описывает, что мы получаем от API после успешного входа
-    public class LoginResponseDto
-    {
-        public int Id { get; set; }
-        public string Role { get; set; }
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:44369",
+      "sslPort": 44330
     }
+  },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5209",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7070;http://localhost:5209",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
 }
-namespace VendingSystemWeb.Models
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/VendingSystemWeb.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Добро пожаловать! (или главная)</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+
+                        @* ДОБАВЛЯЕМ *@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Торговые автоматы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Calendar">Календарь обслуживания</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/WorkSchedule">График работ</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - Торговые автоматы
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+@page
+@model VendingSystemWeb.Pages.CalendarModel
+@{
+    ViewData["Title"] = "Календарь обслуживания";
+}
+
+<style>
+    .event {
+        padding: 8px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .event-green {
+        background-color: #d4edda;
+    }
+
+    .event-yellow {
+        background-color: #fff3cd;
+    }
+
+    .event-red {
+        background-color: #f8d7da;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+<p>Список предстоящих и просроченных работ.</p>
+<hr />
+
+@foreach (var ev in Model.Events.OrderBy(e => e.EventDate))
 {
-    // Data Transfer Object - Объект для Передачи Данных
-    // Нужен, чтобы безопасно принимать данные с API
-    public class ServiceTaskDto
+    <div class="event @ev.ColorCssClass">
+        <strong>@ev.EventDate.ToString("dd.MM.yyyy")</strong> — @ev.Title
+    </div>
+}
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using VendingSystemAPI.Models;
+
+namespace VendingSystemWeb.Pages
+{
+    public class CalendarEvent
     {
-        public int Id { get; set; }
-        public string Description { get; set; }
-        public string Address { get; set; }
-        // Добавь сюда другие поля, если твой API их возвращает
+        public string Title { get; set; }
+        public DateTime EventDate { get; set; }
+        public string ColorCssClass { get; set; }
+    }
+
+    public class CalendarModel : PageModel
+    {
+        // Список событий, который мы покажем
+        public List<CalendarEvent> Events { get; set; } = new List<CalendarEvent>();
+
+        // ЭТОТ МЕТОД ТЕПЕРЬ СУПЕР-ПРОСТОЙ
+        public void OnGet()
+        {
+            // --- ОДНО КРАСНОЕ ---
+            Events.Add(new CalendarEvent
+            {
+                EventDate = DateTime.Now.AddDays(-10),
+                Title = "Просрочено: Ремонт 'Автомат-1'",
+                ColorCssClass = "event-red"
+            });
+
+            // --- ОДНО ЖЕЛТОЕ ---
+            Events.Add(new CalendarEvent
+            {
+                EventDate = DateTime.Now.AddDays(5),
+                Title = "Скоро: ТО 'Автомат-2'",
+                ColorCssClass = "event-yellow"
+            });
+
+            // --- А ТЕПЕРЬ НЕСКОЛЬКО ЗЕЛЕНЫХ (ПРОСТО КОПИПАСТ) ---
+            Events.Add(new CalendarEvent
+            {
+                EventDate = DateTime.Now.AddDays(30),
+                Title = "Плановое ТО 'Автомат-3'",
+                ColorCssClass = "event-green"
+            });
+        }
     }
 }
 @page
 @model IndexModel
-
 @{
-    ViewData["Title"] = "Главная";
+    ViewData["Title"] = "Торговые автоматы";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Список задач</h1>
-</div>
-
-<!-- НАЧАЛО БЛОКА С КАРТОЧКАМИ -->
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card text-white bg-primary">
-            <div class="card-body">
-                <h5 class="card-title">Всего задач</h5>
-                <!-- Сюда мы вставим число из C#-кода -->
-                <p class="card-text fs-4">@Model.TotalTasks</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-success">
-            <div class="card-body">
-                <h5 class="card-title">Выполненных</h5>
-                <p class="card-text fs-4">@Model.CompletedTasks</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card text-white bg-warning">
-            <div class="card-body">
-                <h5 class="card-title">В работе</h5>
-                <p class="card-text fs-4">@Model.InProgressTasks</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- КОНЕЦ БЛОКА С КАРТОЧКАМИ -->
+<style>
+    body {
+        background-color: aliceblue; /* фон */
+    }
+</style>
 
 
-<table class="table table-striped">
+<h1>@ViewData["Title"]</h1>
+<p>Список автоматов, зарегистрированных в системе.</p>
+<hr />
+
+<table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>ID</th>
+            <th>Название</th>
             <th>Адрес</th>
-            <th>Описание</th>
-            <th>Статус</th>
+            <th>Модель</th>
+            <th>Серийный номер</th>
+            <th>Инвентарный номер</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var task in Model.Tasks)
+        @foreach (var machine in Model.VendingMachines)
         {
             <tr>
-                <td>@task.Id</td>
-                <td>@task.Address</td>
-                <td>@task.Description</td>
-                <td>Новая</td> <!-- Статус пока не приходит с API, ставим заглушку -->
+                <td>@machine.Id</td>
+                <td>@machine.Name</td>
+                <td>@machine.Address</td>
+                <td>@machine.Model</td>
+                <td>@machine.SerialNumber</td>
+                <td>@machine.InventoryNumber</td>
             </tr>
         }
     </tbody>
 </table>
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Text;
-using VendingSystemWeb.Models;
-using VendingSystemWeb.Services;
+using VendingSystemAPI.Models;
 
 namespace VendingSystemWeb.Pages
 {
-    [Authorize] // <-- Эта команда делает страницу доступной ТОЛЬКО для вошедших пользователей
     public class IndexModel : PageModel
     {
-        private readonly ApiService _apiService;
-        public List<ServiceTaskDto> Tasks { get; set; } = new List<ServiceTaskDto>();
+        private readonly VendingSystemDbContext _context;
+        public List<VendingMachine> VendingMachines { get; set; }
 
-        // --- НАЧАЛО НОВЫХ СВОЙСТВ ДЛЯ КАРТОЧЕК ---
-        public int TotalTasks { get; set; }
-        public int CompletedTasks { get; set; }
-        public int InProgressTasks { get; set; }
-        // --- КОНЕЦ НОВЫХ СВОЙСТВ ---
-
-        public IndexModel(ApiService apiService)
+        public IndexModel(VendingSystemDbContext context)
         {
-            _apiService = apiService;
+            _context = context;
         }
 
-        public async Task OnGetAsync()
+        // Этот метод просто загружает твою таблицу. И всё.
+        public void OnGet()
         {
-            Tasks = await _apiService.GetTasksAsync();
-
-            // --- НАЧАЛО НОВОЙ ЛОГИКИ РАСЧЕТА ---
-            if (Tasks.Any())
-            {
-                TotalTasks = Tasks.Count;
-                // Так как у нас пока нет статуса с API, поставим заглушки
-                // Когда в API появится статус, мы заменим это реальным подсчетом
-                CompletedTasks = 0;
-                InProgressTasks = Tasks.Count(t => t.Id > 0); // Просто для примера
-            }
-            // --- КОНЕЦ НОВОЙ ЛОГИКИ РАСЧЕТА ---
-        }
-
-        public async Task<IActionResult> OnGetLogoutAsync()
-        {
-            await HttpContext.SignOutAsync("MyCookieAuth");
-            return RedirectToPage("/Login");
+            VendingMachines = _context.VendingMachines.ToList();
         }
     }
 }
 @page
-@model VendingSystemWeb.Pages.LoginModel
+@model VendingSystemWeb.Pages.WorkScheduleModel
 @{
-    ViewData["Title"] = "Вход";
-    Layout = "_Layout"; // Используем стандартный шаблон
+    ViewData["Title"] = "График работ";
 }
 
-<h1>Вход в систему</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div class="form-group mb-2">
-                <label asp-for="Input.Login"></label>
-                <input asp-for="Input.Login" class="form-control" />
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" type="password" />
-            </div>
-            <button type="submit" class="btn btn-primary">Войти</button>
-        </form>
-    </div>
-</div>
-using Microsoft.AspNetCore.Authentication;
+<h1>В разработке...</h1>
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Security.Claims;
-using VendingSystemWeb.Services;
 
 namespace VendingSystemWeb.Pages
 {
-    public class LoginModel : PageModel
+    public class WorkScheduleModel : PageModel
     {
-        private readonly ApiService _apiService;
-
-        [BindProperty]
-        public InputModel Input { get; set; }
-
-        public class InputModel
+        public void OnGet()
         {
-            public string Login { get; set; }
-            public string Password { get; set; }
-        }
-
-        public LoginModel(ApiService apiService)
-        {
-            _apiService = apiService;
-        }
-
-        public void OnGet() { }
-
-        public async Task<IActionResult> OnPostAsync()
-        {
-            var user = await _apiService.Login(Input.Login, Input.Password);
-            if (user != null)
-            {
-                // Создаем "паспорт" пользователя
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, Input.Login),
-                    new Claim(ClaimTypes.Role, user.Role),
-                };
-                var claimsIdentity = new ClaimsIdentity(claims, "MyCookieAuth");
-                var authProperties = new AuthenticationProperties();
-
-                // "Впускаем" пользователя на сайт
-                await HttpContext.SignInAsync("MyCookieAuth", new ClaimsPrincipal(claimsIdentity), authProperties);
-
-                return RedirectToPage("/Index"); // Перенаправляем на главную
-            }
-
-            return Page();
         }
     }
 }
-using Newtonsoft.Json;
-using System.Text;
-using VendingSystemWeb.Models;
-
-namespace VendingSystemWeb.Services
 {
-    public class ApiService
-    {
-        // 1. УБИРАЕМ ПРОВЕРКУ ПЛАТФОРМЫ.
-        // ApiService в WEB-проекте всегда будет использовать один и тот же адрес.
-        private readonly string _baseUrl = "http://localhost:5022/api"; // <-- Убедись, что порт 5022 верный!
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=.\\SQLEXPRESS;Initial Catalog=VendingSystemDB;Integrated Security=True;Trust Server Certificate=True"
+  },
 
-        private readonly HttpClient _client;
-
-        public ApiService()
-        {
-            _client = new HttpClient();
-        }
-
-        public async Task<LoginResponseDto> Login(string login, string password)
-        {
-            var json = JsonConvert.SerializeObject(new { Login = login, Password = password });
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            try
-            {
-                var response = await _client.PostAsync($"{_baseUrl}/Auth/login", content);
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<LoginResponseDto>(result);
-                }
-            }
-            catch (Exception ex)
-            {
-                // 2. УБИРАЕМ ВЫЗОВ МОБИЛЬНОГО ОКНА.
-                // Просто логируем ошибку в консоль для отладки, не показывая ее пользователю.
-                Console.WriteLine($"API Login Error: {ex.Message}");
-            }
-
-            return null; // Возвращаем null в случае любой ошибки
-        }
-
-        public async Task<List<ServiceTaskDto>> GetTasksAsync()
-        {
-            try
-            {
-                var response = await _client.GetAsync($"{_baseUrl}/Services");
-                if (response.IsSuccessStatusCode)
-                {
-                    var json = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<List<ServiceTaskDto>>(json);
-                }
-            }
-            catch (Exception ex)
-            {
-                // 2. УБИРАЕМ ВЫЗОВ МОБИЛЬНОГО ОКНА.
-                Console.WriteLine($"API GetTasks Error: {ex.Message}");
-            }
-
-            return new List<ServiceTaskDto>(); // Возвращаем пустой список в случае любой ошибки
-        }
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
     }
+  },
+  "AllowedHosts": "*"
 }
-using VendingSystemWeb.Services;
+using Microsoft.EntityFrameworkCore;
+using VendingSystemAPI.Models;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- НАЧАЛО НОВОГО КОДА ---
-
-// 1. Добавляем "паспортный контроль" с помощью Cookies
-builder.Services.AddAuthentication("MyCookieAuth").AddCookie("MyCookieAuth", options =>
-{
-    options.Cookie.Name = "MyCookieAuth";
-    options.LoginPath = "/Login"; // Указываем, куда перенаправлять, если пользователь не вошел
-});
-
-// 2. Добавляем сервисы Razor Pages и наш ApiService
+// Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<VendingSystemWeb.Services.ApiService>(); // Регистрируем наш ApiService
 
-// --- КОНЕЦ НОВОГО КОДА ---
 
-var app = builder.Build();
+// --- НАЧАЛО БАЗОВОЙ КОНФИГУРАЦИИ ---
+
+// 1. Добавляем сервисы для Razor Pages.
+builder.Services.AddRazorPages();
+
+// 2. Получаем строку подключения из appsettings.json
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// 3. Регистрируем ваш DbContext для работы с базой данных
+builder.Services.AddDbContext<VendingSystemDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+// --- КОНЕЦ БАЗОВОЙ КОНФИГУРАЦИИ ---
+
+
+
+
+
+var app = builder.Build(); // было уже
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -306,11 +318,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// --- НАЧАЛО НОВОГО КОДА ---
-// Включаем "паспортный контроль" и авторизацию
-app.UseAuthentication();
 app.UseAuthorization();
-// --- КОНЕЦ НОВОГО КОДА ---
 
 app.MapRazorPages();
 
