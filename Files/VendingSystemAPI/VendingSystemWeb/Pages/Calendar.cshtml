@@ -1,0 +1,37 @@
+﻿@page
+@model VendingSystemWeb.Pages.CalendarModel
+@{
+    ViewData["Title"] = "Календарь обслуживания";
+}
+
+<style>
+    .event {
+        padding: 8px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+
+    .event-green {
+        background-color: #d4edda;
+    }
+
+    .event-yellow {
+        background-color: #fff3cd;
+    }
+
+    .event-red {
+        background-color: #f8d7da;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+<p>Список предстоящих и просроченных работ.</p>
+<hr />
+
+@foreach (var ev in Model.Events.OrderBy(e => e.EventDate))
+{
+    <div class="event @ev.ColorCssClass">
+        <strong>@ev.EventDate.ToString("dd.MM.yyyy")</strong> — @ev.Title
+    </div>
+}

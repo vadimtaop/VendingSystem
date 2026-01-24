@@ -1,10 +1,42 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Торговые автоматы";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<style>
+    body {
+        background-color: aliceblue; /* фон */
+    }
+</style>
+
+
+<h1>@ViewData["Title"]</h1>
+<p>Список автоматов, зарегистрированных в системе.</p>
+<hr />
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Адрес</th>
+            <th>Модель</th>
+            <th>Серийный номер</th>
+            <th>Инвентарный номер</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var machine in Model.VendingMachines)
+        {
+            <tr>
+                <td>@machine.Id</td>
+                <td>@machine.Name</td>
+                <td>@machine.Address</td>
+                <td>@machine.Model</td>
+                <td>@machine.SerialNumber</td>
+                <td>@machine.InventoryNumber</td>
+            </tr>
+        }
+    </tbody>
+</table>

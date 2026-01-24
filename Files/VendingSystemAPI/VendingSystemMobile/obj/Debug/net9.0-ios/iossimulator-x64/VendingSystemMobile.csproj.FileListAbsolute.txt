@@ -881,7 +881,6 @@ C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\bin\De
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\bin\Debug\net9.0-ios\iossimulator-x64\libxamarin-dotnet-nativeaot.a
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\bin\Debug\net9.0-ios\iossimulator-x64\libxamarin-dotnet.a
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\bin\Debug\net9.0-ios\iossimulator-x64\libxamarin-dotnet.dylib
-C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\obj\Debug\net9.0-ios\iossimulator-x64\build-signature\signature
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\obj\Debug\net9.0-ios\iossimulator-x64\VendingSystemMobile.csproj.AssemblyReference.cache
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\obj\Debug\net9.0-ios\iossimulator-x64\mauiimage.inputs
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemMobile\obj\Debug\net9.0-ios\iossimulator-x64\mauifont.inputs

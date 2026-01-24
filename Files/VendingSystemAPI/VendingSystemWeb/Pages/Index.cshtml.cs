@@ -1,20 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using VendingSystemAPI.Models;
 
 namespace VendingSystemWeb.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        private readonly VendingSystemDbContext _context;
+        public List<VendingMachine> VendingMachines { get; set; }
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(VendingSystemDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
+        // Этот метод просто загружает твою таблицу. И всё.
         public void OnGet()
         {
-
+            VendingMachines = _context.VendingMachines.ToList();
         }
     }
 }
