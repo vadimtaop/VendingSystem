@@ -33,3 +33,6 @@ C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemAPI\obj\Debug
 C:\Users\Vadimka\Desktop\Chemp\Files\VendingSystemAPI\VendingSystemAPI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemAPI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemAPI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemAPI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemAPI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Vadim\Desktop\VendingSystem\Files\VendingSystemAPI\VendingSystemAPI\obj\Debug\net8.0\staticwebassets.build.json

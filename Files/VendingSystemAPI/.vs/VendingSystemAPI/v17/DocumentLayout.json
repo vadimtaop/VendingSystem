@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemwpf\\windows\\addvendingmachinewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|solutionrelative:vendingsystemwpf\\windows\\addvendingmachinewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{004E1872-D381-4699-AC11-7A3ACA84615E}|VendingSystemTests\\VendingSystemTests.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemtests\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{004E1872-D381-4699-AC11-7A3ACA84615E}|VendingSystemTests\\VendingSystemTests.csproj|solutionrelative:vendingsystemtests\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA26072F-C635-4D1E-A458-071DB9CDA6D4}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\files\\vendingsystemapi\\vendingsystemweb\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA26072F-C635-4D1E-A458-071DB9CDA6D4}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,18 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWeb\\Pages\\Login.cshtml",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-24T17:18:33.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AddVendingMachineWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
-              "RelativeDocumentMoniker": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
-              "RelativeToolTip": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-24T09:53:03.028Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemTests\\Program.cs",
+              "RelativeDocumentMoniker": "VendingSystemTests\\Program.cs",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Files\\VendingSystemAPI\\VendingSystemTests\\Program.cs",
+              "RelativeToolTip": "VendingSystemTests\\Program.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwHEAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-24T16:16:38.25Z",
               "EditorCaption": ""
             }
           ]

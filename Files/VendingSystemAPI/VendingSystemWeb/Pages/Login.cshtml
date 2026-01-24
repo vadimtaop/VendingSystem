@@ -1,0 +1,30 @@
+﻿@page
+@model VendingSystemWeb.Pages.LoginModel
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<h3>Вход в систему</h3>
+
+<form method="post">
+    <div>
+        <label>Логин</label>
+        <!-- ВАЖНО: Мы даем ID, чтобы Selenium мог найти это поле -->
+        <input id="login-input" name="login" />
+    </div>
+    <br />
+    <div>
+        <label>Пароль</label>
+        <!-- ВАЖНО: Мы даем ID, чтобы Selenium мог найти это поле -->
+        <input id="password-input" name="password" type="password" />
+    </div>
+    <br />
+    <div>
+        <!-- ВАЖНО: Мы даем ID, чтобы Selenium мог найти кнопку -->
+        <button id="login-button" type="submit">Войти</button>
+
+        <!-- === НАША НОВАЯ ФЕЙКОВАЯ КНОПКА === -->
+        <!-- Это ссылка, которая просто ведет на главную страницу -->
+        <a id="fake-add-button" href="/Index" style="margin-left: 10px;">Добавить ТА</a>
+    </div>
+</form>
