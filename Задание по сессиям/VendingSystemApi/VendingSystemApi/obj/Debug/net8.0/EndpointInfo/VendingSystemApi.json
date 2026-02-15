@@ -1,0 +1,894 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "VendingSystemApi",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/VendingMachines": {
+      "get": {
+        "tags": [
+          "VendingMachines"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VendingMachine"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VendingMachine"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VendingMachine"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "VendingMachines"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendingMachine"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendingMachine"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendingMachine"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendingMachine"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendingMachine"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendingMachine"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/VendingMachines/{id}": {
+      "get": {
+        "tags": [
+          "VendingMachines"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendingMachine"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendingMachine"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VendingMachine"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "VendingMachines"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendingMachine"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendingMachine"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VendingMachine"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "VendingMachines"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Company": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Country": {
+        "type": "object",
+        "properties": {
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CriticalThresholdTemplate": {
+        "type": "object",
+        "properties": {
+          "criticalThresholdTemplateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Maintenance": {
+        "type": "object",
+        "properties": {
+          "maintenanceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vendingMachineId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "maintenanceDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "workDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "issuesFound": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "vendingMachine": {
+            "$ref": "#/components/schemas/VendingMachine"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotificationTemplate": {
+        "type": "object",
+        "properties": {
+          "notificationTemplateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Operator": {
+        "type": "object",
+        "properties": {
+          "operatorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentMethod": {
+        "type": "object",
+        "properties": {
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "sales": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Sale"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentType": {
+        "type": "object",
+        "properties": {
+          "paymentTypeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Place": {
+        "type": "object",
+        "properties": {
+          "placeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "minStoke": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vendingMachineId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantityAvailable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "salesTrend": {
+            "type": "number",
+            "format": "double"
+          },
+          "sales": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Sale"
+            },
+            "nullable": true
+          },
+          "vendingMachine": {
+            "$ref": "#/components/schemas/VendingMachine"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Sale": {
+        "type": "object",
+        "properties": {
+          "saleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vendingMachineId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paymentMethod": {
+            "$ref": "#/components/schemas/PaymentMethod"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "vendingMachine": {
+            "$ref": "#/components/schemas/VendingMachine"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServicePriority": {
+        "type": "object",
+        "properties": {
+          "servicePriorityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Status": {
+        "type": "object",
+        "properties": {
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "surname": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "patronymic": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "isManager": {
+            "type": "boolean"
+          },
+          "isEngineer": {
+            "type": "boolean"
+          },
+          "isOperator": {
+            "type": "boolean"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "maintenances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Maintenance"
+            },
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/Role"
+          },
+          "vendingMachineUserEngineers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          },
+          "vendingMachineUserIdManagerNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          },
+          "vendingMachineUserIdTechnicianNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          },
+          "vendingMachineUsers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VendingMachine": {
+        "type": "object",
+        "properties": {
+          "vendingMachineId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalIncome": {
+            "type": "number",
+            "format": "double"
+          },
+          "serialNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "inventoryNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "manufactureDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "installDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastMaintenanceDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "intervalMonthCheck": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "resourceHours": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nextMaintenanceDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "maintenanceTimeHours": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "statusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "inventoryDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "rfidCashCollection": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "workModeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rfidLoading": {
+            "type": "string",
+            "nullable": true
+          },
+          "kitOnlineNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "criticalThresholdTemplateId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "servicePriorityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userIdManager": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "notificationTemplateId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "workingHours": {
+            "type": "string",
+            "nullable": true
+          },
+          "userEngineerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "placeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "operatorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userIdTechnician": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "rfidService": {
+            "type": "string",
+            "nullable": true
+          },
+          "coordinateX": {
+            "type": "string",
+            "nullable": true
+          },
+          "coordinateY": {
+            "type": "string",
+            "nullable": true
+          },
+          "timezone": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          },
+          "country": {
+            "$ref": "#/components/schemas/Country"
+          },
+          "criticalThresholdTemplate": {
+            "$ref": "#/components/schemas/CriticalThresholdTemplate"
+          },
+          "maintenances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Maintenance"
+            },
+            "nullable": true
+          },
+          "notificationTemplate": {
+            "$ref": "#/components/schemas/NotificationTemplate"
+          },
+          "operator": {
+            "$ref": "#/components/schemas/Operator"
+          },
+          "place": {
+            "$ref": "#/components/schemas/Place"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "nullable": true
+          },
+          "sales": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Sale"
+            },
+            "nullable": true
+          },
+          "servicePriority": {
+            "$ref": "#/components/schemas/ServicePriority"
+          },
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "userEngineer": {
+            "$ref": "#/components/schemas/User"
+          },
+          "userIdManagerNavigation": {
+            "$ref": "#/components/schemas/User"
+          },
+          "userIdTechnicianNavigation": {
+            "$ref": "#/components/schemas/User"
+          },
+          "workMode": {
+            "$ref": "#/components/schemas/WorkMod"
+          },
+          "paymentTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkMod": {
+        "type": "object",
+        "properties": {
+          "workMode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "vendingMachines": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VendingMachine"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemdesktop\\windows\\generalwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\windows\\generalwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemdesktop\\windows\\generalwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\windows\\generalwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemdesktop\\windows\\authwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\windows\\authwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemdesktop\\windows\\authwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\windows\\authwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemdesktop\\ado\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\ado\\appdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\source\\repos\\vendingsystemapi\\vendingsystemdesktop\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Windows\\GeneralWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\GeneralWindow.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemDesktop\\Windows\\GeneralWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\GeneralWindow.xaml.cs",
+              "RelativeToolTip": "VendingSystemDesktop\\Windows\\GeneralWindow.xaml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAASwBwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T18:10:22.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Pages\\MainPage.xaml",
+              "RelativeDocumentMoniker": "VendingSystemDesktop\\Pages\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Pages\\MainPage.xaml",
+              "RelativeToolTip": "VendingSystemDesktop\\Pages\\MainPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-12T17:56:27.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Windows\\AuthWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\AuthWindow.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemDesktop\\Windows\\AuthWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\AuthWindow.xaml.cs",
+              "RelativeToolTip": "VendingSystemDesktop\\Windows\\AuthWindow.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwC0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T17:45:44.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GeneralWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\GeneralWindow.xaml",
+              "RelativeDocumentMoniker": "VendingSystemDesktop\\Windows\\GeneralWindow.xaml",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\GeneralWindow.xaml",
+              "RelativeToolTip": "VendingSystemDesktop\\Windows\\GeneralWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-12T17:46:00.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\AuthWindow.xaml",
+              "RelativeDocumentMoniker": "VendingSystemDesktop\\Windows\\AuthWindow.xaml",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Windows\\AuthWindow.xaml",
+              "RelativeToolTip": "VendingSystemDesktop\\Windows\\AuthWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-12T17:36:49.694Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppData.cs",
+              "DocumentMoniker": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Ado\\AppData.cs",
+              "RelativeDocumentMoniker": "VendingSystemDesktop\\Ado\\AppData.cs",
+              "ToolTip": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemDesktop\\Ado\\AppData.cs",
+              "RelativeToolTip": "VendingSystemDesktop\\Ado\\AppData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-12T17:34:41.958Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
