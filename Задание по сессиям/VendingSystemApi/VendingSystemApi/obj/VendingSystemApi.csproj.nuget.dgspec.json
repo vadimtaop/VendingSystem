@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj": {}
+    "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Задание по сессиям\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj": {
+    "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Задание по сессиям\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj",
+        "projectUniqueName": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Задание по сессиям\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj",
         "projectName": "VendingSystemApi",
-        "projectPath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj",
-        "packagesPath": "C:\\Users\\Vadimka\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vadimka\\source\\repos\\VendingSystemApi\\VendingSystemApi\\obj\\",
+        "projectPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Задание по сессиям\\VendingSystemApi\\VendingSystemApi\\VendingSystemApi.csproj",
+        "packagesPath": "C:\\Users\\Vadim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Задание по сессиям\\VendingSystemApi\\VendingSystemApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Vadimka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Vadim\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

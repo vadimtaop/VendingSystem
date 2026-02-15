@@ -47,6 +47,7 @@
                     BorderThickness="0"
                     Background="White"
                     FontWeight="Bold"
+                    IsDefault="True"
                     Click="LoginButtonClick"/>
         </StackPanel>
     </Grid>

@@ -17,19 +17,116 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0">
+            <Image Source="/Images/Logo.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Height="50"/>
+
+            <Button Background="Transparent"
+                    BorderThickness="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Width="200"
+                    Height="49"
+                    Click="ProfileButtonClick"
+                    Name="ProfileButton">
+                <Grid Width="200"
+                      Height="49">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/Images/Cash.png"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="50"
+                           Grid.Column="0"/>
+
+                    <StackPanel Grid.Column="1"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <TextBlock Text="Фамилия Имя"
+                                   FontSize="16"
+                                   Name="ProfileNameTextBlock"/>
+                        <TextBlock Text="Роль"
+                                   HorizontalAlignment="Center"
+                                   FontSize="14"
+                                   Name="ProfileRoleTextBlock"/>
+                    </StackPanel>
+
+                </Grid>
+            </Button>
+
+            <Popup Name="ProfilePopup"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=ProfileButton}">
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Button Background="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="200"
+                            Height="30"
+                            Content="Мой профиль"/>
+                    <Button Background="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="200"
+                            Height="30"
+                            Content="Мои сессии"/>
+                    <Button Background="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="200"
+                            Height="30"
+                            Content="Выход"
+                            Click="ExitButtonClick"/>
+                </StackPanel>
+            </Popup>
+            
+        </Grid>
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"
+                                  Name="MenuColumnDefinition"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0"
                   Background="DimGray">
 
+                <DockPanel VerticalAlignment="Top">
+                    <TextBlock Text="Навигация"
+                               Foreground="White"
+                               FontSize="18"
+                               Width="100"
+                               HorizontalAlignment="Left"
+                               Name="MenuTitleTextBlock"/>
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                            Width="30"
+                            Height="30"
+                            HorizontalAlignment="Right"
+                            Click="MenuButtonClick">
+                        <Image Source="/Images/Commands.png"
+                                   Width="30"
+                                   Height="30"/>
+                    </Button>
+                </DockPanel>
+
                 <StackPanel Orientation="Vertical"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top"
-                            Width="200">
+                            Width="200"
+                            Margin="0 50 0 0"
+                            Name="MenuStackPanel">
                     <Button Background="Transparent"
                             BorderThickness="0"
                             Width="200"
@@ -42,6 +139,7 @@
                             <Image Source="/Images/Details.png"
                                    Height="20"/>
                             <TextBlock Text="Главная"
+                                       Foreground="White"
                                        FontSize="18"
                                        Margin="20 0 0 0"/>
                         </StackPanel>
@@ -58,6 +156,7 @@
                             <Image Source="/Images/Cash.png"
                                    Height="20"/>
                             <TextBlock Text="Монитор ТА"
+                                       Foreground="White"
                                        FontSize="18"
                                        Margin="20 0 0 0"/>
                         </StackPanel>
@@ -65,7 +164,59 @@
                     <Expander Background="Transparent"
                               BorderThickness="0"
                               Width="200"
-                              Height="30">
+                              Height="30"
+                              Header="Детальные отчеты"
+                              Foreground="White"
+                              FontSize="18">
+                    </Expander>
+                    <Expander Background="Transparent"
+                              BorderThickness="0"
+                              Width="200"
+                              Height="30"
+                              Header="Учет ТМЦ"
+                              Foreground="White"
+                              FontSize="18">
+                    </Expander>
+                    <Expander Background="Transparent"
+                              BorderThickness="0"
+                              Width="200"
+                              Header="Администрирование"
+                              Foreground="White"
+                              FontSize="18">
+                        <StackPanel Orientation="Vertical"
+                                    HorizontalAlignment="Center">
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Торговые автоматы"
+                                    Click="VendingMachinesButtonClick"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Компании"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Пользователи"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Модемы"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Дополнительные"/>
+                        </StackPanel>
                     </Expander>
                 </StackPanel>
                 
@@ -73,7 +224,8 @@
 
             <Frame Grid.Column="1"
                    Name="MainFrame"
-                   Source="../Pages/MainPage.xaml"/>
+                   Source="../Pages/MainPage.xaml"
+                   NavigationUIVisibility="Hidden"/>
 
         </Grid>
         

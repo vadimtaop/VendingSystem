@@ -8,6 +8,6 @@ namespace VendingSystemDesktop.Ado
 {
     public static class AppData
     {
-        //public static VendingDbEntities db = new VendingDbEntities();
+        public static VendingDb2Entities db = new VendingDb2Entities();
     }
 }

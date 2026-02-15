@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Vadimka\source\repos\VendingSystemApi\VendingSystemDesktop\obj\Debug\
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemDesktop\obj\Debug\
 VendingSystemDesktop
 none
 false
 DEBUG;TRACE
-C:\Users\Vadimka\source\repos\VendingSystemApi\VendingSystemDesktop\App.xaml
-2-186689088
-
-7-1579131129
-181896448615
-Windows\AuthWindow.xaml;Windows\GeneralWindow.xaml;
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemDesktop\App.xaml
+5-459807627
+248680757
+17-1874958672
+18-140771255
+Pages\MainPage.xaml;Pages\VendingMachinesPage.xaml;Windows\AddVendingMachinesWindow.xaml;Windows\AuthWindow.xaml;Windows\GeneralWindow.xaml;
 
 False
 

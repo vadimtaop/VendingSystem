@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VendingSystemDesktop.Ado;
 
 namespace VendingSystemDesktop.Pages
 {
@@ -23,6 +24,8 @@ namespace VendingSystemDesktop.Pages
         public MainPage()
         {
             InitializeComponent();
+
+            NewsDataGrid.ItemsSource = AppData.db.News.ToList();
         }
     }
 }

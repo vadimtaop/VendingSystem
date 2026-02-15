@@ -1,0 +1,111 @@
+﻿<Page x:Class="VendingSystemDesktop.Pages.VendingMachinesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VendingSystemDesktop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="VendingMachinesPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="DimGray">
+            <TextBlock Text="Джутсу Вендинг"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       HorizontalAlignment="Left"
+                       Margin="20 0 0 0"/>
+            <TextBlock Text="Администирование / Торговые автоматы"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="400"
+                       TextAlignment="Right"
+                       HorizontalAlignment="Right"
+                       Margin="0 0 20 0"/>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="1">
+            <TextBlock Text="Фильтр:"
+                       FontSize="18"
+                       Width="80"
+                       HorizontalAlignment="Center"
+                       Margin="0 0 0 0"/>
+            <TextBox Name="FilterTextBox"
+                     FontSize="18"
+                     Width="150"
+                     HorizontalAlignment="Center"
+                     Margin="0 0 0 0"
+                     TextChanged="FilterTextChanged"/>
+            <Button Content="Добавить"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    Margin="20 0 0 0"
+                    Click="AddButtonClick"/>
+            <Button Content="Экспорт"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    Margin="20 0 0 0"
+                    Click="ExportButtonClick"/>
+        </StackPanel>
+
+        <DataGrid Name="VendingMachinesDataGrid"
+                  Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  AlternatingRowBackground="SlateGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding VendingMachineId}" MinWidth="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Model}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Компания" Binding="{Binding Company}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Модем" Binding="{Binding Modem}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Location}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Дата установки" Binding="{Binding InstallDate, StringFormat=d}" MinWidth="50" Width="*"/>
+                <DataGridTemplateColumn MinWidth="100" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <Button Content="Р"
+                                        Background="Orange"
+                                        Width="20"
+                                        Height="20"
+                                        Click="EditButtonClick"/>
+                                <Button Content="У"
+                                        Background="Red"
+                                        Width="20"
+                                        Height="20"
+                                        Click="DeleteButtonClick"
+                                        Margin="10 0 0 0"/>
+                                <Button Content="О"
+                                        Background="Transparent"
+                                        Width="20"
+                                        Height="20"
+                                        Click="UnlinkButtonClick"
+                                        Margin="10 0 0 0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

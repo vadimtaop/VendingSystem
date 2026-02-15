@@ -1,0 +1,107 @@
+﻿<Window x:Class="VendingSystemDesktop.Windows.AddVendingMachinesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VendingSystemDesktop.Windows"
+        mc:Ignorable="d"
+        Title="Джутсу Вендинг"
+        MinHeight="600"
+        MinWidth="600"
+        Height="600"
+        Width="600"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Images/Logo.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="DimGray">
+            <TextBlock Text="Джутсу Вендинг"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       HorizontalAlignment="Left"
+                       Margin="20 0 0 0"/>
+            <TextBlock Text="Создание нового ТА"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       TextAlignment="Right"
+                       HorizontalAlignment="Right"
+                       Margin="0 0 20 0"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            
+            <TextBlock Text="Название:"
+                       FontSize="18"/>
+            <TextBox Name="NameTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Модель:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <TextBox Name="ModelTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Компания:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <TextBox Name="CompanyTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Модем:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <ComboBox Name="ModemComboBox"
+                      FontSize="18"
+                      Width="250"
+                      Height="30">
+                <ComboBoxItem Content="Билайн"/>
+                <ComboBoxItem Content="МТС"/>
+                <ComboBoxItem Content="Т2"/>
+            </ComboBox>
+
+            <TextBlock Text="Локация:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <TextBox Name="LocationTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Дата установки:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <DatePicker Name="InstallDateDatePicker"
+                        FontSize="18"
+                        Width="250"
+                        Height="30"/>
+
+            <Button Content="Добавить"
+                    Margin="0 40 0 0"
+                    Height="30"
+                    BorderThickness="0"
+                    Background="DimGray"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    IsDefault="True"
+                    Click="AddButtonClick"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

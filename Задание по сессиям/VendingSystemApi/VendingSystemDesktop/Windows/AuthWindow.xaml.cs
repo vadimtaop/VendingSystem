@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VendingSystemDesktop.Ado;
 
 namespace VendingSystemDesktop.Windows
 {
@@ -40,9 +41,28 @@ namespace VendingSystemDesktop.Windows
                 return;
             }
 
-            GeneralWindow generalWindow = new GeneralWindow();
-            generalWindow.Show();
-            this.Close();
+            var user = AppData.db.Users.FirstOrDefault(u => u.Login == login);
+
+            if (user != null)
+            {
+                if (user.Password == password)
+                {
+                    string name = user.Name;
+                    string role = user.Role;
+
+                    GeneralWindow generalWindow = new GeneralWindow(name, role);
+                    generalWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Пароль неверный!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден!");
+            }
         }
     }
 }
