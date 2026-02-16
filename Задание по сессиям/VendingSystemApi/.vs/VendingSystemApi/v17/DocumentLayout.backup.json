@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Vadimka\\Desktop\\Chemp\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\",
+  "WorkspaceRootPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\desktop\\chemp\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemdesktop\\pages\\vendingmachinespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\pages\\vendingmachinespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\windows\\generalwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\windows\\generalwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|c:\\users\\vadimka\\desktop\\chemp\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemdesktop\\pages\\vendingmachinespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B274D8D8-F50C-4DB6-A7E3-6F8E68ADE71E}|VendingSystemDesktop\\VendingSystemDesktop.csproj|solutionrelative:vendingsystemdesktop\\pages\\vendingmachinespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\windows\\generalwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\windows\\generalwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +18,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Pages\\VendingMachinesPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\Chemp\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml.cs",
-              "RelativeDocumentMoniker": "VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml.cs",
-              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\Chemp\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml.cs",
-              "RelativeToolTip": "VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAUwGUAAAAsAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Windows\\GeneralWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
+              "RelativeToolTip": "VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAACYAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-15T16:42:47.708Z",
+              "WhenOpened": "2026-02-16T17:33:14.964Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "VendingMachinesPage.xaml",
-              "DocumentMoniker": "C:\\Users\\Vadimka\\Desktop\\Chemp\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml",
-              "RelativeDocumentMoniker": "VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml",
-              "ToolTip": "C:\\Users\\Vadimka\\Desktop\\Chemp\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml",
-              "RelativeToolTip": "VendingSystemDesktop\\Pages\\VendingMachinesPage.xaml",
+              "DocumentIndex": 1,
+              "Title": "GeneralWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Windows\\GeneralWindow.xaml",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml",
+              "RelativeToolTip": "VendingSystemWeb\\Windows\\GeneralWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-15T16:38:15.057Z",
+              "WhenOpened": "2026-02-16T17:33:11.191Z",
               "EditorCaption": ""
             }
           ]
