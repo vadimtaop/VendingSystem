@@ -90,5 +90,17 @@ namespace VendingSystemDesktop.Pages
                 MessageBox.Show("Модем успешно отвязан (добавить подтверждение и try catch)");
             }
         }
+
+        private async void MessageButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (MessagePopup.IsOpen == false)
+            {
+                MessagePopup.IsOpen = true;
+
+                await Task.Delay(10000);
+
+                MessagePopup.IsOpen = false;
+            }
+        }
     }
 }

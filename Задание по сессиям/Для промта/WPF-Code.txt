@@ -1,0 +1,959 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VendingSystemDesktop.Ado
+{
+    public static class AppData
+    {
+        public static VendingDb2Entities db = new VendingDb2Entities();
+    }
+}
+<Page x:Class="VendingSystemDesktop.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VendingSystemDesktop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="MainPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="DimGray">
+            <TextBlock Text="Джутсу Вендинг"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       HorizontalAlignment="Left"
+                       Margin="20 0 0 0"/>
+            <TextBlock Text="Главная"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       TextAlignment="Right"
+                       HorizontalAlignment="Right"
+                       Margin="0 0 20 0"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Images/diagrams1.png"
+                   Grid.Column="0"
+                   Margin="10"/>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="/Images/diagrams2.png"
+                       Grid.Row="0"
+                       Margin="10"/>
+                
+                <Grid Grid.Row="1">
+                    <DataGrid Margin="10"
+                              Name="NewsDataGrid"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Date, StringFormat=d}" Width="*"/>
+                            <DataGridTextColumn Binding="{Binding Note}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                
+            </Grid>
+
+        </Grid>
+        
+    </Grid>
+</Page>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using VendingSystemDesktop.Ado;
+
+namespace VendingSystemDesktop.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для MainPage.xaml
+    /// </summary>
+    public partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+
+            NewsDataGrid.ItemsSource = AppData.db.News.ToList();
+        }
+    }
+}
+<Page x:Class="VendingSystemDesktop.Pages.VendingMachinesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VendingSystemDesktop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="VendingMachinesPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="DimGray">
+            <TextBlock Text="Джутсу Вендинг"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       HorizontalAlignment="Left"
+                       Margin="20 0 0 0"/>
+            <TextBlock Text="Администирование / Торговые автоматы"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="400"
+                       TextAlignment="Right"
+                       HorizontalAlignment="Right"
+                       Margin="0 0 20 0"/>
+        </Grid>
+
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="1">
+            <TextBlock Text="Фильтр:"
+                       FontSize="18"
+                       Width="80"
+                       HorizontalAlignment="Center"
+                       Margin="0 0 0 0"/>
+            <TextBox Name="FilterTextBox"
+                     FontSize="18"
+                     Width="150"
+                     HorizontalAlignment="Center"
+                     Margin="0 0 0 0"
+                     TextChanged="FilterTextChanged"/>
+            <Button Content="Добавить"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    Margin="20 0 0 0"
+                    Click="AddButtonClick"/>
+            <Button Content="Экспорт"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="100"
+                    HorizontalAlignment="Center"
+                    Margin="20 0 0 0"
+                    Click="ExportButtonClick"/>
+        </StackPanel>
+
+        <DataGrid Name="VendingMachinesDataGrid"
+                  Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  AlternatingRowBackground="SlateGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding VendingMachineId}" MinWidth="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Model}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Компания" Binding="{Binding Company}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Модем" Binding="{Binding Modem}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Location}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Дата установки" Binding="{Binding InstallDate, StringFormat=d}" MinWidth="50" Width="*"/>
+                <DataGridTemplateColumn MinWidth="100" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                <Button Content="Р"
+                                        Background="Orange"
+                                        Width="20"
+                                        Height="20"
+                                        Click="EditButtonClick"/>
+                                <Button Content="У"
+                                        Background="Red"
+                                        Width="20"
+                                        Height="20"
+                                        Click="DeleteButtonClick"
+                                        Margin="10 0 0 0"/>
+                                <Button Content="О"
+                                        Background="Transparent"
+                                        Width="20"
+                                        Height="20"
+                                        Click="UnlinkButtonClick"
+                                        Margin="10 0 0 0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
+using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using VendingSystemDesktop.Ado;
+using VendingSystemDesktop.Windows;
+
+namespace VendingSystemDesktop.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для VendingMachinesPage.xaml
+    /// </summary>
+    public partial class VendingMachinesPage : Page
+    {
+        public VendingMachinesPage()
+        {
+            InitializeComponent();
+
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            VendingMachinesDataGrid.ItemsSource = AppData.db.VendingMachines.ToList();
+        }
+
+        private void AddButtonClick(object sender, RoutedEventArgs e)
+        {
+            AddVendingMachinesWindow addVendingMachinesWindow = new AddVendingMachinesWindow();
+            addVendingMachinesWindow.ShowDialog();
+
+            LoadData();
+        }
+
+        private void ExportButtonClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog { Filter = "CSV|*.csv" };
+            if (dialog.ShowDialog() == true)
+            {
+                var data = (VendingMachinesDataGrid.ItemsSource as List<VendingMachines>).Select(x => $"{x.Name};{x.Model};{x.Location}");
+            }
+        }
+
+        private void FilterTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(FilterTextBox.Text))
+            {
+                LoadData();
+                return;
+            }
+
+            VendingMachinesDataGrid.ItemsSource = AppData.db.VendingMachines.Where(v => v.Name.Contains(FilterTextBox.Text)).ToList();
+        }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachine)
+            {
+                AppData.db.VendingMachines.Remove(selectedVendingMachine);
+                AppData.db.SaveChanges();
+
+                MessageBox.Show("Успешно удален (добавить подтверждение и try catch)");
+            }
+        }
+
+        private void EditButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UnlinkButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachine)
+            {
+                selectedVendingMachine.Modem = "";
+
+                AppData.db.SaveChanges();
+
+                MessageBox.Show("Модем успешно отвязан (добавить подтверждение и try catch)");
+            }
+        }
+    }
+}
+<Window x:Class="VendingSystemDesktop.Windows.AddVendingMachinesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VendingSystemDesktop.Windows"
+        mc:Ignorable="d"
+        Title="Джутсу Вендинг"
+        MinHeight="600"
+        MinWidth="600"
+        Height="600"
+        Width="600"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Images/Logo.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="DimGray">
+            <TextBlock Text="Джутсу Вендинг"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       HorizontalAlignment="Left"
+                       Margin="20 0 0 0"/>
+            <TextBlock Text="Создание нового ТА"
+                       FontSize="18"
+                       Foreground="White"
+                       Width="200"
+                       TextAlignment="Right"
+                       HorizontalAlignment="Right"
+                       Margin="0 0 20 0"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            
+            <TextBlock Text="Название:"
+                       FontSize="18"/>
+            <TextBox Name="NameTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Модель:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <TextBox Name="ModelTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Компания:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <TextBox Name="CompanyTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Модем:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <ComboBox Name="ModemComboBox"
+                      FontSize="18"
+                      Width="250"
+                      Height="30">
+                <ComboBoxItem Content="Билайн"/>
+                <ComboBoxItem Content="МТС"/>
+                <ComboBoxItem Content="Т2"/>
+            </ComboBox>
+
+            <TextBlock Text="Локация:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <TextBox Name="LocationTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Дата установки:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <DatePicker Name="InstallDateDatePicker"
+                        FontSize="18"
+                        Width="250"
+                        Height="30"/>
+
+            <Button Content="Добавить"
+                    Margin="0 40 0 0"
+                    Height="30"
+                    BorderThickness="0"
+                    Background="DimGray"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    IsDefault="True"
+                    Click="AddButtonClick"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using VendingSystemDesktop.Ado;
+
+namespace VendingSystemDesktop.Windows
+{
+    /// <summary>
+    /// Логика взаимодействия для AddVendingMachinesWindow.xaml
+    /// </summary>
+    public partial class AddVendingMachinesWindow : Window
+    {
+        public AddVendingMachinesWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void AddButtonClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(NameTextBox.Text))
+                {
+                    MessageBox.Show("Заполните поле: Название");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(ModelTextBox.Text))
+                {
+                    MessageBox.Show("Заполните поле: Модель");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(CompanyTextBox.Text))
+                {
+                    MessageBox.Show("Заполните поле: Компания");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(ModemComboBox.Text))
+                {
+                    MessageBox.Show("Заполните поле: Модем");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(LocationTextBox.Text))
+                {
+                    MessageBox.Show("Заполните поле: Адресс");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(InstallDateDatePicker.Text))
+                {
+                    MessageBox.Show("Заполните поле: Дата установки");
+                    return;
+                }
+
+
+
+                VendingMachines vendingMachines = new VendingMachines();
+
+                vendingMachines.Name = NameTextBox.Text;
+                vendingMachines.Model = ModelTextBox.Text;
+                vendingMachines.Company = CompanyTextBox.Text;
+
+                ComboBoxItem comboBoxItem = (ComboBoxItem)ModemComboBox.SelectedItem;
+                vendingMachines.Modem = comboBoxItem.Content.ToString();
+
+                vendingMachines.Location = LocationTextBox.Text;
+                vendingMachines.InstallDate = InstallDateDatePicker.SelectedDate.Value;
+
+                AppData.db.VendingMachines.Add(vendingMachines);
+                AppData.db.SaveChanges();
+
+                MessageBox.Show("Данные успешно сохранены");
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Произошла ошибка: {ex}");
+            }
+        }
+    }
+}
+<Window x:Class="VendingSystemDesktop.Windows.GeneralWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VendingSystemDesktop.Windows"
+        mc:Ignorable="d"
+        Title="Джутсу Вендинг"
+        MinHeight="700"
+        MinWidth="1100"
+        Background="White"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Images/Logo.png">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Image Source="/Images/Logo.png"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Height="50"/>
+
+            <Button Background="Transparent"
+                    BorderThickness="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Width="200"
+                    Height="49"
+                    Click="ProfileButtonClick"
+                    Name="ProfileButton">
+                <Grid Width="200"
+                      Height="49">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/Images/Cash.png"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Height="50"
+                           Grid.Column="0"/>
+
+                    <StackPanel Grid.Column="1"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <TextBlock Text="Фамилия Имя"
+                                   FontSize="16"
+                                   Name="ProfileNameTextBlock"/>
+                        <TextBlock Text="Роль"
+                                   HorizontalAlignment="Center"
+                                   FontSize="14"
+                                   Name="ProfileRoleTextBlock"/>
+                    </StackPanel>
+
+                </Grid>
+            </Button>
+
+            <Popup Name="ProfilePopup"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=ProfileButton}">
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <Button Background="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="200"
+                            Height="30"
+                            Content="Мой профиль"/>
+                    <Button Background="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="200"
+                            Height="30"
+                            Content="Мои сессии"/>
+                    <Button Background="White"
+                            BorderThickness="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Width="200"
+                            Height="30"
+                            Content="Выход"
+                            Click="ExitButtonClick"/>
+                </StackPanel>
+            </Popup>
+            
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"
+                                  Name="MenuColumnDefinition"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"
+                  Background="DimGray">
+
+                <DockPanel VerticalAlignment="Top">
+                    <TextBlock Text="Навигация"
+                               Foreground="White"
+                               FontSize="18"
+                               Width="100"
+                               HorizontalAlignment="Left"
+                               Name="MenuTitleTextBlock"/>
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                            Width="30"
+                            Height="30"
+                            HorizontalAlignment="Right"
+                            Click="MenuButtonClick">
+                        <Image Source="/Images/Commands.png"
+                                   Width="30"
+                                   Height="30"/>
+                    </Button>
+                </DockPanel>
+
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Width="200"
+                            Margin="0 50 0 0"
+                            Name="MenuStackPanel">
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                            Width="200"
+                            Height="30"
+                            Click="MainButtonClick">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Width="150">
+                            <Image Source="/Images/Details.png"
+                                   Height="20"/>
+                            <TextBlock Text="Главная"
+                                       Foreground="White"
+                                       FontSize="18"
+                                       Margin="20 0 0 0"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                            Width="200"
+                            Height="30"
+                            Click="MainButtonClick">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Width="150">
+                            <Image Source="/Images/Cash.png"
+                                   Height="20"/>
+                            <TextBlock Text="Монитор ТА"
+                                       Foreground="White"
+                                       FontSize="18"
+                                       Margin="20 0 0 0"/>
+                        </StackPanel>
+                    </Button>
+                    <Expander Background="Transparent"
+                              BorderThickness="0"
+                              Width="200"
+                              Height="30"
+                              Header="Детальные отчеты"
+                              Foreground="White"
+                              FontSize="18">
+                    </Expander>
+                    <Expander Background="Transparent"
+                              BorderThickness="0"
+                              Width="200"
+                              Height="30"
+                              Header="Учет ТМЦ"
+                              Foreground="White"
+                              FontSize="18">
+                    </Expander>
+                    <Expander Background="Transparent"
+                              BorderThickness="0"
+                              Width="200"
+                              Header="Администрирование"
+                              Foreground="White"
+                              FontSize="18">
+                        <StackPanel Orientation="Vertical"
+                                    HorizontalAlignment="Center">
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Торговые автоматы"
+                                    Click="VendingMachinesButtonClick"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Компании"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Пользователи"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Модемы"/>
+                            <Button Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Width="200"
+                                    Height="30"
+                                    Content="Дополнительные"/>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+                
+            </Grid>
+
+            <Frame Grid.Column="1"
+                   Name="MainFrame"
+                   Source="../Pages/MainPage.xaml"
+                   NavigationUIVisibility="Hidden"/>
+
+        </Grid>
+        
+    </Grid>
+</Window>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace VendingSystemDesktop.Windows
+{
+    /// <summary>
+    /// Логика взаимодействия для GeneralWindow.xaml
+    /// </summary>
+    public partial class GeneralWindow : Window
+    {
+        public GeneralWindow(string name, string role)
+        {
+            InitializeComponent();
+
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                ProfileNameTextBlock.Text = name;
+            }
+            if (!string.IsNullOrEmpty(role))
+            {
+                ProfileRoleTextBlock.Text = role;
+            }
+        }
+
+        private void MainButtonClick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Source = new Uri("../Pages/MainPage.xaml", UriKind.Relative);
+        }
+
+        private void MenuButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (MenuColumnDefinition.Width.Value == 200)
+            {
+                MenuColumnDefinition.Width = new GridLength(30);
+                MenuTitleTextBlock.Visibility = Visibility.Collapsed;
+                MenuStackPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                MenuColumnDefinition.Width = new GridLength(200);
+                MenuTitleTextBlock.Visibility = Visibility.Visible;
+                MenuStackPanel.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ProfileButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ProfilePopup.IsOpen == false)
+            {
+                ProfilePopup.IsOpen = true;
+            }
+            else
+            {
+                ProfilePopup.IsOpen = false;
+            }
+        }
+
+        private void ExitButtonClick(object sender, RoutedEventArgs e)
+        {
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.Show();
+            this.Close();
+        }
+
+        private void VendingMachinesButtonClick(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Source = new Uri("../Pages/VendingMachinesPage.xaml", UriKind.Relative);
+        }
+    }
+}
+<Window x:Class="VendingSystemDesktop.Windows.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VendingSystemDesktop.Windows"
+        mc:Ignorable="d"
+        Title="Джутсу Вендинг"
+        MinHeight="700"
+        MinWidth="1100"
+        Background="DimGray"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Images/Logo.png">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Image Source="/Images/Logo.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Height="75"/>
+            <TextBlock Text="Авторизация"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="0 40 0 0"/>
+            
+            <TextBlock Text="Логин:"
+                       FontSize="18"
+                       Margin="0 40 0 0"/>
+            <TextBox Name="LoginTextBox"
+                     FontSize="18"
+                     Width="250"
+                     Height="30"/>
+
+            <TextBlock Text="Пароль:"
+                       FontSize="18"
+                       Margin="0 10 0 0"/>
+            <PasswordBox Name="PasswordBox"
+                         FontSize="18"
+                         Width="250"
+                         Height="30"/>
+
+            <Button Content="Войти"
+                    Margin="0 40 0 0"
+                    Height="30"
+                    BorderThickness="0"
+                    Background="White"
+                    FontWeight="Bold"
+                    IsDefault="True"
+                    Click="LoginButtonClick"/>
+        </StackPanel>
+    </Grid>
+</Window>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using VendingSystemDesktop.Ado;
+
+namespace VendingSystemDesktop.Windows
+{
+    /// <summary>
+    /// Логика взаимодействия для AuthWindow.xaml
+    /// </summary>
+    public partial class AuthWindow : Window
+    {
+        public AuthWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void LoginButtonClick(object sender, RoutedEventArgs e)
+        {
+            string login = LoginTextBox.Text.Trim();
+            string password = PasswordBox.Password.Trim();
+
+            if (string.IsNullOrEmpty(login))
+            {
+                MessageBox.Show("Заполните логин!");
+                return;
+            }
+            if (string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Заполните пароль!");
+                return;
+            }
+
+            var user = AppData.db.Users.FirstOrDefault(u => u.Login == login);
+
+            if (user != null)
+            {
+                if (user.Password == password)
+                {
+                    string name = user.Name;
+                    string role = user.Role;
+
+                    GeneralWindow generalWindow = new GeneralWindow(name, role);
+                    generalWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Пароль неверный!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не найден!");
+            }
+        }
+    }
+}

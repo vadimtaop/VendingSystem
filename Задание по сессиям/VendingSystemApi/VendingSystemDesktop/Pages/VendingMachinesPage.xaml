@@ -107,5 +107,34 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <StackPanel Grid.Row="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Button Content="Уведомление"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="MessageButtonClick"
+                    Name="MessageButton"/>
+
+            <Popup Name="MessagePopup"
+                   Placement="Top"
+                   PlacementTarget="{Binding ElementName=MessageButton}">
+                <StackPanel Orientation="Vertical"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <TextBlock Text="Внимание! Закончился товар!"
+                               Width="200"
+                               Height="60"
+                               Background="DimGray"
+                               Foreground="White"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"/>
+                </StackPanel>
+            </Popup>
+        </StackPanel>
+
     </Grid>
 </Page>
