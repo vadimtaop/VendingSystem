@@ -5,9 +5,69 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VendingSystemWeb.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1000"
       Title="SchedulePage">
-    <Grid>
-        
+    
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+            <Button Content="Принять"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="ApplyButtonClick"/>
+            <Button Content="Завершить"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="DoneButtonClick"
+                    Margin="20 0 0 0"/>
+            <Button Content="Отклонить"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="DeclineButtonClick"
+                    Margin="20 0 0 0"/>
+            <Button Content="Аварийная"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="WarningButtonClick"
+                    Margin="20 0 0 0"/>
+        </StackPanel>
+
+        <DataGrid Name="VendingMachinesDataGrid"
+                      Grid.Row="1"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      AlternatingRowBackground="SlateGray">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер" Binding="{Binding VendingMachineId}" MinWidth="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Модель" Binding="{Binding Model}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Компания" Binding="{Binding Company}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Модем" Binding="{Binding Modem}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Location}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Дата установки" Binding="{Binding InstallDate, StringFormat=d}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Интервал (мес.)" Binding="{Binding IntervalService}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Дата след. обслуживания" Binding="{Binding NextServiceDate, StringFormat=d}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Статус ТА" Binding="{Binding StatusMachine}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Статус обслуж" Binding="{Binding StatusService}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding UserName}" MinWidth="50" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
+    
 </Page>

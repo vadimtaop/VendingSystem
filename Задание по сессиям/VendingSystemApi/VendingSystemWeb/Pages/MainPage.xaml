@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VendingSystemWeb.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500"
+      d:DesignWidth="800"
       Title="MainPage">
 
     <Grid>
@@ -15,21 +16,21 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
             <Button Content="Импорт из CSV"
-                    Width="200"
-                    Height="30"
-                    BorderThickness="1"
-                    Background="Transparent"
-                    Click="ImportButtonClick"/>
+                        Width="200"
+                        Height="30"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Click="ImportButtonClick"/>
         </StackPanel>
-        
+
         <DataGrid Name="VendingMachinesDataGrid"
-                  Grid.Row="1"
-                  AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  AlternatingRowBackground="SlateGray">
+                      Grid.Row="1"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      AlternatingRowBackground="SlateGray">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding VendingMachineId}" MinWidth="50"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" MinWidth="50" Width="*"/>
@@ -38,9 +39,13 @@
                 <DataGridTextColumn Header="Модем" Binding="{Binding Modem}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Location}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Дата установки" Binding="{Binding InstallDate, StringFormat=d}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Интервал (мес.)" Binding="{Binding IntervalService}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Дата след. обслуживания" Binding="{Binding NextServiceDate, StringFormat=d}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Статус ТА" Binding="{Binding StatusMachine}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Статус обслуж" Binding="{Binding StatusService}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding UserName}" MinWidth="50" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-
     </Grid>
 
 </Page>

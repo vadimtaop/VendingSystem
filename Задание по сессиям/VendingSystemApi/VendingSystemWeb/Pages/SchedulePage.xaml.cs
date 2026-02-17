@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VendingSystemWeb.Ado;
 
 namespace VendingSystemWeb.Pages
 {
@@ -23,6 +24,65 @@ namespace VendingSystemWeb.Pages
         public SchedulePage()
         {
             InitializeComponent();
+
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            VendingMachinesDataGrid.ItemsSource = AppData.db.VendingMachines.ToList();
+        }
+
+        private void ApplyButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
+            {
+                selectedVendingMachines.StatusMachine = "На ремонте/на обслуживании";
+                selectedVendingMachines.StatusService = "В работе";
+
+                AppData.db.SaveChanges();
+
+                LoadData();
+            }
+        }
+
+        private void DoneButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
+            {
+                selectedVendingMachines.StatusMachine = "Работает";
+                selectedVendingMachines.StatusService = "Завершен";
+
+                AppData.db.SaveChanges();
+
+                LoadData();
+            }
+        }
+
+        private void DeclineButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
+            {
+                selectedVendingMachines.StatusMachine = "Работает";
+                selectedVendingMachines.StatusService = "Отклонен";
+
+                AppData.db.SaveChanges();
+
+                LoadData();
+            }
+        }
+
+        private void WarningButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
+            {
+                selectedVendingMachines.StatusMachine = "Требуется ТО";
+                selectedVendingMachines.StatusService = "Аварийная";
+
+                AppData.db.SaveChanges();
+
+                LoadData();
+            }
         }
     }
 }

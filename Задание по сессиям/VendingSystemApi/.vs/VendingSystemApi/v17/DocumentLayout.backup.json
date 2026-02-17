@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\windows\\generalwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\windows\\generalwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\pages\\calendarpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\calendarpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\windows\\generalwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\windows\\generalwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\pages\\schedulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\schedulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\pages\\schedulepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\schedulepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\\u0437\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\vendingsystemapi\\vendingsystemweb\\pages\\calendarpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}|VendingSystemWeb\\VendingSystemWeb.csproj|solutionrelative:vendingsystemweb\\pages\\calendarpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,26 +31,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Windows\\GeneralWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
-              "RelativeDocumentMoniker": "VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
-              "RelativeToolTip": "VendingSystemWeb\\Windows\\GeneralWindow.xaml.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAACYAAAA5AAAAAAAAAA==",
+              "Title": "CalendarPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\CalendarPage.xaml",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\CalendarPage.xaml",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\CalendarPage.xaml",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\CalendarPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-17T18:05:19.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CalendarPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\CalendarPage.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\CalendarPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\CalendarPage.xaml.cs",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\CalendarPage.xaml.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-16T17:33:14.964Z",
+              "WhenOpened": "2026-02-17T18:02:15.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Pages\\SchedulePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\SchedulePage.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\SchedulePage.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\SchedulePage.xaml.cs",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\SchedulePage.xaml.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAgwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T17:56:41.147Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "GeneralWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml",
-              "RelativeDocumentMoniker": "VendingSystemWeb\\Windows\\GeneralWindow.xaml",
-              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Windows\\GeneralWindow.xaml",
-              "RelativeToolTip": "VendingSystemWeb\\Windows\\GeneralWindow.xaml",
+              "Title": "SchedulePage.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\SchedulePage.xaml",
+              "RelativeDocumentMoniker": "VendingSystemWeb\\Pages\\SchedulePage.xaml",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\\u0417\u0430\u0434\u0430\u043D\u0438\u0435 \u043F\u043E \u0441\u0435\u0441\u0441\u0438\u044F\u043C\\VendingSystemApi\\VendingSystemWeb\\Pages\\SchedulePage.xaml",
+              "RelativeToolTip": "VendingSystemWeb\\Pages\\SchedulePage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-16T17:33:11.191Z",
+              "WhenOpened": "2026-02-17T17:50:42.859Z",
               "EditorCaption": ""
             }
           ]

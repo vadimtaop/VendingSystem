@@ -21,5 +21,11 @@ namespace VendingSystemWeb.Ado
         public string Modem { get; set; }
         public string Location { get; set; }
         public Nullable<System.DateTime> InstallDate { get; set; }
+        public Nullable<int> IntervalService { get; set; }
+        public Nullable<System.DateTime> NextServiceDate { get; set; }
+        public string Status { get; set; }
+        public string StatusMachine { get; set; }
+        public string StatusService { get; set; }
+        public string NameUser { get; set; }
     }
 }

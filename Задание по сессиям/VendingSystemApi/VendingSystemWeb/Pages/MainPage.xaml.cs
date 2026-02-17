@@ -57,6 +57,8 @@ namespace VendingSystemWeb.Pages
 
                     // Возможны проблемы с датой (можно засунуть в try catch и ставить сегоднешнее число DateTime.Now)
                     vendingMachines.InstallDate = DateTime.Parse(data[5]);
+                    vendingMachines.IntervalService = int.Parse(data[6]);
+                    vendingMachines.NextServiceDate = DateTime.Parse(data[7]);
 
                     AppData.db.VendingMachines.Add(vendingMachines);
                     AppData.db.SaveChanges();
