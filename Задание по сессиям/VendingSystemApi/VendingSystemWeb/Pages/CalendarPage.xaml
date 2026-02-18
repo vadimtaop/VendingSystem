@@ -56,7 +56,8 @@
                 <DataGridTextColumn Header="Дата след. обслуживания" Binding="{Binding NextServiceDate, StringFormat=d}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Статус ТА" Binding="{Binding StatusMachine}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Статус обслуж" Binding="{Binding StatusService}" MinWidth="50" Width="*"/>
-                <DataGridTextColumn Header="Сотрудник" Binding="{Binding UserName}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding NameUser}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Приоритет" Binding="{Binding Priority}" MinWidth="50" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

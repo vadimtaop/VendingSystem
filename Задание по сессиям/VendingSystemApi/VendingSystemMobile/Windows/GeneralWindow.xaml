@@ -1,0 +1,115 @@
+﻿<Window x:Class="VendingSystemMobile.Windows.GeneralWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VendingSystemMobile.Windows"
+        mc:Ignorable="d"
+        Title="Джутсу Вендинг"
+        MinHeight="800"
+        MinWidth="400"
+        Height="800"
+        Width="500"
+        Background="GhostWhite"
+        WindowStartupLocation="CenterScreen"
+        Icon="/Images/Logo.png"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Background="White"
+              Name="TopGrid">
+            <Image Source="/Images/Logo.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Height="65"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Visible"
+                      HorizontalScrollBarVisibility="Hidden">
+            <Grid Grid.Row="1"
+                  Background="GhostWhite"
+                  Name="CenterGrid">
+                <StackPanel Orientation="Vertical"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <ListView x:Name="ServicesListView"
+                              Background="GhostWhite">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Width="400">
+                                    <TextBlock Text="{Binding VendingMachineId}"
+                                               Height="30"
+                                               Width="200"/>
+                                    <TextBlock Text="{Binding Name}"
+                                               Height="30"
+                                               Width="200"/>
+                                    <TextBlock Text="{Binding StatusService}"
+                                               Height="30"
+                                               Width="200"/>
+                                    <Button Content="Принять"
+                                            Width="150"
+                                            Height="30"
+                                            BorderThickness="1"
+                                            Background="Transparent"
+                                            Click="ApplyButtonClick"/>
+                                    <Button Content="Отклонить"
+                                            Width="150"
+                                            Height="30"
+                                            BorderThickness="1"
+                                            Background="Transparent"
+                                            Click="DeclineButtonClick"
+                                            Margin="0 10 0 0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        
+        <Grid Grid.Row="2"
+              Background="White"
+              Name="BottomGrid">
+            <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Grid.Row="2">
+                <Button Content="Камера"
+                        Width="100"
+                        Height="50"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Click="CameraButtonClick"/>
+                <Button Content="Видео"
+                        Width="100"
+                        Height="50"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Click="CameraButtonClick"/>
+                <Button Content="Светлая тема"
+                        Width="100"
+                        Height="50"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Click="WhiteThemeButtonClick"/>
+                <Button Content="Темная тема"
+                        Width="100"
+                        Height="50"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Click="BlackThemeButtonClick"/>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

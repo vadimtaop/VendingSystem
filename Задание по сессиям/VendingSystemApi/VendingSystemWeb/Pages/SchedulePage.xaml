@@ -10,14 +10,15 @@
     
         <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="400"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="0 0 0 40">
             <Button Content="Принять"
                     FontSize="18"
                     Background="Transparent"
@@ -47,6 +48,32 @@
                     Margin="20 0 0 0"/>
         </StackPanel>
 
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="0 40 0 0">
+            <Button Content="Назначить Вадима"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="VadimButtonClick"/>
+            <Button Content="Назначить Петра"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="PetrButtonClick"
+                    Margin="20 0 0 0"/>
+            <Button Content="Назначить Ивана"
+                    FontSize="18"
+                    Background="Transparent"
+                    Width="200"
+                    HorizontalAlignment="Center"
+                    Click="IvanButtonClick"
+                    Margin="20 0 0 0"/>
+        </StackPanel>
+
         <DataGrid Name="VendingMachinesDataGrid"
                       Grid.Row="1"
                       AutoGenerateColumns="False"
@@ -64,7 +91,8 @@
                 <DataGridTextColumn Header="Дата след. обслуживания" Binding="{Binding NextServiceDate, StringFormat=d}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Статус ТА" Binding="{Binding StatusMachine}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Статус обслуж" Binding="{Binding StatusService}" MinWidth="50" Width="*"/>
-                <DataGridTextColumn Header="Сотрудник" Binding="{Binding UserName}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding NameUser}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Приоритет" Binding="{Binding Priority}" MinWidth="50" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 

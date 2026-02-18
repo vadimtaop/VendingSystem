@@ -18,36 +18,9 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Login" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Role" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="VendingMachines">
-    <Key>
-      <PropertyRef Name="VendingMachineId" />
-    </Key>
-    <Property Name="VendingMachineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Company" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Modem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="InstallDate" Type="DateTime" Precision="3" />
-    <Property Name="IntervalService" Type="Int32" />
-    <Property Name="NextServiceDate" Type="DateTime" Precision="0" />
-    <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityContainer Name="VendingDb2Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="News" EntityType="Self.News" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
-    <EntitySet Name="VendingMachines" EntityType="Self.VendingMachines" />
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -78,6 +51,8 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Users" EntityType="VendingDb2Model.Users" />
+    <EntitySet Name="VendingMachines" EntityType="VendingDb2Model.VendingMachines" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -90,4 +65,32 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VendingMachines">
+    <Key>
+      <PropertyRef Name="VendingMachineId" />
+    </Key>
+    <Property Name="VendingMachineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Modem" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InstallDate" Type="DateTime" Precision="3" />
+    <Property Name="IntervalService" Type="Int32" />
+    <Property Name="NextServiceDate" Type="DateTime" Precision="0" />
+    <Property Name="StatusMachine" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StatusService" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

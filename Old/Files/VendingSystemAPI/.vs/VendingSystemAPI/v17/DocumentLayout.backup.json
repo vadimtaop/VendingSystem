@@ -3,15 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\old\\files\\vendingsystemapi\\vendingsystemwpf\\windows\\addvendingmachinewindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|solutionrelative:vendingsystemwpf\\windows\\addvendingmachinewindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\old\\files\\vendingsystemapi\\vendingsystemwpf\\windows\\addvendingmachinewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|solutionrelative:vendingsystemwpf\\windows\\addvendingmachinewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\old\\files\\vendingsystemapi\\vendingsystemwpf\\pages\\vendingmachinespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|solutionrelative:vendingsystemwpf\\pages\\vendingmachinespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\old\\files\\vendingsystemapi\\vendingsystemwpf\\pages\\monitorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\vendingsystemwpf\\pages\\monitorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|solutionrelative:vendingsystemwpf\\pages\\monitorpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|c:\\users\\vadim\\desktop\\vendingsystem\\old\\files\\vendingsystemapi\\vendingsystemwpf\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\vendingsystemwpf\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0A64D9AB-AA46-4B2F-84A0-6C20389CE228}|VendingSystemWPF\\VendingSystemWPF.csproj|solutionrelative:vendingsystemwpf\\pages\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -27,6 +35,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AddVendingMachineWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml.cs",
+              "RelativeDocumentMoniker": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml.cs",
+              "RelativeToolTip": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-15T13:49:31.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddVendingMachineWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "RelativeDocumentMoniker": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "RelativeToolTip": "VendingSystemWPF\\Windows\\AddVendingMachineWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-02-15T13:49:29.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "VendingMachinesPage.xaml",
               "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Pages\\VendingMachinesPage.xaml",
               "RelativeDocumentMoniker": "VendingSystemWPF\\Pages\\VendingMachinesPage.xaml",
@@ -38,27 +71,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "MonitorPage.xaml",
               "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Pages\\MonitorPage.xaml",
               "RelativeDocumentMoniker": "VendingSystemWPF\\Pages\\MonitorPage.xaml",
               "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Pages\\MonitorPage.xaml",
               "RelativeToolTip": "VendingSystemWPF\\Pages\\MonitorPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-15T10:53:38.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T10:53:38.807Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MainPage.xaml",
               "DocumentMoniker": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Pages\\MainPage.xaml",
               "RelativeDocumentMoniker": "VendingSystemWPF\\Pages\\MainPage.xaml",
               "ToolTip": "C:\\Users\\Vadim\\Desktop\\VendingSystem\\Old\\Files\\VendingSystemAPI\\VendingSystemWPF\\Pages\\MainPage.xaml",
               "RelativeToolTip": "VendingSystemWPF\\Pages\\MainPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-15T10:53:31.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-15T10:53:31.131Z"
             }
           ]
         }

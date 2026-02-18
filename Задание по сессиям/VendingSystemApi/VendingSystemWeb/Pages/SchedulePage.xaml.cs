@@ -78,6 +78,43 @@ namespace VendingSystemWeb.Pages
             {
                 selectedVendingMachines.StatusMachine = "Требуется ТО";
                 selectedVendingMachines.StatusService = "Аварийная";
+                selectedVendingMachines.Priority = "Высокий";
+
+                AppData.db.SaveChanges();
+
+                LoadData();
+            }
+        }
+
+        private void VadimButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
+            {
+                selectedVendingMachines.NameUser = "Вадимов В. В.";
+
+                AppData.db.SaveChanges();
+
+                LoadData();
+            }
+        }
+
+        private void PetrButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
+            {
+                selectedVendingMachines.NameUser = "Петров П. П.";
+
+                AppData.db.SaveChanges();
+
+                LoadData();
+            }
+        }
+
+        private void IvanButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
+            {
+                selectedVendingMachines.NameUser = "Иванов И. И.";
 
                 AppData.db.SaveChanges();
 

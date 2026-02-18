@@ -41,27 +41,34 @@ namespace VendingSystemWeb.Windows
                 return;
             }
 
-            var user = AppData.db.Users.FirstOrDefault(u => u.Login == login);
-
-            if (user != null)
+            try
             {
-                if (user.Password == password)
-                {
-                    string name = user.Name;
-                    string role = user.Role;
+                var user = AppData.db.Users.FirstOrDefault(u => u.Login == login);
 
-                    GeneralWindow generalWindow = new GeneralWindow();
-                    generalWindow.Show();
-                    this.Close();
+                if (user != null)
+                {
+                    if (user.Password == password)
+                    {
+                        string name = user.Name;
+                        string role = user.Role;
+
+                        GeneralWindow generalWindow = new GeneralWindow();
+                        generalWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пароль неверный!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Пароль неверный!");
+                    MessageBox.Show("Пользователь не найден!");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Пользователь не найден!");
+                MessageBox.Show($"Ошибка: {ex}");
             }
         }
     }

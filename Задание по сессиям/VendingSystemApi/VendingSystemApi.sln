@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingSystemDesktop", "Ven
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingSystemWeb", "VendingSystemWeb\VendingSystemWeb.csproj", "{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendingSystemMobile", "VendingSystemMobile\VendingSystemMobile.csproj", "{06CE1F52-30B9-4F98-B2FF-32F5027E80AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEDE67BD-DC2F-46B0-91DD-FEC0C98E1B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06CE1F52-30B9-4F98-B2FF-32F5027E80AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06CE1F52-30B9-4F98-B2FF-32F5027E80AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06CE1F52-30B9-4F98-B2FF-32F5027E80AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06CE1F52-30B9-4F98-B2FF-32F5027E80AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

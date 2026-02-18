@@ -21,33 +21,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="VendingDb2Model.Users">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Role" ColumnName="Role" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VendingMachines">
-      <EntityTypeMapping TypeName="VendingDb2Model.VendingMachines">
-        <MappingFragment StoreEntitySet="VendingMachines">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="NextServiceDate" ColumnName="NextServiceDate" />
-          <ScalarProperty Name="IntervalService" ColumnName="IntervalService" />
-          <ScalarProperty Name="VendingMachineId" ColumnName="VendingMachineId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="Company" ColumnName="Company" />
-          <ScalarProperty Name="Modem" ColumnName="Modem" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище VendingDb2Model.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище VendingDb2Model.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище VendingDb2Model.sp_dropdiagram" />
@@ -72,5 +45,35 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище VendingDb2Model.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище VendingDb2Model.sp_upgraddiagrams" />
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="VendingDb2Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendingMachines">
+      <EntityTypeMapping TypeName="VendingDb2Model.VendingMachines">
+        <MappingFragment StoreEntitySet="VendingMachines">
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="StatusService" ColumnName="StatusService" />
+          <ScalarProperty Name="StatusMachine" ColumnName="StatusMachine" />
+          <ScalarProperty Name="NextServiceDate" ColumnName="NextServiceDate" />
+          <ScalarProperty Name="IntervalService" ColumnName="IntervalService" />
+          <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Modem" ColumnName="Modem" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VendingMachineId" ColumnName="VendingMachineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

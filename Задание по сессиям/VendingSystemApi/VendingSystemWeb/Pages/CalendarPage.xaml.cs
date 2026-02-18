@@ -47,6 +47,7 @@ namespace VendingSystemWeb.Pages
                     selectedVendingMachines.StatusMachine = "Требуется ТО";
                     selectedVendingMachines.StatusService = "Новая";
                     selectedVendingMachines.NameUser = "Иванов И. И.";
+                    selectedVendingMachines.Priority = "Низкий";
 
                     AppData.db.SaveChanges();
 
