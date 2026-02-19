@@ -1,10 +1,12 @@
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.csproj.AssemblyReference.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\Windows\AuthWindow.g.cs
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\Windows\GeneralWindow.g.cs
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\App.g.cs
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile_Content.g.cs
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile_MarkupCompile.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile_MarkupCompile.lref
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\Windows\GeneralWindow.g.cs
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.exe
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.pdb
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\bin\Debug\VendingSystemMobile.exe.config
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\bin\Debug\VendingSystemMobile.exe
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\bin\Debug\VendingSystemMobile.pdb
@@ -20,6 +22,4 @@ C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingS
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.csproj.GenerateResource.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.csproj.CoreCompileInputs.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingS.30816FEB.Up2Date
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.exe
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.pdb
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.exe.config

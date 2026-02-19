@@ -28,6 +28,13 @@
     <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Role" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
+  <EntityContainer Name="VendingDb2Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="VendingMachines" EntityType="VendingDb2Model.VendingMachines" />
+    <EntitySet Name="StatusHistories" EntityType="VendingDb2Model.StatusHistories" />
+  </EntityContainer>
   <EntityType Name="VendingMachines">
     <Key>
       <PropertyRef Name="VendingMachineId" />
@@ -45,11 +52,20 @@
     <Property Name="StatusService" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Priority" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StartServiceDate" Type="DateTime" Precision="0" />
+    <Property Name="DeadlineDays" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CancelNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="VendingDb2Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="News" EntityType="Self.News" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
-    <EntitySet Name="VendingMachines" EntityType="Self.VendingMachines" />
-  </EntityContainer>
+  <EntityType Name="StatusHistories">
+    <Key>
+      <PropertyRef Name="StatusHistoryId" />
+    </Key>
+    <Property Name="StatusHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendingMachineId" Type="Int32" />
+    <Property Name="OldStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NewStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
 </Schema>

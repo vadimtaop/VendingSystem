@@ -29,5 +29,6 @@ namespace VendingSystemMobile.Ado
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<VendingMachines> VendingMachines { get; set; }
+        public virtual DbSet<StatusHistories> StatusHistories { get; set; }
     }
 }

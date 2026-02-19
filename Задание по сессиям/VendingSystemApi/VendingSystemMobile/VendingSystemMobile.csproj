@@ -83,6 +83,9 @@
     <Compile Include="Ado\News.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ado\StatusHistories.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ado\sysdiagrams.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>

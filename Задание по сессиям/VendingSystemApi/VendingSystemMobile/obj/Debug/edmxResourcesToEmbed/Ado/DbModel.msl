@@ -35,19 +35,35 @@
     <EntitySetMapping Name="VendingMachines">
       <EntityTypeMapping TypeName="VendingDb2Model.VendingMachines">
         <MappingFragment StoreEntitySet="VendingMachines">
-          <ScalarProperty Name="VendingMachineId" ColumnName="VendingMachineId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Model" ColumnName="Model" />
-          <ScalarProperty Name="Company" ColumnName="Company" />
-          <ScalarProperty Name="Modem" ColumnName="Modem" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
-          <ScalarProperty Name="IntervalService" ColumnName="IntervalService" />
-          <ScalarProperty Name="NextServiceDate" ColumnName="NextServiceDate" />
-          <ScalarProperty Name="StatusMachine" ColumnName="StatusMachine" />
-          <ScalarProperty Name="StatusService" ColumnName="StatusService" />
-          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="CancelNote" ColumnName="CancelNote" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DeadlineDays" ColumnName="DeadlineDays" />
+          <ScalarProperty Name="StartServiceDate" ColumnName="StartServiceDate" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="StatusService" ColumnName="StatusService" />
+          <ScalarProperty Name="StatusMachine" ColumnName="StatusMachine" />
+          <ScalarProperty Name="NextServiceDate" ColumnName="NextServiceDate" />
+          <ScalarProperty Name="IntervalService" ColumnName="IntervalService" />
+          <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Modem" ColumnName="Modem" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="VendingMachineId" ColumnName="VendingMachineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusHistories">
+      <EntityTypeMapping TypeName="VendingDb2Model.StatusHistories">
+        <MappingFragment StoreEntitySet="StatusHistories">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="NewStatus" ColumnName="NewStatus" />
+          <ScalarProperty Name="OldStatus" ColumnName="OldStatus" />
+          <ScalarProperty Name="VendingMachineId" ColumnName="VendingMachineId" />
+          <ScalarProperty Name="StatusHistoryId" ColumnName="StatusHistoryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

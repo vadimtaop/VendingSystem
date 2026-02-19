@@ -1,3 +1,11 @@
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\VendingSystemWeb.exe.config
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\VendingSystemWeb.exe
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\VendingSystemWeb.pdb
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.dll
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.xml
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.csproj.AssemblyReference.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\Pages\CalendarPage.g.cs
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\Pages\MainPage.g.cs
@@ -8,16 +16,6 @@ C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingS
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb_Content.g.cs
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb_MarkupCompile.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb_MarkupCompile.lref
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.exe
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.pdb
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\VendingSystemWeb.exe.config
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\VendingSystemWeb.exe
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\VendingSystemWeb.pdb
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.dll
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.xml
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\Pages\CalendarPage.baml
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\Pages\MainPage.baml
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\Pages\SchedulePage.baml
@@ -28,3 +26,5 @@ C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingS
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.csproj.GenerateResource.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.csproj.CoreCompileInputs.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingS.523127FF.Up2Date
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.exe
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.pdb

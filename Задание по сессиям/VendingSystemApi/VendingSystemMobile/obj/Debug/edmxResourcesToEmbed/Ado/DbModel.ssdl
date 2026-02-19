@@ -8,6 +8,16 @@
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="Note" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="StatusHistories">
+    <Key>
+      <PropertyRef Name="StatusHistoryId" />
+    </Key>
+    <Property Name="StatusHistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendingMachineId" Type="int" />
+    <Property Name="OldStatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="NewStatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -45,9 +55,15 @@
     <Property Name="StatusService" Type="nvarchar" MaxLength="100" />
     <Property Name="NameUser" Type="nvarchar" MaxLength="100" />
     <Property Name="Priority" Type="nvarchar" MaxLength="100" />
+    <Property Name="ServiceType" Type="nvarchar" MaxLength="100" />
+    <Property Name="StartServiceDate" Type="date" />
+    <Property Name="DeadlineDays" Type="int" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="CancelNote" Type="nvarchar(max)" />
   </EntityType>
   <EntityContainer Name="Хранилище VendingDb2ModelContainer">
     <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusHistories" EntityType="Self.StatusHistories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VendingMachines" EntityType="Self.VendingMachines" Schema="dbo" store:Type="Tables" />
