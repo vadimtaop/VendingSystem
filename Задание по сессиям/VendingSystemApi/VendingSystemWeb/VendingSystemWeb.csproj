@@ -80,13 +80,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Ado\MessageHistories.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ado\News.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ado\Protocols.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ado\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ado\sp_helpdiagrams_Result.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ado\StatusHistories.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ado\sysdiagrams.cs">
@@ -154,13 +163,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Logo.png" />
-    <Resource Include="Images\Fillup.png" />
-    <Resource Include="Images\diagrams2.png" />
-    <Resource Include="Images\diagrams1.png" />
-    <Resource Include="Images\Details2.png" />
-    <Resource Include="Images\Details.png" />
-    <Resource Include="Images\Commands.png" />
-    <Resource Include="Images\Cash.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

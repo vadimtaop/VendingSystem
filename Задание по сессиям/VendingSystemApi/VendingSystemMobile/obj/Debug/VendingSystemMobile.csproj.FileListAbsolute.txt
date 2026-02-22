@@ -22,4 +22,4 @@ C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingS
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.csproj.GenerateResource.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.csproj.CoreCompileInputs.cache
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingS.30816FEB.Up2Date
-C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\obj\Debug\VendingSystemMobile.exe.config
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemMobile\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

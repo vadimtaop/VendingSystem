@@ -25,9 +25,12 @@ namespace VendingSystemDesktop.Ado
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<News> News { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<StatusHistories> StatusHistories { get; set; }
         public virtual DbSet<VendingMachines> VendingMachines { get; set; }
+        public virtual DbSet<MessageHistories> MessageHistories { get; set; }
+        public virtual DbSet<Protocols> Protocols { get; set; }
+        public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

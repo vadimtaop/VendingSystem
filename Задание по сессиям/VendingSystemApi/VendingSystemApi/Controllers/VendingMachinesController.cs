@@ -13,9 +13,9 @@ namespace VendingSystemApi.Controllers
     [ApiController]
     public class VendingMachinesController : ControllerBase
     {
-        private readonly VendingDbContext _context;
+        private readonly VendingDb2Context _context;
 
-        public VendingMachinesController(VendingDbContext context)
+        public VendingMachinesController(VendingDb2Context context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace VendingSystemApi.Controllers
 
         // GET: api/VendingMachines/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<VendingMachine>> GetVendingMachine(Guid id)
+        public async Task<ActionResult<VendingMachine>> GetVendingMachine(int id)
         {
             var vendingMachine = await _context.VendingMachines.FindAsync(id);
 
@@ -44,7 +44,7 @@ namespace VendingSystemApi.Controllers
         // PUT: api/VendingMachines/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVendingMachine(Guid id, VendingMachine vendingMachine)
+        public async Task<IActionResult> PutVendingMachine(int id, VendingMachine vendingMachine)
         {
             if (id != vendingMachine.VendingMachineId)
             {
@@ -78,28 +78,14 @@ namespace VendingSystemApi.Controllers
         public async Task<ActionResult<VendingMachine>> PostVendingMachine(VendingMachine vendingMachine)
         {
             _context.VendingMachines.Add(vendingMachine);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (VendingMachineExists(vendingMachine.VendingMachineId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetVendingMachine", new { id = vendingMachine.VendingMachineId }, vendingMachine);
         }
 
         // DELETE: api/VendingMachines/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVendingMachine(Guid id)
+        public async Task<IActionResult> DeleteVendingMachine(int id)
         {
             var vendingMachine = await _context.VendingMachines.FindAsync(id);
             if (vendingMachine == null)
@@ -113,7 +99,7 @@ namespace VendingSystemApi.Controllers
             return NoContent();
         }
 
-        private bool VendingMachineExists(Guid id)
+        private bool VendingMachineExists(int id)
         {
             return _context.VendingMachines.Any(e => e.VendingMachineId == id);
         }

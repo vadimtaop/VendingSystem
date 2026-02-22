@@ -33,6 +33,11 @@ namespace VendingSystemDesktop.Pages
         private void LoadData()
         {
             VendingMachinesDataGrid.ItemsSource = AppData.db.VendingMachines.ToList();
+            VendingMachinesListView.ItemsSource = AppData.db.VendingMachines.ToList();
+
+
+            CountTextBlock.Text = $"Кол-во ТА: {VendingMachinesDataGrid.Items.Count}";
+            CountFilterTextBlock.Text = $"Кол-во общее: {VendingMachinesDataGrid.Items.Count}";
         }
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
@@ -43,6 +48,7 @@ namespace VendingSystemDesktop.Pages
             LoadData();
         }
 
+        // Экспорт не рабочий, открывает просто диалог
         private void ExportButtonClick(object sender, RoutedEventArgs e)
         {
             var dialog = new SaveFileDialog { Filter = "CSV|*.csv" };
@@ -61,6 +67,8 @@ namespace VendingSystemDesktop.Pages
             }
 
             VendingMachinesDataGrid.ItemsSource = AppData.db.VendingMachines.Where(v => v.Name.Contains(FilterTextBox.Text)).ToList();
+
+            CountFilterTextBlock.Text = $"Кол-во общее: {VendingMachinesDataGrid.Items.Count}";
         }
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
@@ -83,24 +91,115 @@ namespace VendingSystemDesktop.Pages
         {
             if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachine)
             {
-                selectedVendingMachine.Modem = "";
+                selectedVendingMachine.Modem = "-1";
 
                 AppData.db.SaveChanges();
 
-                MessageBox.Show("Модем успешно отвязан (добавить подтверждение и try catch)");
+                MessageBox.Show("Модем успешно отвязан (добавить ПОДТВЕРЖДЕНИЕ от пользователя и try catch)");
             }
         }
 
-        private async void MessageButtonClick(object sender, RoutedEventArgs e)
+        private async void CriticalMessageButtonClick(object sender, RoutedEventArgs e)
         {
             if (MessagePopup.IsOpen == false)
             {
+                MessageTextBlock.Text = "❌\nОшибка!\nНет сдачи";
+                MessageStackPanel.Background = Brushes.LightCoral;
+
                 MessagePopup.IsOpen = true;
+
+                MessageHistories messageHistories = new MessageHistories();
+
+                messageHistories.Type = "Критический";
+                messageHistories.Note = "Нет сдачи";
+                messageHistories.Date = DateTime.Now;
+
+                AppData.db.MessageHistories.Add(messageHistories);
+                AppData.db.SaveChanges();
 
                 await Task.Delay(10000);
 
                 MessagePopup.IsOpen = false;
             }
+            else
+            {
+                MessagePopup.IsOpen = false;
+            }
+        }
+
+        private async void WarningMessageButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (MessagePopup.IsOpen == false)
+            {
+                MessageTextBlock.Text = "⚠️\nПредупреждение!\nЗаканчивается товар (осталось 2 шт)";
+                MessageStackPanel.Background = Brushes.LightYellow;
+
+                MessagePopup.IsOpen = true;
+
+                MessageHistories messageHistories = new MessageHistories();
+
+                messageHistories.Type = "Предупреждение";
+                messageHistories.Note = "Заканчивается товар (осталось 2 шт)";
+                messageHistories.Date = DateTime.Now;
+
+                AppData.db.MessageHistories.Add(messageHistories);
+                AppData.db.SaveChanges();
+
+                await Task.Delay(7000);
+
+                MessagePopup.IsOpen = false;
+            }
+            else
+            {
+                MessagePopup.IsOpen = false;
+            }
+        }
+
+        private async void InfoMessageButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (MessagePopup.IsOpen == false)
+            {
+                MessageTextBlock.Text = "✓\nИнформация!\nТовар успешно добавлен";
+                MessageStackPanel.Background = Brushes.AliceBlue;
+
+                MessagePopup.IsOpen = true;
+
+                MessageHistories messageHistories = new MessageHistories();
+
+                messageHistories.Type = "Информационный";
+                messageHistories.Note = "Товар успешно добавлен";
+                messageHistories.Date = DateTime.Now;
+
+                AppData.db.MessageHistories.Add(messageHistories);
+                AppData.db.SaveChanges();
+
+                await Task.Delay(5000);
+
+                MessagePopup.IsOpen = false;
+            }
+            else
+            {
+                MessagePopup.IsOpen = false;
+            }
+        }
+
+        private void CloseMessageButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessagePopup.IsOpen = false;
+        }
+
+        private void ListTypeButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (VendingMachinesDataGrid.Visibility == Visibility.Visible)
+            {
+                VendingMachinesDataGrid.Visibility = Visibility.Collapsed;
+                VendingMachinesListView.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                VendingMachinesDataGrid.Visibility = Visibility.Visible;
+                VendingMachinesListView.Visibility = Visibility.Collapsed;
+            } 
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,14 @@ namespace VendingSystemMobile.Windows
         {
             InitializeComponent();
         }
-                private void LoginButtonClick(object sender, RoutedEventArgs e)
+
+        private string PasswordHash(string password)
+        {
+            var bytes = SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(password));
+            return BitConverter.ToString(bytes).Replace("-", "").ToLower();
+        }
+
+        private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
             string login = LoginTextBox.Text.Trim();
             string password = PasswordBox.Password.Trim();
@@ -46,7 +54,7 @@ namespace VendingSystemMobile.Windows
 
                 if (user != null)
                 {
-                    if (user.Password == password)
+                    if (user.Password == PasswordHash(password))
                     {
                         string name = user.Name;
                         string role = user.Role;

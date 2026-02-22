@@ -15,7 +15,7 @@ namespace VendingSystemWeb.Ado
     public partial class News
     {
         public int NewId { get; set; }
-        public System.DateTime Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public string Note { get; set; }
     }
 }

@@ -29,10 +29,7 @@ namespace VendingSystemMobile.Windows
 
         private void LoadData()
         {
-            // Сортировка по ДАТЕ
-            VendingMachinesListView.ItemsSource = AppData.db.VendingMachines.ToList().OrderBy(v => v.InstallDate).ToList();
-            //VendingMachinesListView.ItemsSource = AppData.db.VendingMachines.OrderBy(v => v.DeadlineDays).ToList();
-            //VendingMachinesListView.ItemsSource = AppData.db.VendingMachines.ToList();
+            VendingMachinesListView.ItemsSource = AppData.db.VendingMachines.ToList().OrderBy(v => v.StartServiceDate).ToList();
         }
 
         private void WhiteThemeButtonClick(object sender, RoutedEventArgs e)
@@ -73,6 +70,16 @@ namespace VendingSystemMobile.Windows
 
                 statusHistories.NewStatus = selectedVendingMachine.StatusService;
                 AppData.db.StatusHistories.Add(statusHistories);
+
+                // Протокол
+                Protocols protocols = new Protocols();
+
+                protocols.VendingMachineId = selectedVendingMachine.VendingMachineId;
+                protocols.Date = DateTime.Now;
+                protocols.Note = "Протокол сформирован";
+
+                AppData.db.Protocols.Add(protocols);
+
 
                 AppData.db.SaveChanges();
 
@@ -155,6 +162,15 @@ namespace VendingSystemMobile.Windows
 
                 statusHistories.NewStatus = vendingMachine.StatusService;
                 AppData.db.StatusHistories.Add(statusHistories);
+
+                // Протокол
+                Protocols protocols = new Protocols();
+
+                protocols.VendingMachineId = vendingMachine.VendingMachineId;
+                protocols.Date = DateTime.Now;
+                protocols.Note = "Протокол сформирован";
+
+                AppData.db.Protocols.Add(protocols);
 
                 AppData.db.SaveChanges();
 

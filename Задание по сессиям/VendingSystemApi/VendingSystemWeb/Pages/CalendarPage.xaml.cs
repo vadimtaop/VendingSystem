@@ -39,6 +39,13 @@ namespace VendingSystemWeb.Pages
             {
                 if (selectedVendingMachines.NextServiceDate == null)
                 {
+                    StatusHistories statusHistories = new StatusHistories();
+
+                    statusHistories.VendingMachineId = selectedVendingMachines.VendingMachineId;
+                    statusHistories.OldStatus = selectedVendingMachines.StatusService;
+                    statusHistories.Date = DateTime.Now;
+
+
                     int months = selectedVendingMachines.IntervalService ?? 6; // Если будет глюк то возьмет 6
                     
                     DateTime startDate = selectedVendingMachines.InstallDate ?? DateTime.Now; // Возьмет сегодня если глюк
@@ -48,6 +55,10 @@ namespace VendingSystemWeb.Pages
                     selectedVendingMachines.StatusService = "Новая";
                     selectedVendingMachines.NameUser = "Иванов И. И.";
                     selectedVendingMachines.Priority = "Низкий";
+
+
+                    statusHistories.NewStatus = selectedVendingMachines.StatusService;
+                    AppData.db.StatusHistories.Add(statusHistories);
 
                     AppData.db.SaveChanges();
 
@@ -70,6 +81,27 @@ namespace VendingSystemWeb.Pages
             }
 
             VendingMachinesDataGrid.ItemsSource = AppData.db.VendingMachines.Where(v => v.Name.Contains(FilterTextBox.Text)).ToList();
+        }
+
+        private void ColorLoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            var rowData = e.Row.DataContext as VendingMachines;
+
+            if (rowData != null)
+            {
+                if (rowData.DeadlineDays < 5 && rowData.DeadlineDays >= 0)
+                {
+                    e.Row.Background = Brushes.LightYellow;
+                }
+                else if (rowData.DeadlineDays < 0)
+                {
+                    e.Row.Background = Brushes.LightCoral;
+                }
+                else
+                {
+                    e.Row.Background = Brushes.LightGreen;
+                }
+            }
         }
     }
 }

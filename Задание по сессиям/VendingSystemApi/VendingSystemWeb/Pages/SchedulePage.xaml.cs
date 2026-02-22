@@ -37,8 +37,19 @@ namespace VendingSystemWeb.Pages
         {
             if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
             {
+                StatusHistories statusHistories = new StatusHistories();
+
+                statusHistories.VendingMachineId = selectedVendingMachines.VendingMachineId;
+                statusHistories.OldStatus = selectedVendingMachines.StatusService;
+                statusHistories.Date = DateTime.Now;
+
+
                 selectedVendingMachines.StatusMachine = "На ремонте/на обслуживании";
                 selectedVendingMachines.StatusService = "В работе";
+
+
+                statusHistories.NewStatus = selectedVendingMachines.StatusService;
+                AppData.db.StatusHistories.Add(statusHistories);
 
                 AppData.db.SaveChanges();
 
@@ -50,8 +61,19 @@ namespace VendingSystemWeb.Pages
         {
             if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
             {
+                StatusHistories statusHistories = new StatusHistories();
+
+                statusHistories.VendingMachineId = selectedVendingMachines.VendingMachineId;
+                statusHistories.OldStatus = selectedVendingMachines.StatusService;
+                statusHistories.Date = DateTime.Now;
+
+
                 selectedVendingMachines.StatusMachine = "Работает";
                 selectedVendingMachines.StatusService = "Завершен";
+
+
+                statusHistories.NewStatus = selectedVendingMachines.StatusService;
+                AppData.db.StatusHistories.Add(statusHistories);
 
                 AppData.db.SaveChanges();
 
@@ -63,8 +85,19 @@ namespace VendingSystemWeb.Pages
         {
             if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
             {
+                StatusHistories statusHistories = new StatusHistories();
+
+                statusHistories.VendingMachineId = selectedVendingMachines.VendingMachineId;
+                statusHistories.OldStatus = selectedVendingMachines.StatusService;
+                statusHistories.Date = DateTime.Now;
+
+
                 selectedVendingMachines.StatusMachine = "Работает";
                 selectedVendingMachines.StatusService = "Отклонен";
+
+
+                statusHistories.NewStatus = selectedVendingMachines.StatusService;
+                AppData.db.StatusHistories.Add(statusHistories);
 
                 AppData.db.SaveChanges();
 
@@ -76,9 +109,20 @@ namespace VendingSystemWeb.Pages
         {
             if (VendingMachinesDataGrid.SelectedItem is VendingMachines selectedVendingMachines)
             {
+                StatusHistories statusHistories = new StatusHistories();
+
+                statusHistories.VendingMachineId = selectedVendingMachines.VendingMachineId;
+                statusHistories.OldStatus = selectedVendingMachines.StatusService;
+                statusHistories.Date = DateTime.Now;
+
+
                 selectedVendingMachines.StatusMachine = "Требуется ТО";
                 selectedVendingMachines.StatusService = "Аварийная";
                 selectedVendingMachines.Priority = "Высокий";
+
+
+                statusHistories.NewStatus = selectedVendingMachines.StatusService;
+                AppData.db.StatusHistories.Add(statusHistories);
 
                 AppData.db.SaveChanges();
 

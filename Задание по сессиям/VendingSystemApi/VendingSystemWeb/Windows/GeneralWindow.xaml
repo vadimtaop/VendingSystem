@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VendingSystemWeb.Windows"
         mc:Ignorable="d"
-        Title="GeneralWindow"
+        Title="Джутсу Вендинг"
         MinHeight="800"
         MinWidth="1100"
-        WindowStartupLocation="CenterOwner"
+        Icon="/Images/Logo.png"
+        WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>

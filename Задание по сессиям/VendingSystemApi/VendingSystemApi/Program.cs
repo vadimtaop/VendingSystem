@@ -1,12 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using VendingSystemApi.Models;
+//using VendingSystemApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<VendingDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
+// Добавить эту строку!
+//builder.Services.AddDbContext<VendingDbContext>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DefaulConnection")));
 
 
 // Add services to the container.

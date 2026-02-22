@@ -28,6 +28,25 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Height="65"/>
+            
+            <Button Content="Светлая тема"
+                    Width="100"
+                    Height="50"
+                    BorderThickness="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Margin="20 0 0 0"
+                    Click="WhiteThemeButtonClick"/>
+            <Button Content="Темная тема"
+                    Width="100"
+                    Height="50"
+                    BorderThickness="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0 0 20 0"
+                    Background="Transparent"
+                    Click="BlackThemeButtonClick"/>
         </Grid>
 
         <ScrollViewer Grid.Row="1"
@@ -45,48 +64,59 @@
                               Background="GhostWhite">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Vertical"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Width="400">
-                                    <TextBlock Text="{Binding VendingMachineId, StringFormat='Номер: {0}'}"
-                                               Height="30"
-                                               Width="400"
-                                               TextAlignment="Center"/>
-                                    <TextBlock Text="{Binding Location, StringFormat='Адрес: {0}'}"
-                                               Height="30"
-                                               Width="400"
-                                               TextAlignment="Center"/>
-                                    <TextBlock Text="{Binding ServiceType, StringFormat='Тип обслуживания: {0}'}"
-                                               Height="30"
-                                               Width="400"
-                                               TextAlignment="Center"/>
-                                    <TextBlock Text="{Binding Model, StringFormat='Модель ТА: {0}'}"
-                                               Height="30"
-                                               Width="400"
-                                               TextAlignment="Center"/>
-                                    <TextBlock Text="{Binding DeadlineDays, StringFormat='Срок выполнения (дн): {0}'}"
-                                               Height="30"
-                                               Width="400"
-                                               TextAlignment="Center"/>
-                                    <TextBlock Text="{Binding StatusService, StringFormat='Статус обслуживания: {0}'}"
-                                               Height="30"
-                                               Width="400"
-                                               TextAlignment="Center"/>
-                                    <Button Content="Принять"
-                                            Width="150"
-                                            Height="30"
-                                            BorderThickness="1"
-                                            Background="Transparent"
-                                            Click="ApplyButtonClick"/>
-                                    <Button Content="Отклонить"
-                                            Width="150"
-                                            Height="30"
-                                            BorderThickness="1"
-                                            Background="Transparent"
-                                            Click="DeclineButtonClick"
-                                            Margin="0 10 0 0"/>
-                                </StackPanel>
+                                <Border BorderThickness="1"
+                                        BorderBrush="Black">
+                                    <StackPanel Orientation="Vertical"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Width="400">
+                                        <TextBlock Text="{Binding VendingMachineId, StringFormat='Номер: {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Location, StringFormat='Адрес: {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding ServiceType, StringFormat='Тип обслуживания: {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Model, StringFormat='Модель ТА: {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding DeadlineDays, StringFormat='Срок выполнения (дн): {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding StatusService, StringFormat='Статус обслуживания: {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding StartServiceDate, StringFormat='Дата начала обслуживания: {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding Note, StringFormat='Заметка: {0}'}"
+                                                   Height="30"
+                                                   Width="400"
+                                                   TextAlignment="Center"/>
+                                        <Button Content="Принять"
+                                                Width="150"
+                                                Height="30"
+                                                BorderThickness="1"
+                                                Background="Transparent"
+                                                Click="ApplyButtonClick"/>
+                                        <Button Content="Отклонить"
+                                                Width="150"
+                                                Height="30"
+                                                BorderThickness="1"
+                                                Background="Transparent"
+                                                Click="DeclineButtonClick"
+                                                Margin="0 10 0 0"/>
+                                    </StackPanel>
+                                </Border>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -184,18 +214,11 @@
                         BorderThickness="1"
                         Background="Transparent"
                         Click="KeepButtonClick"/>
-                <Button Content="Светлая тема"
+                <Button Content="Мои отчеты"
                         Width="100"
                         Height="50"
                         BorderThickness="1"
-                        Background="Transparent"
-                        Click="WhiteThemeButtonClick"/>
-                <Button Content="Темная тема"
-                        Width="100"
-                        Height="50"
-                        BorderThickness="1"
-                        Background="Transparent"
-                        Click="BlackThemeButtonClick"/>
+                        Background="Transparent"/>
             </StackPanel>
         </Grid>
 

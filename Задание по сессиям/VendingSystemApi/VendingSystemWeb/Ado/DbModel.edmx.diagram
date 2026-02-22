@@ -5,10 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c630a9dfe4ef4dbaa4819a7d964bd762" Name="Diagram1">
-        <EntityTypeShape EntityType="VendingDb2Model.News" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="VendingDb2Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VendingDb2Model.Users" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="VendingDb2Model.VendingMachines" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="VendingDb2Model.StatusHistories" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="VendingDb2Model.VendingMachines" Width="1.5" PointX="5.375" PointY="3.75" />
+        <EntityTypeShape EntityType="VendingDb2Model.MessageHistories" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="VendingDb2Model.Protocols" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="VendingDb2Model.News" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="VendingDb2Model.Users" Width="1.5" PointX="2.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

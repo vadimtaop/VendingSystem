@@ -28,3 +28,5 @@ C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingS
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingS.523127FF.Up2Date
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.exe
 C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.pdb
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\Vadim\Desktop\VendingSystem\Задание по сессиям\VendingSystemApi\VendingSystemWeb\obj\Debug\VendingSystemWeb.exe.config

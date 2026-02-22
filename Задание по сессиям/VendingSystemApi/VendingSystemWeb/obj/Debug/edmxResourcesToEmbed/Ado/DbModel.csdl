@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VendingDb2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="News">
-    <Key>
-      <PropertyRef Name="NewId" />
-    </Key>
-    <Property Name="NewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -19,7 +11,6 @@
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityContainer Name="VendingDb2Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="News" EntityType="Self.News" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -51,8 +42,12 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
-    <EntitySet Name="Users" EntityType="VendingDb2Model.Users" />
+    <EntitySet Name="StatusHistories" EntityType="VendingDb2Model.StatusHistories" />
     <EntitySet Name="VendingMachines" EntityType="VendingDb2Model.VendingMachines" />
+    <EntitySet Name="MessageHistories" EntityType="VendingDb2Model.MessageHistories" />
+    <EntitySet Name="Protocols" EntityType="VendingDb2Model.Protocols" />
+    <EntitySet Name="News" EntityType="VendingDb2Model.News" />
+    <EntitySet Name="Users" EntityType="VendingDb2Model.Users" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -65,15 +60,15 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
-  <EntityType Name="Users">
+  <EntityType Name="StatusHistories">
     <Key>
-      <PropertyRef Name="UserId" />
+      <PropertyRef Name="StatusHistoryId" />
     </Key>
-    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Login" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StatusHistoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendingMachineId" Type="Int32" />
+    <Property Name="OldStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NewStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
   </EntityType>
   <EntityType Name="VendingMachines">
     <Key>
@@ -92,5 +87,46 @@
     <Property Name="StatusService" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="NameUser" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Priority" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StartServiceDate" Type="DateTime" Precision="0" />
+    <Property Name="DeadlineDays" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CancelNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MessageHistories">
+    <Key>
+      <PropertyRef Name="MessageHistotyId" />
+    </Key>
+    <Property Name="MessageHistotyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Protocols">
+    <Key>
+      <PropertyRef Name="Protocolid" />
+    </Key>
+    <Property Name="Protocolid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendingMachineId" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="NewId" />
+    </Key>
+    <Property Name="NewId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

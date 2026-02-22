@@ -80,7 +80,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Ado\MessageHistories.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ado\News.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ado\Protocols.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ado\StatusHistories.cs">
@@ -141,27 +147,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Cash.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Commands.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Details.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Details2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\diagrams1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\diagrams2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Fillup.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -174,9 +159,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Ado\DbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

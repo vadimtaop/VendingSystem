@@ -27,5 +27,10 @@ namespace VendingSystemWeb.Ado
         public string StatusService { get; set; }
         public string NameUser { get; set; }
         public string Priority { get; set; }
+        public string ServiceType { get; set; }
+        public Nullable<System.DateTime> StartServiceDate { get; set; }
+        public Nullable<int> DeadlineDays { get; set; }
+        public string Note { get; set; }
+        public string CancelNote { get; set; }
     }
 }

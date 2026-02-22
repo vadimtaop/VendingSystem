@@ -148,7 +148,7 @@
                             BorderThickness="0"
                             Width="200"
                             Height="30"
-                            Click="MainButtonClick">
+                            Click="VendingMachinesButtonClick">
                         <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"

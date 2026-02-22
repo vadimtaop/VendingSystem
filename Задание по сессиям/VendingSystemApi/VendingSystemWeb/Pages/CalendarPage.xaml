@@ -40,10 +40,11 @@
         </StackPanel>
 
         <DataGrid Name="VendingMachinesDataGrid"
-                      Grid.Row="1"
-                      AutoGenerateColumns="False"
-                      IsReadOnly="True"
-                      AlternatingRowBackground="SlateGray">
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  AlternatingRowBackground="SlateGray"
+                  LoadingRow="ColorLoadingRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding VendingMachineId}" MinWidth="50"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}" MinWidth="50" Width="*"/>
@@ -58,6 +59,7 @@
                 <DataGridTextColumn Header="Статус обслуж" Binding="{Binding StatusService}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Сотрудник" Binding="{Binding NameUser}" MinWidth="50" Width="*"/>
                 <DataGridTextColumn Header="Приоритет" Binding="{Binding Priority}" MinWidth="50" Width="*"/>
+                <DataGridTextColumn Header="Срок выполнения (дн)" Binding="{Binding DeadlineDays}" MinWidth="50" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
